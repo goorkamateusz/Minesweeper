@@ -7,8 +7,8 @@
 PROG_NAME=Minesweeper2.exe
 FLAGS=-Iinc -Wall -pedantic -std=c++0x
 FILES_LIST= \
+	obj/Vector2D.o \
 	obj/main.o
-	# obj/_1_.o \
 	# obj/_2_.o \
 	# obj/_3_.o \
 	# obj/_4_.o \
@@ -62,8 +62,8 @@ mkobj:
 obj/main.o: src/main.cpp
 	g++ -c ${FLAGS} -o obj/main.o src/main.cpp
 
-# obj/_1_.o: src/_1_.cpp inc/_1_.hpp
-# 	g++ -c ${FLAGS} -o obj/_1_.o src/_1_.cpp
+obj/Vector2D.o: src/Vector2D.cpp inc/Vector2D.hpp
+	g++ -c ${FLAGS} -o obj/Vector2D.o src/Vector2D.cpp
 
 # obj/_2_.o: src/_2_.cpp inc/_2_.hpp
 # 	g++ -c ${FLAGS} -o obj/_2_.o src/_2_.cpp
