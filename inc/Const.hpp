@@ -12,6 +12,7 @@
 ////---------------------------------------------
 #define MIN_SIZE 5              //< Minimum sizes of board
 #define MAX_SIZE 50             //< Maximum sizes of board
+#define MIN_MINES 0             //< Minimum numbers of mines on the board
 
 ////---------------------------------------------
 #define MODE_BUTT_H     20      //< High of mode button

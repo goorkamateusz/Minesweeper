@@ -1,5 +1,6 @@
 #pragma once
 
+#include "FieldCode.hpp"
 #include <cstdint>
 #include <iostream>
 using std::uint8_t;
@@ -9,10 +10,10 @@ using std::uint8_t;
  *
  * number 	| posible vales				| code		| hex
  * :-		|:-							|:-			|:-
- *  0       | empty						| ----0000	| 0x00
- *  1 - 8   | number of mines around	|			| 0x01-0x8
- *  15      | mine						| ----1111	| 0x0F
- *	Last 4 bites.
+ * 0        | empty						| ----0000	| 0x00
+ * 1 - 8    | number of mines around	|			| 0x01-0x8
+ * 15       | mine						| ----1111	| 0x0F
+ * Last 4 bites.
  *
  * States		| code		| hex
  * :-			|:-			|:-
@@ -34,12 +35,19 @@ public:
 
 	/**
 	 * \brief Construct a new Field object
-	 * \param v -
+	 * \param v - uint8_t 
 	 */
-	Field( uint8_t v ): code(v){}
+	Field( uint8_t v ){ this->val( v ); }
 
 	/**
 	 * \brief Construct a new Field object
+	 * \param code - FieldCode
+	 */
+	Field( FieldCode code )
+	{ this->val( static_cast<uint8_t>( code ) ); }
+
+	/**
+	 * \brief Copy constructor
 	 * \param field -
 	 */
 	Field( const Field& field ): code(field.code){}
@@ -101,6 +109,15 @@ public:
 	 */
 	inline bool covered() const
 	{ return ( code & 0xF0 ) != 0x20; }
+
+
+	/**
+	 * \brief Is the mine?!
+	 * \return true - yes
+	 * \return false - no
+	 */
+	inline bool mine() const
+	{ return ( code & 0x0F ) == 0x0F; }
 
 };
 

@@ -9,8 +9,8 @@ FLAGS=-Iinc -Wall -pedantic -std=c++0x
 FILES_LIST= \
 	obj/Vector2D.o \
 	obj/Field.o \
+	obj/Board.o \
 	obj/main.o
-	# obj/_3_.o \
 	# obj/_4_.o \
 
 # Commends: --------------------------------------------------
@@ -68,8 +68,8 @@ obj/Vector2D.o: src/Vector2D.cpp inc/Vector2D.hpp
 obj/Field.o: src/Field.cpp inc/Field.hpp
 	g++ -c ${FLAGS} -o obj/Field.o src/Field.cpp
 
-# obj/_3_.o: src/_3_.cpp inc/_3_.hpp
-# 	g++ -c ${FLAGS} -o obj/_3_.o src/_3_.cpp
+obj/Board.o: src/Board.cpp inc/Board.hpp
+	g++ -c ${FLAGS} -o obj/Board.o src/Board.cpp
 
 # obj/_4_.o: src/_4_.cpp inc/_4_.hpp
 # 	g++ -c ${FLAGS} -o obj/_4_.o src/_4_.cpp

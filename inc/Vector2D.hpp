@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-
+#include <stdlib.h>
 /**
  * \brief 2 dimension vector
  * \tparam T - type of number
@@ -60,7 +60,7 @@ public:
      * \param vec -
      * \return Vector2D_t -
      */
-    inline Vector2D_t operator + ( Vector2D_t vec )
+    inline Vector2D_t operator + ( Vector2D_t vec ) const
     { vec += *this; return vec; }
 
     /**
@@ -68,7 +68,7 @@ public:
      * \param vec -
      * \return Vector2D_t -
      */
-    inline Vector2D_t operator + ( const Vector2D_t& vec ){
+    inline Vector2D_t operator + ( const Vector2D_t& vec ) const {
         Vector2D_t tmp = vec;
         tmp += *this;
         return tmp;
@@ -79,11 +79,28 @@ public:
      * \param vec -
      * \return Vector2D_t -
      */
-    inline Vector2D_t operator - ( const Vector2D_t& vec ){
+    inline Vector2D_t operator - ( const Vector2D_t& vec ) const {
         Vector2D_t tmp = *this;
         tmp -= vec;
         return tmp;
     }
+
+public:
+    /**
+     * \brief Area of rectangle extened on the vector.
+     * \return unsigned int - -..-
+     */
+    unsigned int area() const
+    { return x*y; }
+
+    /**
+     * \brief Is points are adjoining?
+     * \param vec - second vector
+     * \return true - yes
+     * \return false - no
+     */
+    inline bool adj( const Vector2D_t& vec ) const
+    { return abs(this->x-vec.x)<2 && abs(this->y-vec.y)<2; }
 
 };
 
@@ -100,3 +117,7 @@ std::ostream& operator << ( std::ostream& strm, const Vector2D_t<T>& vec ){
     strm << "[" << vec.x << "; " << vec.y << "]";
     return strm;
 }
+
+
+/// Vector2D.
+typedef Vector2D_t< int > Vector2D; //todo type of vector
