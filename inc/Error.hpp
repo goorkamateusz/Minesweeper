@@ -13,9 +13,9 @@
  * \brief Error virtual class
  *
  */
-class Error{
+class Error {
 public:
-    virtual const char* what() const;   //fixme to zadziała?
+    virtual const char* what() const { return "Unnamed error!"; }
 };
 
 

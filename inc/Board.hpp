@@ -21,22 +21,30 @@ public:
     /**
      * \brief Construct a new Board object
      */
-    Board(){
-        //todo konstruktor
-    }
-
-
+    Board() = default;
 
     /**
      * \brief Destroy the Board object
      */
-    ~Board(){
-        //todo dekonstruktor
-    }
+    ~Board();
 
+public:
+
+    /**
+     * \brief Width of board
+     * \return unsigned int -
+     */
+    inline unsigned int w() const
+    { return this->size.x; }
+
+    /**
+     * \brief Height of board
+     * \return unsigned int -
+     */
+    inline unsigned int h() const
+    { return this->size.y; }
 
 private:
-
     /**
      * \brief Value of field. Without checking a correct of position!
      * \param vec -
@@ -52,6 +60,7 @@ private:
 private:
     /**
      * \brief Create a array of board.
+     * Default value of field is: empty, covered.
      * \param size_ - Vector2D of new boards sizes.
      */
     void alloc( const Vector2D& size_ );

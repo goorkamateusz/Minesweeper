@@ -20,4 +20,6 @@
 #define MODE_BUTT_Y     10      //< Y position of mode button (x is variable)
 
 ////---------------------------------------------
-#define MAX_ATTEMPTS     1000       //< Max amount of attempts of rand
+#define MAX_ATTEMPTS    1000       //< Max amount of attempts of rand
+
+#define SLEEP_TIME      50      //< Sleep time of game loop

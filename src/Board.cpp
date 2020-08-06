@@ -5,6 +5,12 @@
 
 using namespace std;
 
+////----------------------------------------------------------------
+Board::~Board(){
+    //todo
+}
+
+////----------------------------------------------------------------
 void Board::alloc( const Vector2D& size_ ){
     /// Delete old board
     if( size.x > 0 && size.y > 0 ){
@@ -26,6 +32,7 @@ void Board::alloc( const Vector2D& size_ ){
     }
 }
 
+////----------------------------------------------------------------
 //todo make a best rand function!
 void Board::randMines( const Vector2D& click, unsigned num_mines ){
     /// Exception controll.

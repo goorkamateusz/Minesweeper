@@ -10,8 +10,15 @@ FILES_LIST= \
 	obj/Vector2D.o \
 	obj/Field.o \
 	obj/Board.o \
+	obj/Game.o \
 	obj/main.o
+	# obj/_5_.o \
 	# obj/_4_.o \
+
+SFML_INSTR= -DSFML_STATIC \
+	-I .\SFML\include \
+	-L .\SFML\lib \
+	-lsfml-graphics-s -lsfml-window-s -lsfml-system-s -lopengl32 -lwinmm -lgdi32 -lfreetype
 
 # Commends: --------------------------------------------------
 # Build and start app
@@ -50,7 +57,7 @@ rmobj:
 COMPILE_COMP: ${FILES_LIST}
 
 CONSOLIDATION:
-	g++ ${FLAGS} -o ${PROG_NAME} ${FILES_LIST}
+	g++ ${FLAGS} -o ${PROG_NAME} ${FILES_LIST} ${SFML_INSTR}
 
 DEGUB_:
 	g++ -g ${FLAGS} -o ${PROG_NAME} ${FILES_LIST}
@@ -60,7 +67,7 @@ mkobj:
 
 # Components: ---------------------------------------------------
 obj/main.o: src/main.cpp
-	g++ -c ${FLAGS} -o obj/main.o src/main.cpp
+	g++ -c ${FLAGS} -o obj/main.o src/main.cpp ${SFML_INSTR}
 
 obj/Vector2D.o: src/Vector2D.cpp inc/Vector2D.hpp
 	g++ -c ${FLAGS} -o obj/Vector2D.o src/Vector2D.cpp
@@ -71,5 +78,10 @@ obj/Field.o: src/Field.cpp inc/Field.hpp
 obj/Board.o: src/Board.cpp inc/Board.hpp
 	g++ -c ${FLAGS} -o obj/Board.o src/Board.cpp
 
+obj/Game.o: src/Game.cpp inc/Game.hpp
+	g++ -c ${FLAGS} -o obj/Game.o src/Game.cpp ${SFML_INSTR}
+
 # obj/_4_.o: src/_4_.cpp inc/_4_.hpp
 # 	g++ -c ${FLAGS} -o obj/_4_.o src/_4_.cpp
+# obj/_5_.o: src/_5_.cpp inc/_5_.hpp
+# 	g++ -c ${FLAGS} -o obj/_5_.o src/_5_.cpp
