@@ -1,14 +1,55 @@
 #include "Game.hpp"
+#include <sstream>
 
-
-////----------------------------------------------------------------------
-Game::Game( int argc, const char* const argv[] ){
-
-}
+using namespace std;
 
 ////----------------------------------------------------------------------
-Game::~Game(){
-    //todo
+Game::Game( const int argc, const char* const argv[] ){
+    int id = 1;
+    unsigned int w = DEFAULT_X_SIZE,
+                 h = DEFAULT_Y_SIZE,
+                 m = DEFAULT_MINE;
+    stringstream strm;
+
+    while( id < argc ){
+
+        if( argv[id][0] == '-' ){
+            switch( argv[id][1] ){
+
+            ///- `w` - width of the board
+            case 'w':
+                strm << argv[ ++id ] << ' ';
+                strm >> w;
+                break;
+
+            ///- `h` - height of the board
+            case 'h':
+                strm << argv[ ++id ] << ' ';
+                strm >> h;
+                break;
+
+            ///- `m` - number of mines
+            case 'm':
+                strm << argv[ ++id ] << ' ';
+                strm >> m;
+                break;
+
+            ///- Unknow argument
+            default:
+                cerr << "!!! Warning: unknow input argument" << endl
+                     << "! " << argv[id] << endl;
+            }
+        }
+        else {
+            //?
+        }
+
+        ++id;
+    }
+
+    //* Set value
+    this->board.create( w, h, m );
+
 }
 
 ////----------------------------------------------------------------------
@@ -37,7 +78,9 @@ unsigned int Game::height() const
 
 ////----------------------------------------------------------------------
 void Game::draw( sf::RenderTarget& target, sf::RenderStates states ) const {
-    //todo
+    this->display.board( target, &this->board );
+    // this->display.score( ... ); //todo <- score value
+    // this->display.stopwatch( ... ) //todo <- run stopwatch
 }
 
 

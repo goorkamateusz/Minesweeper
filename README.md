@@ -25,19 +25,20 @@ Use a program [make]((http://gnuwin32.sourceforge.net/packages/make.htm) to comp
 ### Running:
 By command:`./Minesweeper2.exe`.
 
+Argument:
+arg         | help
+:----------:|:--------
+ -w <num>   | width
+ -h <num>   | heigh
+ -m <num>   | number of mines
+
 ## Documentation
 > [Link to documentation](dox/html/index.phtml)
 To generate documentation use program [doxygen](http://doxygen.nl).
 You can use comand `make doxygen` in project dir.
 
-## Content
-Project of minesweeper
-
-## Features
--
-
 ## Exception
-(...)
+...
 
 ## Specification
 - Language: C++

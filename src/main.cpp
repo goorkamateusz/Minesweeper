@@ -1,13 +1,3 @@
-/**
- * \file main.cpp
- * \author Górka Mateusz (248962@student.pwr.edu.pl)
- * \brief Main file of project
- * \version 0.0.0
- * \date 2020-08-06
- * 
- * @copyright Copyright (c) 2020
- * 
- */
 #include "SFML/Graphics.hpp"
 #include "Game.hpp"
 #include "Error.hpp"
@@ -34,8 +24,8 @@ int main( int argc, char* argv[] ){
         /// 1. Create window
         RenderWindow window(
             VideoMode( game.width(), game.height() ),
-            "Minesweeper | maatiug"
-            );
+            "Minesweeper | maatiug",
+            Style::Close | Style::Titlebar  );
         Event event;
 
 
@@ -80,7 +70,7 @@ int main( int argc, char* argv[] ){
         }
 
     }
-    catch( const Error err ){
+    catch( const Error& err ){
         cerr << "!!! Critical error: " << endl;
         cerr << "! " << err.what() << endl;
     }

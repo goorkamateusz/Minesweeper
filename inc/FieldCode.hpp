@@ -9,5 +9,5 @@
  */
 enum class FieldCode : uint8_t {
     Empty       = 0x00,     //< Code of empty field
-    Mine        = 0x0F      //< Code of mine
+    Mine        = 0x09      //< Code of mine
 };

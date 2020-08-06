@@ -21,7 +21,6 @@ public:
 
 ////-----------------------------------------------------------
 
-//todo rozszerzyc tą klase szerzej!
 /**
  * \brief Class of Alloc errors
  *
@@ -38,7 +37,20 @@ public:
 class ErrInput : public Error {
 private:
     const char* info;
+
 public:
     inline ErrInput( const char* txt ): info(txt){}
+    const char* what() const { return info; }
+};
+
+/**
+ * \brief Error
+ */
+class ErrSys : public Error {
+private:
+    const char* info;
+
+public:
+    inline ErrSys( const char* txt ): info(txt){}
     const char* what() const { return info; }
 };

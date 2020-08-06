@@ -1,10 +1,11 @@
 #pragma once
 
-#define DEFAULT_MINE    15      //< Default number of mines
-
 ////--------------------------------------------------
 #define DEFAULT_Y_SIZE      10      //< Default Y size of board
 #define DEFAULT_X_SIZE      20      //< Default X size of board
+#define DEFAULT_MINE        15      //< Default number of mines
+
+////--------------------------------------------------
 #define FIELD_SIZE          20      //< Sizes of field on the board
 #define GUI_MARGIN_T        50      //< GUI top margin
 #define GUI_MARGIN_B        5       //< GUI bottom margin
@@ -23,3 +24,7 @@
 #define MAX_ATTEMPTS    1000       //< Max amount of attempts of rand
 
 #define SLEEP_TIME      50      //< Sleep time of game loop
+
+#define NUM_FIELD_VIEW  12
+
+#define MIN_AREA        9       //< Minum area of board

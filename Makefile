@@ -10,10 +10,11 @@ FILES_LIST= \
 	obj/Vector2D.o \
 	obj/Field.o \
 	obj/Board.o \
+	obj/TField.o \
+	obj/Display.o \
 	obj/Game.o \
 	obj/main.o
-	# obj/_5_.o \
-	# obj/_4_.o \
+	# obj/_6_.o \
 
 SFML_INSTR= -DSFML_STATIC \
 	-I .\SFML\include \
@@ -60,7 +61,7 @@ CONSOLIDATION:
 	g++ ${FLAGS} -o ${PROG_NAME} ${FILES_LIST} ${SFML_INSTR}
 
 DEGUB_:
-	g++ -g ${FLAGS} -o ${PROG_NAME} ${FILES_LIST}
+	g++ -g ${FLAGS} -o ${PROG_NAME} ${FILES_LIST} ${SFML_INSTR}
 
 mkobj:
 	mkdir -p obj
@@ -81,7 +82,11 @@ obj/Board.o: src/Board.cpp inc/Board.hpp
 obj/Game.o: src/Game.cpp inc/Game.hpp
 	g++ -c ${FLAGS} -o obj/Game.o src/Game.cpp ${SFML_INSTR}
 
-# obj/_4_.o: src/_4_.cpp inc/_4_.hpp
-# 	g++ -c ${FLAGS} -o obj/_4_.o src/_4_.cpp
+obj/Display.o: src/Display.cpp inc/Display.hpp
+	g++ -c ${FLAGS} -o obj/Display.o src/Display.cpp ${SFML_INSTR}
+
+obj/TField.o: src/TField.cpp inc/TField.hpp
+	g++ -c ${FLAGS} -o obj/TField.o src/TField.cpp ${SFML_INSTR}
+
 # obj/_5_.o: src/_5_.cpp inc/_5_.hpp
 # 	g++ -c ${FLAGS} -o obj/_5_.o src/_5_.cpp

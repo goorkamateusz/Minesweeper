@@ -122,4 +122,4 @@ std::ostream& operator << ( std::ostream& strm, const Vector2D_t<T>& vec ){
 ////-----------------------------------------------------------------------
 
 /// Vector2D.
-typedef Vector2D_t< int > Vector2D; //todo type of vector
+typedef Vector2D_t< short int > Vector2D; //? type of vector

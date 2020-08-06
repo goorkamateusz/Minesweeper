@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Board.hpp"
+#include "Display.hpp"
 #include "Const.hpp"
 #include "SFML/Graphics.hpp"
 
@@ -10,22 +11,20 @@
 class Game : public sf::Drawable {
 private:
     Board board;        //< Board of game
+    Display display;    //< Care about display a game
+
 
 public:
     Game() = delete;
 
     /**
      * \brief Construct a new Game object
-     * \param argc -
-     * \param argv -
+     * \param argc - number of args
+     * \param argv - values of argso
      */
-    Game( int argc, const char* const argv[] );
+    Game( const int argc, const char* const argv[] );
 
-    /**
-     * \brief Destroy the Game object
-     */
-    ~Game();
-
+    // ~Game(); //?
 
 public:
     /**

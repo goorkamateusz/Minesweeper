@@ -14,8 +14,9 @@
  */
 class Board {
 private:
-    Vector2D size {0,0};    //< Size od board
-    Field** board {NULL};   //< Array of fields on the board. Coordinates: Board[ x ][ y ]
+    Vector2D size {0,0};        //< Size od board
+    Field** board {NULL};       //< Array of fields on the board. Coordinates: Board[ x ][ y ]
+    short unsigned int mines;   //< Number of mines.
 
 public:
     /**
@@ -29,20 +30,38 @@ public:
     ~Board();
 
 public:
+    /**
+     * \brief Create a board.
+     * \param w - width
+     * \param h - height
+     * \param m - number of minse
+     * \post Set size and mines. Create board.
+     */
+    void create( unsigned int w, unsigned int h, unsigned int m );
 
+public:
     /**
      * \brief Width of board
      * \return unsigned int -
      */
-    inline unsigned int w() const
+    inline int w() const
     { return this->size.x; }
 
     /**
      * \brief Height of board
      * \return unsigned int -
      */
-    inline unsigned int h() const
+    inline int h() const
     { return this->size.y; }
+
+public:
+    /**
+     * \brief Value of field. Without checking a correct of position!
+     * \param vec -
+     * \return Field& -
+     */
+    inline const Field& operator () ( const Vector2D& vec ) const
+    { return board[ vec.y ][ vec.x ]; }
 
 private:
     /**
@@ -52,10 +71,6 @@ private:
      */
     inline Field& operator () ( const Vector2D& vec )
     { return board[ vec.y ][ vec.x ]; }
-
-    inline const Field& operator () ( const Vector2D& vec ) const
-    { return board[ vec.y ][ vec.x ]; }
-
 
 private:
     /**
@@ -74,6 +89,6 @@ private:
      *      Minumum number of mines is const in Const.hpp.
      * \param num_mines -
      */
-    void randMines( const Vector2D& click, unsigned num_mines );
+    void randMines( const Vector2D& click );
 
 };

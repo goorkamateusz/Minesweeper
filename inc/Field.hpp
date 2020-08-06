@@ -12,7 +12,7 @@ using std::uint8_t;
  * :-		|:-							|:-			|:-
  * 0        | empty						| ----0000	| 0x00
  * 1 - 8    | number of mines around	|			| 0x01-0x8
- * 15       | mine						| ----1111	| 0x0F
+ * 15       | mine						| ----1001	| 0x09
  * Last 4 bites.
  *
  * States		| code		| hex
@@ -117,7 +117,7 @@ public:
 	 * \return false - no
 	 */
 	inline bool mine() const
-	{ return ( code & 0x0F ) == 0x0F; }
+	{ return ( code & 0x0F ) == 0x09; }
 
 };
 
