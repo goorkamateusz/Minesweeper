@@ -31,11 +31,11 @@ public:
 	/**
 	 * \brief Construct a new Field object
 	 */
-	Field(): code(0){}
+	Field(): code(0x0){}
 
 	/**
 	 * \brief Construct a new Field object
-	 * \param v - uint8_t 
+	 * \param v - uint8_t
 	 */
 	Field( uint8_t v ){ this->val( v ); }
 

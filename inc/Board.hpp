@@ -31,13 +31,32 @@ public:
 
 public:
     /**
-     * \brief Create a board.
+     * \brief Set values on the board
      * \param w - width
      * \param h - height
      * \param m - number of minse
-     * \post Set size and mines. Create board.
+     * \post Modifly `size` and `mines`
      */
-    void create( unsigned int w, unsigned int h, unsigned int m );
+    void set( unsigned int w, unsigned int h, unsigned int m );
+
+    /**
+     * \brief Uncover the choosen field
+     * \param pos - position of the field
+     */
+    void uncover( const Vector2D& pos );
+
+    /**
+     * \brief Set a flag on the field.
+     * \param pos -
+     */
+    inline void flag( const Vector2D& pos )
+    { (*this)(pos).flag(); }
+
+
+    /**
+     * \brief Display debug.
+     */
+    void debug() const;
 
 public:
     /**
@@ -54,6 +73,14 @@ public:
     inline int h() const
     { return this->size.y; }
 
+    /**
+     * \brief Is array created?
+     * \return true - yes
+     * \return false - no
+     */
+    inline bool created() const
+    { return this->board != NULL; }
+
 public:
     /**
      * \brief Value of field. Without checking a correct of position!
@@ -61,7 +88,7 @@ public:
      * \return Field& -
      */
     inline const Field& operator () ( const Vector2D& vec ) const
-    { return board[ vec.y ][ vec.x ]; }
+    { return board[ vec.x ][ vec.y ]; }
 
 private:
     /**
@@ -76,9 +103,15 @@ private:
     /**
      * \brief Create a array of board.
      * Default value of field is: empty, covered.
+     * \post Modify only `board`.
      * \param size_ - Vector2D of new boards sizes.
      */
-    void alloc( const Vector2D& size_ );
+    void alloc();
+
+    /**
+     * \brief Free memory if board array exist.
+     */
+    void free();
 
     /**
      * \brief Rand mines position on the board.

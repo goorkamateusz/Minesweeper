@@ -48,16 +48,24 @@ void Display::score( sf::RenderTarget& target, unsigned int score ) const{
 ////-----------------------------------------------------
 void Display::board( sf::RenderTarget& target, const Board* const board ) const{
     Vector2D pos;
-    TField *pointer;
+    TField *pointer = Display::pointer( Field() );
 
-    /// Draw every field
-    for( pos.y = 0; pos.y < board->h(); ++pos.y ){
-        for( pos.x = 0; pos.x < board->w(); ++pos.x ){
-
-            pointer = Display::pointer( (*board)(pos) );
-            pointer->set( pos );
-            target.draw( *pointer );
+    if( ! board->created() ){
+        for( pos.y = 0; pos.y < board->h(); ++pos.y ){
+            for( pos.x = 0; pos.x < board->w(); ++pos.x ){
+                pointer->set( pos );
+                target.draw( *pointer );
+            }
         }
-
+    }
+    else {
+        /// Draw every field
+        for( pos.y = 0; pos.y < board->h(); ++pos.y ){
+            for( pos.x = 0; pos.x < board->w(); ++pos.x ){
+                pointer = Display::pointer( (*board)(pos) );
+                pointer->set( pos );
+                target.draw( *pointer );
+            }
+        }
     }
 }
