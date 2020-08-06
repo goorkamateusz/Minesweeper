@@ -53,11 +53,9 @@ void Display::board( sf::RenderTarget& target, const Board* const board ) const{
     /// Draw every field
     for( pos.y = 0; pos.y < board->h(); ++pos.y ){
         for( pos.x = 0; pos.x < board->w(); ++pos.x ){
-
             pointer = Display::pointer( (*board)(pos) );
             pointer->set( pos );
             target.draw( *pointer );
         }
-
     }
 }

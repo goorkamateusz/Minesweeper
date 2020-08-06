@@ -14,6 +14,7 @@ private:
     Display display;    //< Care about display a game
 
 
+
 public:
     Game() = delete;
 

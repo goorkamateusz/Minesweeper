@@ -54,7 +54,7 @@ Game::Game( const int argc, const char* const argv[] ){
 
 ////----------------------------------------------------------------------
 void Game::click( const sf::RenderWindow& window, const sf::Mouse::Button butt ){
-    //todo
+    
 }
 
 ////----------------------------------------------------------------------
