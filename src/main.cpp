@@ -1,4 +1,4 @@
-#include "SFML/Graphics.hpp"
+ #include "SFML/Graphics.hpp"
 #include "Game.hpp"
 #include "Error.hpp"
 #include <iostream>
@@ -18,7 +18,7 @@ int main( int argc, char* argv[] ){
 
     try {
         /// 1. Choose sizes of the board.
-        Game game( argc, argv );    //< Main object of game
+        Game game( argc, argv );    ///< Main object of game
 
 
         /// 1. Create window
@@ -69,6 +69,10 @@ int main( int argc, char* argv[] ){
             sf::sleep( milliseconds( SLEEP_TIME ) );
         }
 
+    }
+    catch( const EndGame& exc ){
+        //todo
+        cout << "! " << exc.what() << endl;
     }
     catch( const Error& err ){
         cerr << "!!! Critical error: " << endl;

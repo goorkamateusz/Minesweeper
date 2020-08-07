@@ -42,13 +42,13 @@ clean: rmobj
 
 # Generate documentation
 doxygen:
-	cd dox; doxygen Doxyfile 2> /dev/null; cd ..;\
-	start dox/html/index.html;\
+	doxygen dox/Doxyfile 2> /dev/null;\
+	start dox/html/index.html;
 
 # Remove temporary failes, generated documentation, minfy Doxyfile
 MINIMAL:
 	rm -fr obj dox/html; \
-	rm ${PROG_NAME} doc/linecounter.* dox/index.html; \
+	rm ${PROG_NAME};\
 	rmcomments dox/Doxyfile &\
 
 # Subcomments: -------------------------------------------------

@@ -12,8 +12,8 @@
  */
 class TField : public sf::Drawable {
 private:
-    sf::Texture texture;    //< Texture of field
-    sf::Sprite sprite;      //< Sprite of field
+    sf::Texture texture;    ///< Texture of field
+    sf::Sprite sprite;      ///< Sprite of field
 
 public:
     TField() = delete;

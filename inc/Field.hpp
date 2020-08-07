@@ -25,17 +25,17 @@ using std::uint8_t;
  */
 class Field {
 private:
-    uint8_t code;      //< Value of fields code
+    uint8_t code;      ///< Value of fields code
 
 public:
 	/**
 	 * \brief Construct a new Field object
 	 */
-	Field(): code(0){}
+	Field(): code(0x0){}
 
 	/**
 	 * \brief Construct a new Field object
-	 * \param v - uint8_t 
+	 * \param v - uint8_t
 	 */
 	Field( uint8_t v ){ this->val( v ); }
 
@@ -110,7 +110,6 @@ public:
 	inline bool covered() const
 	{ return ( code & 0xF0 ) != 0x20; }
 
-
 	/**
 	 * \brief Is the mine?!
 	 * \return true - yes
@@ -118,6 +117,15 @@ public:
 	 */
 	inline bool mine() const
 	{ return ( code & 0x0F ) == 0x09; }
+
+
+	/**
+	 * \brief Is the file empty?
+	 * \return true - yes
+	 * \return false - no
+	 */
+	inline bool empty() const
+	{ return ( code & 0x0F ) == 0x00; }
 
 };
 

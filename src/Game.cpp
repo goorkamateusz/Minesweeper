@@ -2,6 +2,7 @@
 #include <sstream>
 
 using namespace std;
+using namespace sf;
 
 ////----------------------------------------------------------------------
 Game::Game( const int argc, const char* const argv[] ){
@@ -41,20 +42,45 @@ Game::Game( const int argc, const char* const argv[] ){
             }
         }
         else {
-            //?
+            cerr << "!!! Warning: unknow input argument" << endl
+                 << "! " << argv[id] << endl;
         }
 
         ++id;
     }
 
     //* Set value
-    this->board.create( w, h, m );
+    this->board.set( w, h, m );
 
 }
 
 ////----------------------------------------------------------------------
 void Game::click( const sf::RenderWindow& window, const sf::Mouse::Button butt ){
-    
+
+    Vector2i mouse_pos = Mouse::getPosition(window);
+
+    if( mouse_pos.y > GUI_MARGIN_T ){       //inside board
+
+        if( this->firstAction( butt ) ){
+            ///- First action on the board: uncover the field.
+            this->board.uncover( Game::position( mouse_pos ) );
+        }
+        else {
+            if( this->board.created() )
+                ///- Second action on the covered field: flag the field.
+                /// If field is uncovered: if it's possible uncover fields around.
+                this->board.action( Game::position( mouse_pos ) );
+            else
+                ///- If board isn't created, second move is create and uncover too.
+                this->board.uncover( Game::position( mouse_pos ) );
+        }
+
+        //todo second
+    }
+    else {                                  // outside board
+
+        //todo click mode button
+    }
 }
 
 ////----------------------------------------------------------------------
@@ -66,8 +92,8 @@ bool Game::clockChange() const {
 
 
 ////----------------------------------------------------------------------
-
-
+Vector2D Game::position( const sf::Vector2i& pos )
+{ return Vector2D( pos.x/FIELD_SIZE, (pos.y-GUI_MARGIN_T)/FIELD_SIZE ); }
 
 ////----------------------------------------------------------------------
 unsigned int Game::width() const

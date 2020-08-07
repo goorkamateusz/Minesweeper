@@ -25,10 +25,11 @@ private:
      */
     static TField* Template[ NUM_FIELD_VIEW ];
 
+private:
     /**
      * \brief Field code to element on Templete array.
-     * \param field -
-     * \return short int -
+     * \param field - value of field
+     * \return short int - id in the Templete array.
      */
     static TField* const pointer( const Field& field );
 
@@ -48,19 +49,19 @@ public:
      * \brief Display clock on the window
      * \param seconds - time
      */
-    void stopwatch( sf::RenderTarget& target, unsigned int seconds ) const; //? const?
+    void stopwatch( sf::RenderTarget& target, unsigned int seconds ) const; //??? const?
 
     /**
      * \brief Display score on the window
      * \param score - points
      */
-    void score( sf::RenderTarget& target, unsigned int score ) const; //? const?
+    void score( sf::RenderTarget& target, unsigned int score ) const; //??? const?
 
     /**
      * \brief Display board on the window
-     * \param board -
+     * \param board - game board
      */
-    void board( sf::RenderTarget& target, const Board* const board ) const; //? const?
+    void board( sf::RenderTarget& target, const Board* const board ) const;
 
 
 };

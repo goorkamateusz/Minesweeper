@@ -10,9 +10,10 @@
  */
 class Game : public sf::Drawable {
 private:
-    Board board;        //< Board of game
-    Display display;    //< Care about display a game
+    Board board;          ///< Board of game
+    Display display;      ///< Care about display a game
 
+    bool buttRev {false}; ///< Current button mode. 0 - normal, 1 - revers button.
 
 
 public:
@@ -25,7 +26,10 @@ public:
      */
     Game( const int argc, const char* const argv[] );
 
-    // ~Game(); //?
+    /**
+     * \brief Destroy the Game object
+     */
+    ~Game() = default;
 
 public:
     /**
@@ -41,6 +45,23 @@ public:
      * \return false -
      */
     bool clockChange() const;
+
+private:
+    /**
+     * \brief Is it first mouse action now?
+     * \param butt - value of button
+     * \return true - yes
+     * \return false - no
+     */
+    inline bool firstAction( const sf::Mouse::Button butt ) const
+    { return butt == sf::Mouse::Left ? !buttRev : buttRev; }
+
+    /**
+     * \brief Convert coordinates.
+     * \param pos -
+     * \return Vector2D -
+     */
+    static Vector2D position( const sf::Vector2i& pos );
 
 public:
     /**

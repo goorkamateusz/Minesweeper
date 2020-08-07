@@ -30,14 +30,14 @@ PROJECT_BRIEF          =
 # pixels and the maximum width should not exceed 200 pixels. Doxygen will copy
 # the logo to the output directory.
 
-PROJECT_LOGO           =
+PROJECT_LOGO           = img/flag.png
 
 # The OUTPUT_DIRECTORY tag is used to specify the (relative or absolute) path
 # into which the generated documentation will be written. If a relative path is
 # entered, it will be relative to the location where doxygen was started. If
 # left blank the current directory will be used.
 
-OUTPUT_DIRECTORY       = .
+OUTPUT_DIRECTORY       = dox
 
 # The INPUT tag is used to specify the files and/or directories that contain
 # documented source files. You may enter file names like myfile.cpp or
@@ -45,13 +45,13 @@ OUTPUT_DIRECTORY       = .
 # spaces. See also FILE_PATTERNS and EXTENSION_MAPPING
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  = ..  ../README.md  ../../README.md ../../doc
+INPUT                  = .  README.md
 
 # The IMAGE_PATH tag can be used to specify one or more files or directories
 # that contain images that are to be included in the documentation (see the
 # \image command).
 
-IMAGE_PATH             = ..
+IMAGE_PATH             = .
 
 # If the GENERATE_HTML tag is set to YES, doxygen will generate HTML output
 # The default value is: YES.
@@ -1009,7 +1009,7 @@ FILTER_SOURCE_PATTERNS =
 # (index.html). This can be useful if you have a project on for instance GitHub
 # and want to reuse the introduction page also for the doxygen output.
 
-USE_MDFILE_AS_MAINPAGE = ../README.md
+USE_MDFILE_AS_MAINPAGE = ./README.md
 
 #---------------------------------------------------------------------------
 # Configuration options related to source browsing

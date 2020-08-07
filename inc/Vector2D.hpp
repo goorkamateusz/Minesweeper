@@ -8,8 +8,8 @@
 template< typename T >
 class Vector2D_t {
 public:
-    T x;        //< X coordinate of vectior
-    T y;        //< Y coordinate of vectior
+    T x;        ///< X coordinate of vectior
+    T y;        ///< Y coordinate of vectior
 
 public:
     /**
@@ -43,7 +43,7 @@ public:
      * \return Vector2D_t& -
      */
     inline Vector2D_t& operator += ( const Vector2D_t& vec )
-    { this->x += vec.x;   this->y += vec.y; }
+    { this->x += vec.x;   this->y += vec.y;     return *this; }
 
     /**
      * \brief Operator -=
@@ -51,18 +51,10 @@ public:
      * \return Vector2D_t& -
      */
     inline Vector2D_t& operator -= ( const Vector2D_t& vec )
-    { this->x -= vec.x;   this->y -= vec.y; }
+    { this->x -= vec.x;   this->y -= vec.y;     return *this;  }
 
 ////---------------------------------------------------------------
 public:
-    /**
-     * \brief operator +
-     * \param vec -
-     * \return Vector2D_t -
-     */
-    inline Vector2D_t operator + ( Vector2D_t vec ) const
-    { vec += *this; return vec; }
-
     /**
      * \brief operator + v2
      * \param vec -
@@ -122,4 +114,4 @@ std::ostream& operator << ( std::ostream& strm, const Vector2D_t<T>& vec ){
 ////-----------------------------------------------------------------------
 
 /// Vector2D.
-typedef Vector2D_t< short int > Vector2D; //? type of vector
+typedef Vector2D_t< short int > Vector2D;

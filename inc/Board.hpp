@@ -14,9 +14,9 @@
  */
 class Board {
 private:
-    Vector2D size {0,0};        //< Size od board
-    Field** board {NULL};       //< Array of fields on the board. Coordinates: Board[ x ][ y ]
-    short unsigned int mines;   //< Number of mines.
+    Vector2D size {0,0};        ///< Size od board
+    Field** board {NULL};       ///< Array of fields on the board. Coordinates: Board[ x ][ y ]
+    short unsigned int mines;   ///< Number of mines.
 
 public:
     /**
@@ -31,13 +31,30 @@ public:
 
 public:
     /**
-     * \brief Create a board.
+     * \brief Set values on the board
      * \param w - width
      * \param h - height
      * \param m - number of minse
-     * \post Set size and mines. Create board.
+     * \post Modifly `size` and `mines`
      */
-    void create( unsigned int w, unsigned int h, unsigned int m );
+    void set( unsigned int w, unsigned int h, unsigned int m );
+
+    /**
+     * \brief Uncover the choosen field
+     * \param click - position of the field
+     */
+    void uncover( const Vector2D& pos );
+
+    /**
+     * \brief Do second action on selected field.
+     * \param click - position of the field
+     */
+    void action( const Vector2D& click );
+
+    /**
+     * \brief Display debug.
+     */
+    void debug() const;
 
 public:
     /**
@@ -54,6 +71,23 @@ public:
     inline int h() const
     { return this->size.y; }
 
+    /**
+     * \brief Is array created?
+     * \return true - yes
+     * \return false - no
+     */
+    inline bool created() const
+    { return this->board != NULL; }
+
+    /**
+     * \brief Is filel inside the board.
+     * \param pos - position of field
+     * \return true - yes
+     * \return false - no
+     */
+    inline bool inside( const Vector2D& pos ) const
+    { return ( pos.x >= 0 && pos.x < size.x ) && ( pos.y >= 0 && pos.y < size.y ); }
+
 public:
     /**
      * \brief Value of field. Without checking a correct of position!
@@ -61,7 +95,7 @@ public:
      * \return Field& -
      */
     inline const Field& operator () ( const Vector2D& vec ) const
-    { return board[ vec.y ][ vec.x ]; }
+    { return board[ vec.x ][ vec.y ]; }
 
 private:
     /**
@@ -70,15 +104,21 @@ private:
      * \return Field& -
      */
     inline Field& operator () ( const Vector2D& vec )
-    { return board[ vec.y ][ vec.x ]; }
+    { return board[ vec.x ][ vec.y ]; }
 
 private:
     /**
      * \brief Create a array of board.
      * Default value of field is: empty, covered.
+     * \post Modify only `board`.
      * \param size_ - Vector2D of new boards sizes.
      */
-    void alloc( const Vector2D& size_ );
+    void alloc();
+
+    /**
+     * \brief Free memory if board array exist.
+     */
+    void free();
 
     /**
      * \brief Rand mines position on the board.
@@ -91,4 +131,15 @@ private:
      */
     void randMines( const Vector2D& click );
 
+
+    /**
+     * \brief Count values of field after rand mines position.
+     */
+    void countFields();
+
+
+    /**
+     * \brief Vectors of around coordinates.
+     */
+    static const Vector2D AROUND[8];
 };
