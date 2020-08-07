@@ -7,7 +7,7 @@ TField* Display::Template[ NUM_FIELD_VIEW ] = {NULL,NULL,NULL,NULL,NULL,NULL,NUL
 ////-----------------------------------------------------
 TField* const Display::pointer( const Field& field ){
     ///- Find the code of field
-    short int id;   //< id of field
+    short int id;   ///< id of field
     if( field.flaged() )        id = 10;
     else if( field.covered() )  id = 11;
     else                        id = field.val();
@@ -22,7 +22,8 @@ TField* const Display::pointer( const Field& field ){
 
 ////-----------------------------------------------------
 Display::Display(){
-    //todo konstruktor
+    //todo konstruktor - tworzenie zegara
+    //todo konstr. - tworzenie licznika punktow
 }
 
 ////-----------------------------------------------------
@@ -30,9 +31,6 @@ Display::~Display(){
     ///- Delete Template array
     for( short int i=0; i<NUM_FIELD_VIEW; ++i )
         delete Display::Template[ i ];
-
-
-    //? more?
 }
 
 ////-----------------------------------------------------

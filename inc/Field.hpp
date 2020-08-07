@@ -25,7 +25,7 @@ using std::uint8_t;
  */
 class Field {
 private:
-    uint8_t code;      //< Value of fields code
+    uint8_t code;      ///< Value of fields code
 
 public:
 	/**

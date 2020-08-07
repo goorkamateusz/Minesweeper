@@ -1,50 +1,63 @@
-# Minesweeper2 V1.0.0
-Kod programu Minesweeper2
-<!-- TODO krótki opis -->
+# Minesweeper2 (PL)
+![](img/flag.png) Gra saper w C++.
 
-[English README version](README.eng.md)
+> **Read [README in english](README.md)!**
 
 ## Autor
 >   **Górka Mateusz**\
 >   **maatiug@gmail.com**
-<!-- TODO jaki mail? -->
 
 ## Spis treści
 - [Minesweeper2](#Minesweeper2)
 - [Autor](#Autor)
-- [Uruchomienie](#Uruchomienie)
-- [Dokumentacja](#Dokumentacja)
-- [Zawartość](#Zawartość)
-- [Funkcjonalności](#Funkcjonalności)
-- [Wyjątki](#Wyjątki)
-- [Specyfikacja](#Specyfikacja)
+- [Gra](#Gra)
+    - [Przygotowanie](#Przygotowanie)
+    - [Uruchomienie](#Uruchomienie)
+    - [Zasady gry](#Zasady\ gry)
+- [Dev](#Dev)
+    - [Documentation](#Documentation)
+    - [Exception](#Exception)
+    - [Specyfikacja](#Specyfikacja)
 - [Licencja](#Licencja)
 
-## Uruchomienie
-### Przygotownie
-Wykorzystaj program [make (link)](http://gnuwin32.sourceforge.net/packages/make.htm), aby skompilować kod.
+![](img/mine.png)
 
-### Uruchomienie
-Poleceniem: `./Minesweeper2.exe`.
+## Gra
+### Przygotowanie:
+Wykorzystaj program [`make`](http://gnuwin32.sourceforge.net/packages/make.htm), by skompilować kod.
 
-## Dokumentacja
-> [Link do dokumentacji](dox/html/index.phtml)
-Do wygenerowania dokumentacji wykorzystaj program [doxygen](http://doxygen.nl).
-Możesz wykorzystać polecenie `make doxygen` w katalogu projektu.
+### Uruchomienie:
+Uruchom poleceniem: `./Minesweeper2.exe`.
 
-## Zawartość
-(...)
+Argumenty wywołania:
+arg          | pomoc
+:-----------:|:--------
+ -w \<num>   | szerokość planszy
+ -h \<num>   | wysokość planszy
+ -m \<num>   | ilość min
 
-## Funkcjonalności
-(...)
+np.: `./Minesweeper2.exe -w 20 -h 15 -m 70`
 
-## Wyjątki
-(...)
+### Zasady gry:
+ - Pierwsze naciśnięcie jest zawsze bezpieczne.
+ - Gra kończy się gdy wszystkie pola nie zawierające miny są odkryte.
 
-## Specyfikacja
-- Język: C++
+
+## Dev
+### Dokumentacja
+Wykorzystaj program [doxygen](http://doxygen.nl), by wygenerować dokumentację.
+Możesz wykorzystać polecenie `make doxygen` w folderze głównym programu.
+[Link do wygenerowanej dokumentacji](dox/html/index.phtml)
+
+### Wyjątki
+...
+<!-- todo exceptions ! -->
+
+### Specyfikacja
+- Language: C++
 - OS: Windows 10
 - Kompilator: **minGW**
+- GUI: SFML Library
 
-# Licencja
-Zobacz w pliku [LICENSE.md](LICENSE.md).
+## Licencja
+Zobacz w pliku [LICENSE.md](@ref LICENSE.md).

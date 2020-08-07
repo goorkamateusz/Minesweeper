@@ -1,7 +1,7 @@
-# Minesweeper2 V1.0.0
-Minesweeper game based of C++, with using SFML library to make GUI.
+# Minesweeper2
+![](img/flag.png) Minesweeper game in C++.
 
-[Polish README version](README.md)
+> **Przeczytaj [README w języku polskim](README.pl.md)!**
 
 ## Author
 >   **Górka Mateusz**\
@@ -10,40 +10,58 @@ Minesweeper game based of C++, with using SFML library to make GUI.
 ## Table of contets
 - [Minesweeper2](#Minesweeper2)
 - [Author](#Author)
-- [Running](#Running)
-- [Documentation](#Documentation)
-- [Content](#Content)
-- [Features](#Features)
-- [Exception](#Exception)
-- [Specification](#Specification)
+- [Game](#Game)
+    - [Prepare](#Prepare)
+    - [Running](#Running)
+    - [Game rule](#Game\ rule)
+- [Dev](#Dev)
+    - [Documentation](#Documentation)
+    - [Exception](#Exception)
+    - [Specification](#Specification)
 - [License](#License)
 
-## Running
+![](img/mine.png)
+
+## Game
 ### Prepare:
-Use a program [make]((http://gnuwin32.sourceforge.net/packages/make.htm) to compile the code.
+Use a program [`make`](http://gnuwin32.sourceforge.net/packages/make.htm) to compile the code.
 
 ### Running:
-By command:`./Minesweeper2.exe`.
+By command: `./Minesweeper2.exe`.
 
-Argument:
-arg         | help
-:----------:|:--------
- -w <num>   | width
- -h <num>   | heigh
- -m <num>   | number of mines
+Runing  arguments:
+arg          | help
+:-----------:|:--------
+ -w \<num>   | width of board
+ -h \<num>   | heigh of board
+ -m \<num>   | number of mines
 
-## Documentation
-> [Link to documentation](dox/html/index.phtml)
+Exp.: `./Minesweeper2.exe -w 20 -h 15 -m 70`
+
+### Game rule:
+ - First click is always safe!
+ - Game is finish when all no mine fields are uncovered.
+
+
+## Dev
+### Documentation
 To generate documentation use program [doxygen](http://doxygen.nl).
-You can use comand `make doxygen` in project dir.
+You can use comand `make doxygen` in main project dir.
+[Link to generated documentation](dox/html/index.phtml)
 
-## Exception
+### Exception
 ...
+<!-- todo exceptions ! -->
 
-## Specification
+### Specification
 - Language: C++
 - OS: Windows 10
-- Kompilator: **minGW**
+- Compilator: **minGW**
+- GUI: SFML Library
 
-# License
+## License
 See a file [LICENSE.md](LICENSE.md).
+
+## TODO List
+- [ ] Linux test
+- [ ]

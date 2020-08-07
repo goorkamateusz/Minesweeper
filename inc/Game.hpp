@@ -10,10 +10,10 @@
  */
 class Game : public sf::Drawable {
 private:
-    Board board;          //< Board of game
-    Display display;      //< Care about display a game
+    Board board;          ///< Board of game
+    Display display;      ///< Care about display a game
 
-    bool buttRev {false}; //< Current button mode. 0 - normal, 1 - revers button.
+    bool buttRev {false}; ///< Current button mode. 0 - normal, 1 - revers button.
 
 public:
     Game() = delete;
@@ -25,7 +25,10 @@ public:
      */
     Game( const int argc, const char* const argv[] );
 
-    // ~Game(); //?
+    /**
+     * \brief Destroy the Game object
+     */
+    ~Game() = default;
 
 public:
     /**

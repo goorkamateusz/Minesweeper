@@ -8,8 +8,8 @@
 template< typename T >
 class Vector2D_t {
 public:
-    T x;        //< X coordinate of vectior
-    T y;        //< Y coordinate of vectior
+    T x;        ///< X coordinate of vectior
+    T y;        ///< Y coordinate of vectior
 
 public:
     /**
@@ -114,4 +114,4 @@ std::ostream& operator << ( std::ostream& strm, const Vector2D_t<T>& vec ){
 ////-----------------------------------------------------------------------
 
 /// Vector2D.
-typedef Vector2D_t< short int > Vector2D; //? type of vector
+typedef Vector2D_t< short int > Vector2D;

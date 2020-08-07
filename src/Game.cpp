@@ -42,7 +42,8 @@ Game::Game( const int argc, const char* const argv[] ){
             }
         }
         else {
-            //?
+            cerr << "!!! Warning: unknow input argument" << endl
+                 << "! " << argv[id] << endl;
         }
 
         ++id;
@@ -66,12 +67,15 @@ void Game::click( const sf::RenderWindow& window, const sf::Mouse::Button butt )
         }
         else {
             if( this->board.created() )
-                ///- Second action on the board: flag the field.
-                this->board.flag( Game::position( mouse_pos ) );
+                ///- Second action on the covered field: flag the field.
+                /// If field is uncovered: if it's possible uncover fields around.
+                this->board.action( Game::position( mouse_pos ) );
             else
                 ///- If board isn't created, second move is create and uncover too.
                 this->board.uncover( Game::position( mouse_pos ) );
         }
+
+        //todo second
     }
     else {                                  // outside board
 

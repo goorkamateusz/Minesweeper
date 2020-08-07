@@ -18,7 +18,7 @@ int main( int argc, char* argv[] ){
 
     try {
         /// 1. Choose sizes of the board.
-        Game game( argc, argv );    //< Main object of game
+        Game game( argc, argv );    ///< Main object of game
 
 
         /// 1. Create window

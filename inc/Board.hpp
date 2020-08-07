@@ -14,9 +14,9 @@
  */
 class Board {
 private:
-    Vector2D size {0,0};        //< Size od board
-    Field** board {NULL};       //< Array of fields on the board. Coordinates: Board[ x ][ y ]
-    short unsigned int mines;   //< Number of mines.
+    Vector2D size {0,0};        ///< Size od board
+    Field** board {NULL};       ///< Array of fields on the board. Coordinates: Board[ x ][ y ]
+    short unsigned int mines;   ///< Number of mines.
 
 public:
     /**
@@ -41,17 +41,15 @@ public:
 
     /**
      * \brief Uncover the choosen field
-     * \param pos - position of the field
+     * \param click - position of the field
      */
     void uncover( const Vector2D& pos );
 
     /**
-     * \brief Set a flag on the field.
-     * \param pos -
+     * \brief Do second action on selected field.
+     * \param click - position of the field
      */
-    inline void flag( const Vector2D& pos )
-    { (*this)(pos).flag(); }
-
+    void action( const Vector2D& click );
 
     /**
      * \brief Display debug.

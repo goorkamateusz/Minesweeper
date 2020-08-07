@@ -56,6 +56,14 @@ void Board::uncover( const Vector2D& click ){
 }
 
 ////----------------------------------------------------------------
+void Board::action( const Vector2D& click ){
+    (*this)(click).flag();
+
+    //todo second action
+}
+
+
+////----------------------------------------------------------------
 void Board::set( unsigned int w, unsigned int h, unsigned int m ){
     ///- Check exceptions
     if( m < MIN_MINES )         throw ErrInput("Too least mines!");
@@ -104,7 +112,6 @@ void Board::alloc(){
 }
 
 ////----------------------------------------------------------------
-//todo make a best rand function!
 void Board::randMines( const Vector2D& click ){
     /// Rand a position of mines on the board.
     Vector2D pos;
