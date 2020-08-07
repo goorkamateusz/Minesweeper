@@ -54,7 +54,7 @@ private:
      * \return false - no
      */
     inline bool firstAction( const sf::Mouse::Button butt ) const
-    { return butt == sf::Mouse::Left ? !buttRev : buttRev; }
+    { return butt == sf::Mouse::Left ? this->buttRev : ! this->buttRev; }
 
     /**
      * \brief Convert coordinates.

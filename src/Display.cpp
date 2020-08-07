@@ -1,4 +1,7 @@
 #include "Display.hpp"
+#include "Error.hpp"
+
+using namespace sf;
 
 ////-----------------------------------------------------
 /// Declaration od Template[]
@@ -21,17 +24,43 @@ TField* const Display::pointer( const Field& field ){
 }
 
 ////-----------------------------------------------------
-Display::Display(){
+void Display::config( const Vector2D& size ){
+    ///- Load button texture
+    if( ! flag_texture.loadFromFile("img/butt-flag.png") )
+        throw ErrSys("cann't find butt-flag.png");
+
+    if( ! click_texture.loadFromFile("img/butt-click.png") )
+        throw ErrSys("cann't find butt-click.png");
+
+    ///- Set positions and default texture of mode button
+    mode_butt.setPosition( (size.x*FIELD_SIZE - MODE_BUTT_W)/2, MODE_BUTT_Y  );
+    this->mode_butt.setTexture( this->click_texture );
+
+
+
     //todo konstruktor - tworzenie zegara
     //todo konstr. - tworzenie licznika punktow
+}
+
+////-----------------------------------------------------
+void Display::changeButt( const bool mode ){
+    if( mode )  this->mode_butt.setTexture( this->click_texture );
+    else        this->mode_butt.setTexture( this->flag_texture );
 }
 
 ////-----------------------------------------------------
 Display::~Display(){
     ///- Delete Template array
     for( short int i=0; i<NUM_FIELD_VIEW; ++i )
-        delete Display::Template[ i ];
+        if( Display::Template[ i ] != NULL )
+            delete Display::Template[ i ];
 }
+
+////-----------------------------------------------------
+void Display::butt( sf::RenderTarget& target ) const {
+    target.draw( mode_butt );
+}
+
 
 ////-----------------------------------------------------
 void Display::stopwatch( sf::RenderTarget& target, unsigned int seconds ) const{

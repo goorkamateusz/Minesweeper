@@ -49,8 +49,11 @@ Game::Game( const int argc, const char* const argv[] ){
         ++id;
     }
 
-    //* Set value
+    ///- Config Board
     this->board.set( w, h, m );
+
+    ///- Config Display
+    this->display.config( Vector2D(w,h) );
 
 }
 
@@ -74,12 +77,10 @@ void Game::click( const sf::RenderWindow& window, const sf::Mouse::Button butt )
                 ///- If board isn't created, second move is create and uncover too.
                 this->board.uncover( Game::position( mouse_pos ) );
         }
-
-        //todo second
     }
     else {                                  // outside board
-
-        //todo click mode button
+        buttRev = ! buttRev;
+        this->display.changeButt( buttRev );
     }
 }
 
@@ -89,7 +90,6 @@ bool Game::clockChange() const {
 
     return false;
 }
-
 
 ////----------------------------------------------------------------------
 Vector2D Game::position( const sf::Vector2i& pos )
@@ -105,6 +105,7 @@ unsigned int Game::height() const
 ////----------------------------------------------------------------------
 void Game::draw( sf::RenderTarget& target, sf::RenderStates states ) const {
     this->display.board( target, &this->board );
+    this->display.butt( target );
     // this->display.score( ... ); //todo <- score value
     // this->display.stopwatch( ... ) //todo <- run stopwatch
 }

@@ -71,7 +71,7 @@ int main( int argc, char* argv[] ){
 
     }
     catch( const EndGame& exc ){
-        //todo
+        //todo end of game communicate
         cout << "! " << exc.what() << endl;
     }
     catch( const Error& err ){
