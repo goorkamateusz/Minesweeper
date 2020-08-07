@@ -56,6 +56,8 @@ int main( int argc, char* argv[] ){
 
             //* Display
             if( change ){
+                // Update game display
+                game.update();
                 // Clear screen
                 window.clear();
                 // Draw the string

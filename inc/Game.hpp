@@ -65,6 +65,11 @@ private:
 
 public:
     /**
+     * \brief Update values on the interface (stopwatch, score)
+     */
+    void update();
+
+    /**
      * \brief Draw method
      * \param target -
      * \param states -

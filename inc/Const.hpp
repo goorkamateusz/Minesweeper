@@ -25,10 +25,10 @@
 #define STOPWATCH_Y     8 		///< y position of stopwatch text (from top-right corner)
 #define STOPWATCH_FONT  22		///< size of stopwatch font [px]
 
-#define SCORE_X_BG      0   	///< x position of score background (from top-left corner)
+#define SCORE_X_BG      40   	///< x position of score background (from top-left corner)
 #define SCORE_Y_BG      0   	///< y position of score background (from top-left corner)
-#define SCORE_X         1111	///< x position of score text (from top-left corner)
-#define SCORE_Y         1111	///< y position of score text (from top-left corner)
+#define SCORE_X         70		///< x position of score text (from top-left corner)
+#define SCORE_Y         6		///< y position of score text (from top-left corner)
 #define SCORE_FONT      30		///< size of stopwatch font [px]
 
 ////---------------------------------------------

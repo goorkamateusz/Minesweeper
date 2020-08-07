@@ -23,11 +23,18 @@ private:
      *
      * \see NUM_FIELD_VIEW, TField
      */
-    static TField* Template[ NUM_FIELD_VIEW ];
+    static TField* Template[NUM_FIELD_VIEW ];
 
     sf::Texture flag_texture;       ///< Click mode flag texture
     sf::Texture click_texture;      ///< Click mode "click" texture
     sf::Sprite  mode_butt;          ///< Mode button spirte
+
+    sf::Texture score_texture;      ///< Score counter backgroun texture
+    sf::Sprite  score_bg;           ///< Score counter background
+    sf::Text    score_txt;          ///< Score counter text
+
+    sf::Font    font;               ///< Font
+
 
 private:
     /**
@@ -71,24 +78,24 @@ public:
     void board( sf::RenderTarget& target, const Board* const board ) const;
 
     /**
-     * \brief Display mode button.
+     * \brief Draw a interface of the game.
      * \param target - window target
-     * \param mode - mode of the button
      */
-    void butt( sf::RenderTarget& target ) const;
+    void draw( sf::RenderTarget& target ) const;
 
     /**
-     * \brief Display clock on the window
-     * \param target - window target
-     * \param seconds - time
+     * \brief Update a value of stopwatch time.
+     * \param seconds -
      */
-    void stopwatch( sf::RenderTarget& target, unsigned int seconds ) const; //??? const?
+    void stopwatch( unsigned int seconds );
+    //idea make inline
 
     /**
-     * \brief Display score on the window
-     * \param target - window target
-     * \param score - points
+     * \brief Update value of score on the display
+     * \param score -
      */
-    void score( sf::RenderTarget& target, unsigned int score ) const; //??? const?
+    void score( unsigned int score );
+    //idea make inline
+
 
 };

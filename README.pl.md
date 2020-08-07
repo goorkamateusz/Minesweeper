@@ -1,5 +1,5 @@
 # Minesweeper2 (PL)
-![](img/flag.png) Gra saper w C++.
+![](gui/flag.png) Gra saper w C++.
 
 > **Read [README in english](README.md)!**
 
@@ -20,7 +20,7 @@
     - [Specyfikacja](#Specyfikacja)
 - [Licencja](#Licencja)
 
-![](img/mine.png)
+![](gui/mine.png)
 
 ## Gra
 ### Przygotowanie:

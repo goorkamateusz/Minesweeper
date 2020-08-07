@@ -105,18 +105,14 @@ unsigned int Game::height() const
 ////----------------------------------------------------------------------
 void Game::draw( sf::RenderTarget& target, sf::RenderStates states ) const {
     this->display.board( target, &this->board );
-    this->display.butt( target );
-    // this->display.score( ... ); //todo <- score value
-    // this->display.stopwatch( ... ) //todo <- run stopwatch
+    this->display.draw( target );
 }
 
-
-
-
 ////----------------------------------------------------------------------
-
-
-
+void Game::update(){
+    this->display.score( 99 );
+    this->display.stopwatch( 99 );
+}
 
 ////----------------------------------------------------------------------
 

@@ -1,5 +1,5 @@
 # Minesweeper2
-![](img/flag.png) Minesweeper game in C++.
+![](gui/flag.png) Minesweeper game in C++.
 
 > **Przeczytaj [README w języku polskim](README.pl.md)!**
 
@@ -20,7 +20,7 @@
     - [Specification](#Specification)
 - [License](#License)
 
-![](img/mine.png)
+![](gui/mine.png)
 
 ## Game
 ### Prepare:

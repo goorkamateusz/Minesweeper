@@ -1,7 +1,9 @@
 #include "Display.hpp"
 #include "Error.hpp"
+#include <sstream>
 
 using namespace sf;
+using namespace std;
 
 ////-----------------------------------------------------
 /// Declaration od Template[]
@@ -25,21 +27,40 @@ TField* const Display::pointer( const Field& field ){
 
 ////-----------------------------------------------------
 void Display::config( const Vector2D& size ){
-    ///- Load button texture
-    if( ! flag_texture.loadFromFile("img/butt-flag.png") )
+    ///- Load button textures
+    if( ! flag_texture.loadFromFile("gui/butt-flag.png") )
         throw ErrSys("cann't find butt-flag.png");
 
-    if( ! click_texture.loadFromFile("img/butt-click.png") )
+    if( ! click_texture.loadFromFile("gui/butt-click.png") )
         throw ErrSys("cann't find butt-click.png");
 
     ///- Set positions and default texture of mode button
     mode_butt.setPosition( (size.x*FIELD_SIZE - MODE_BUTT_W)/2, MODE_BUTT_Y  );
-    this->mode_butt.setTexture( this->click_texture );
+    mode_butt.setTexture( this->click_texture );
 
+    ///- Load font
+    if( ! font.loadFromFile("gui/consola.ttf") )
+        throw ErrSys("cann't font consola.ttf");
 
+    ///- Score counter text config
+    score_txt.setFont( font );
+    score_txt.setPosition( size.x*FIELD_SIZE - SCORE_X, SCORE_Y );
+    score_txt.setCharacterSize( SCORE_FONT );
+    score_txt.setFillColor( sf::Color::White );
+    score_txt.setStyle( sf::Text::Bold) ;
 
+    ///- Set position and texture of score counter
+    if( ! score_texture.loadFromFile("gui/score-bg.png") )
+        throw ErrSys("cann't find score-bg.png");
+
+    score_bg.setTexture( score_texture );
+    score_bg.setPosition( size.x*FIELD_SIZE - SCORE_X_BG, SCORE_Y_BG );
+
+    ///- Stopwatch text config
+    //todo
+
+    ///- Set position and texture of stopwatch
     //todo konstruktor - tworzenie zegara
-    //todo konstr. - tworzenie licznika punktow
 }
 
 ////-----------------------------------------------------
@@ -57,19 +78,28 @@ Display::~Display(){
 }
 
 ////-----------------------------------------------------
-void Display::butt( sf::RenderTarget& target ) const {
+void Display::stopwatch( unsigned int seconds ){
+    //todo
+}
+
+////-----------------------------------------------------
+void Display::score( unsigned int score ){
+    stringstream strm;
+    strm << score;
+    score_txt.setString( strm.str() );
+}
+
+////-----------------------------------------------------
+void Display::draw( sf::RenderTarget& target ) const {
+    ///- Mode button draw
     target.draw( mode_butt );
-}
 
+    ///- Score counter draw
+    target.draw( score_bg );
+    target.draw( score_txt );
 
-////-----------------------------------------------------
-void Display::stopwatch( sf::RenderTarget& target, unsigned int seconds ) const{
-    //todo
-}
-
-////-----------------------------------------------------
-void Display::score( sf::RenderTarget& target, unsigned int score ) const{
-    //todo
+    ///- Stopwatch draw
+    //todo stopwatch
 }
 
 ////-----------------------------------------------------

@@ -3,18 +3,18 @@
 
 ////--------------------------------------------
 const char* const TField::TEXTURE_ARR[NUM_FIELD_VIEW] = {
-    "img/empty.png",
-    "img/field_1.png",
-    "img/field_2.png",
-    "img/field_3.png",
-    "img/field_4.png",
-    "img/field_5.png",
-    "img/field_6.png",
-    "img/field_7.png",
-    "img/field_8.png",
-    "img/mine.png",
-    "img/flag.png",
-    "img/covered.png"
+    "gui/empty.png",
+    "gui/field_1.png",
+    "gui/field_2.png",
+    "gui/field_3.png",
+    "gui/field_4.png",
+    "gui/field_5.png",
+    "gui/field_6.png",
+    "gui/field_7.png",
+    "gui/field_8.png",
+    "gui/mine.png",
+    "gui/flag.png",
+    "gui/covered.png"
 };
 
 ////--------------------------------------------
