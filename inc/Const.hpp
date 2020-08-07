@@ -3,7 +3,7 @@
 ////--------------------------------------------------
 #define DEFAULT_Y_SIZE      10      //< Default Y size of board
 #define DEFAULT_X_SIZE      20      //< Default X size of board
-#define DEFAULT_MINE        10      //< Default number of mines
+#define DEFAULT_MINE        50      //< Default number of mines
 
 ////--------------------------------------------------
 #define FIELD_SIZE          20      //< Sizes of field on the board

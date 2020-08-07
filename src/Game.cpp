@@ -58,7 +58,7 @@ void Game::click( const sf::RenderWindow& window, const sf::Mouse::Button butt )
 
     Vector2i mouse_pos = Mouse::getPosition(window);
 
-    if( mouse_pos.x > GUI_MARGIN_T ){       //inside board
+    if( mouse_pos.y > GUI_MARGIN_T ){       //inside board
 
         if( this->firstAction( butt ) ){
             ///- First action on the board: uncover the field.

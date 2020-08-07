@@ -54,3 +54,16 @@ public:
     inline ErrSys( const char* txt ): info(txt){}
     const char* what() const { return info; }
 };
+
+
+/**
+ * \brief End game exception.
+ */
+class EndGame : public Error {
+private:
+    const char* info;
+
+public:
+    inline EndGame( const char* txt ): info(txt){}
+    const char* what() const { return info; }
+};

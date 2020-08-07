@@ -110,7 +110,6 @@ public:
 	inline bool covered() const
 	{ return ( code & 0xF0 ) != 0x20; }
 
-
 	/**
 	 * \brief Is the mine?!
 	 * \return true - yes
@@ -118,6 +117,15 @@ public:
 	 */
 	inline bool mine() const
 	{ return ( code & 0x0F ) == 0x09; }
+
+
+	/**
+	 * \brief Is the file empty?
+	 * \return true - yes
+	 * \return false - no
+	 */
+	inline bool empty() const
+	{ return ( code & 0x0F ) == 0x00; }
 
 };
 

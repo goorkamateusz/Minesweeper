@@ -43,7 +43,7 @@ public:
      * \return Vector2D_t& -
      */
     inline Vector2D_t& operator += ( const Vector2D_t& vec )
-    { this->x += vec.x;   this->y += vec.y; }
+    { this->x += vec.x;   this->y += vec.y;     return *this; }
 
     /**
      * \brief Operator -=
@@ -51,18 +51,10 @@ public:
      * \return Vector2D_t& -
      */
     inline Vector2D_t& operator -= ( const Vector2D_t& vec )
-    { this->x -= vec.x;   this->y -= vec.y; }
+    { this->x -= vec.x;   this->y -= vec.y;     return *this;  }
 
 ////---------------------------------------------------------------
 public:
-    /**
-     * \brief operator +
-     * \param vec -
-     * \return Vector2D_t -
-     */
-    inline Vector2D_t operator + ( Vector2D_t vec ) const
-    { vec += *this; return vec; }
-
     /**
      * \brief operator + v2
      * \param vec -

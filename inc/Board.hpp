@@ -81,6 +81,15 @@ public:
     inline bool created() const
     { return this->board != NULL; }
 
+    /**
+     * \brief Is filel inside the board.
+     * \param pos - position of field
+     * \return true - yes
+     * \return false - no
+     */
+    inline bool inside( const Vector2D& pos ) const
+    { return ( pos.x >= 0 && pos.x < size.x ) && ( pos.y >= 0 && pos.y < size.y ); }
+
 public:
     /**
      * \brief Value of field. Without checking a correct of position!
@@ -97,7 +106,7 @@ private:
      * \return Field& -
      */
     inline Field& operator () ( const Vector2D& vec )
-    { return board[ vec.y ][ vec.x ]; }
+    { return board[ vec.x ][ vec.y ]; }
 
 private:
     /**
@@ -124,4 +133,15 @@ private:
      */
     void randMines( const Vector2D& click );
 
+
+    /**
+     * \brief Count values of field after rand mines position.
+     */
+    void countFields();
+
+
+    /**
+     * \brief Vectors of around coordinates.
+     */
+    static const Vector2D AROUND[8];
 };

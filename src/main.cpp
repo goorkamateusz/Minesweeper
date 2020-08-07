@@ -70,6 +70,10 @@ int main( int argc, char* argv[] ){
         }
 
     }
+    catch( const EndGame& exc ){
+        //todo
+        cout << "! " << exc.what() << endl;
+    }
     catch( const Error& err ){
         cerr << "!!! Critical error: " << endl;
         cerr << "! " << err.what() << endl;

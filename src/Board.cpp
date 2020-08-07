@@ -1,10 +1,18 @@
 #include "Board.hpp"
 #include "Error.hpp"
 #include <random>
+#include <time.h>
 
 #include <iomanip>  //to debug
 #include <iostream> //to debug
 using namespace std;
+
+////----------------------------------------------------------------
+const Vector2D Board::AROUND[8] = {               // vector around
+    {-1,-1},{0,-1},{1,-1},
+    {-1,0},{1,0},
+    {-1,1},{0,1},{1,1}
+};
 
 ////----------------------------------------------------------------
 Board::~Board(){
@@ -12,20 +20,38 @@ Board::~Board(){
 }
 
 ////----------------------------------------------------------------
-void Board::uncover( const Vector2D& pos ){
+void Board::uncover( const Vector2D& click ){
+
+    //todo optymalise!
 
     if( this->created() ){
 
-        cout << "JESTEM TU!" << endl;
-        this->debug();
+        ///- Nothing do when click on the uncover
+        if( (*this)(click).covered() ){
 
+            (*this)(click).uncover();
 
+            if( (*this)(click).empty() ){
+                ///- Uncover around if click on the empty field
+                for(uint8_t i=0; i<8; ++i ){
+                    if( this->inside( click + Board::AROUND[i] ) )
+                        this->uncover( click + Board::AROUND[i] );  //recursive!
+                }
+            }
+            else
+                ///- End of game when uncover a mine
+                if( (*this)(click).mine() )
+                    throw EndGame("Boooom!");
+        }
+
+        // this->debug();
     }
     else {
         ///- Create, randMines and uncover the field (recursive!)
         alloc();
-        randMines( pos );
-        this->uncover( pos );
+        randMines( click );
+        countFields();
+        this->uncover( click );
     }
 }
 
@@ -85,9 +111,9 @@ void Board::randMines( const Vector2D& click ){
     short unsigned int num_mines = mines;
     unsigned max_att = MAX_ATTEMPTS;
 
-    std::default_random_engine generator;
-    std::uniform_int_distribution<int> distribution_x( 0, size.x );     //fixme size.x - 1 ???
-    std::uniform_int_distribution<int> distribution_y( 0, size.y );
+    std::default_random_engine generator( time(NULL) );                 //fixme ?
+    std::uniform_int_distribution<int> distribution_x( 0, size.x-1 );
+    std::uniform_int_distribution<int> distribution_y( 0, size.y-1 );
 
     while( num_mines > 0 ){
         pos.x = distribution_x(generator);
@@ -105,6 +131,28 @@ void Board::randMines( const Vector2D& click ){
 
 }
 
+////----------------------------------------------------------------
+void Board::countFields(){
+
+    uint8_t count;                          // counter
+    Vector2D pos, around;
+
+    for( pos.x=0; pos.x < size.x; ++pos.x )
+        for( pos.y=0; pos.y < size.y; ++pos.y ){
+
+            if( ! (*this)(pos).mine() ){
+                count = 0;                      // clear counter
+
+                for(uint8_t i=0; i<8; ++i ){    // check around
+                    around = pos + Board::AROUND[i];
+                    if( this->inside( around ) )
+                        if( (*this)(around).mine() ) ++count;
+                }
+
+                (*this)(pos).val( count );      // set values
+            }
+        }
+}
 
 ////----------------------------------------------------------------
 void Board::debug() const {
