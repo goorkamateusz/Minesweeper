@@ -46,10 +46,8 @@ doxygen:
 	start dox/html/index.html;
 
 # Remove temporary failes, generated documentation, minfy Doxyfile
-MINIMAL:
-	rm -fr obj dox/html; \
-	rm ${PROG_NAME};\
-	rmcomments dox/Doxyfile &\
+MINIMAL: clean
+	rm -fr dox/html;
 
 # Subcomments: -------------------------------------------------
 rmobj:

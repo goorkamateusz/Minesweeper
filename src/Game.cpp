@@ -62,14 +62,13 @@ Game::Game( const int argc, const char* const argv[] ){
 ////----------------------------------------------------------------------
 void Game::finish(){
     running = false;                ///- Set running to false
-
     //todo finish the game
 }
 
 ////----------------------------------------------------------------------
 void Game::start(){
-
     clock.restart();
+    stopwatch = 0;
     //todo start the gane
 
 }
@@ -134,7 +133,6 @@ void Game::update(){
 }
 
 ////----------------------------------------------------------------------
-
 
 
 

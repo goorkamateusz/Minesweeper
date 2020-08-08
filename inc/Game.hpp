@@ -16,7 +16,8 @@ private:
     bool buttRev {false};   ///< Current button mode. 0 - normal, 1 - revers button.
     bool running {true};    ///< Is game running on?
 
-    sf::Clock clock;        ///< Stopwatcher
+    sf::Clock clock;        ///< Stopwatch clock
+    int stopwatch {0};      ///< Stopwatch value
 
 public:
     Game() = delete;
@@ -45,8 +46,21 @@ public:
      * \brief Stopwatch clock
      * \return int -
      */
-    inline int time() const
-    { return clock.getElapsedTime().asSeconds(); }
+    inline int time() const { return stopwatch; }
+
+    /**
+     * \brief Is needed to change clock on the screen? + Change stopwatch value
+     * \post stopwatch value change
+     * \return true - yes
+     * \return false - no
+     */
+    inline bool changeClock(){
+        if( running && stopwatch != clock.getElapsedTime().asSeconds() ){
+            stopwatch = clock.getElapsedTime().asSeconds();
+            return true;
+        }
+        else return false;
+    }
 
     /**
      * \brief Is game on?

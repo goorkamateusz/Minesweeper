@@ -31,7 +31,6 @@ int main( int argc, char* argv[] ){
 
         /// 3. Game loop
         bool change = true;
-        int time;
 
         while( window.isOpen() ){
 
@@ -58,12 +57,8 @@ int main( int argc, char* argv[] ){
                 change = true;
             }
 
-            if( game.isOn() )
-                //* Clock
-                if( time != game.time() ){
-                    time = game.time();
-                    change = true;
-                }
+            //* Clock
+            if( game.changeClock() ) change = true;
 
             //* Display
             if( change ){

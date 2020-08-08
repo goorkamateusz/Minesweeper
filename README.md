@@ -62,6 +62,8 @@ You can use comand `make doxygen` in main project dir.
 ## License
 See a file [LICENSE.md](LICENSE.md).
 
-## ToDo List
+## To Do List
 - [ ] Linux test
-- [ ] start interface
+- [ ] Stat game interface
+- [ ] Board size modify by GUI
+- [ ] One file compile (image, font zip in)

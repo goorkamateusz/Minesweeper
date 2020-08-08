@@ -92,14 +92,11 @@ public:
      * \param seconds -
      */
     void stopwatch( unsigned int seconds );
-    //idea make inline
 
     /**
      * \brief Update value of score on the display
      * \param score -
      */
     void score( unsigned int score );
-    //idea make inline
-
 
 };
