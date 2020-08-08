@@ -55,6 +55,23 @@ Game::Game( const int argc, const char* const argv[] ){
     ///- Config Display
     this->display.config( Vector2D(w,h) );
 
+    ///- Init values
+    this->buttRev = false;
+}
+
+////----------------------------------------------------------------------
+void Game::finish(){
+    running = false;                ///- Set running to false
+
+    //todo finish the game
+}
+
+////----------------------------------------------------------------------
+void Game::start(){
+
+    clock.restart();
+    //todo start the gane
+
 }
 
 ////----------------------------------------------------------------------
@@ -62,34 +79,36 @@ void Game::click( const sf::RenderWindow& window, const sf::Mouse::Button butt )
 
     Vector2i mouse_pos = Mouse::getPosition(window);
 
-    if( mouse_pos.y > GUI_MARGIN_T ){       //inside board
+    if( this->isOn() ){
 
-        if( this->firstAction( butt ) ){
-            ///- First action on the board: uncover the field.
-            this->board.uncover( Game::position( mouse_pos ) );
-        }
-        else {
-            if( this->board.created() )
-                ///- Second action on the covered field: flag the field.
-                /// If field is uncovered: if it's possible uncover fields around.
-                this->board.action( Game::position( mouse_pos ) );
-            else
-                ///- If board isn't created, second move is create and uncover too.
+        if( mouse_pos.y > GUI_MARGIN_T ){       //inside board
+
+            if( this->firstAction( butt ) ){
+                ///- First action on the board: uncover the field.
                 this->board.uncover( Game::position( mouse_pos ) );
+            }
+            else {
+                if( this->board.created() )
+                    ///- Second action on the covered field: flag the field.
+                    /// If field is uncovered: if it's possible uncover fields around.
+                    this->board.action( Game::position( mouse_pos ) );
+                else
+                    ///- If board isn't created, second move is create and uncover too.
+                    this->board.uncover( Game::position( mouse_pos ) );
+            }
+        }
+        else {                                  // outside board
+            buttRev = ! buttRev;
+            this->display.changeButt( buttRev );
         }
     }
-    else {                                  // outside board
-        buttRev = ! buttRev;
-        this->display.changeButt( buttRev );
+    else {
+
+        //todo click to turn on the game.
+
     }
 }
 
-////----------------------------------------------------------------------
-bool Game::clockChange() const {
-    //todo
-
-    return false;
-}
 
 ////----------------------------------------------------------------------
 Vector2D Game::position( const sf::Vector2i& pos )
@@ -110,8 +129,8 @@ void Game::draw( sf::RenderTarget& target, sf::RenderStates states ) const {
 
 ////----------------------------------------------------------------------
 void Game::update(){
-    this->display.score( 99 );
-    this->display.stopwatch( 99 );
+    this->display.score( this->board.noFlaggedMines() );
+    this->display.stopwatch( this->time() );
 }
 
 ////----------------------------------------------------------------------

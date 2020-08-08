@@ -16,7 +16,8 @@ class Board {
 private:
     Vector2D size {0,0};        ///< Size od board
     Field** board {NULL};       ///< Array of fields on the board. Coordinates: Board[ x ][ y ]
-    short unsigned int mines;   ///< Number of mines.
+    short int mines;            ///< Number of no flagged mines.
+    short unsigned int covered; ///< Number of covered fields.
 
 public:
     /**
@@ -55,6 +56,13 @@ public:
      * \brief Display debug.
      */
     void debug() const;
+
+    /**
+     * \brief Number of flags
+     * \return short int -
+     */
+    inline short int noFlaggedMines() const
+    { return mines; }
 
 public:
     /**

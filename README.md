@@ -62,6 +62,6 @@ You can use comand `make doxygen` in main project dir.
 ## License
 See a file [LICENSE.md](LICENSE.md).
 
-## TODO List
+## ToDo List
 - [ ] Linux test
-- [ ]
+- [ ] start interface

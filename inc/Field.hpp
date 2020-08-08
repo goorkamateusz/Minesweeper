@@ -77,7 +77,7 @@ public:
 	 * \param value -
 	 */
 	inline void val( const uint8_t value )
-	{ code &= 0xF0; code |= value; }
+	{ code = value; code &= 0x0F; }
 
 public:
 	/**
@@ -87,6 +87,12 @@ public:
 	{ code &= 0x0F; code |= 0x10; }
 
 	/**
+	 * \brief Delete flag from the field
+	 */
+	inline void unflag()
+	{ code &= 0x0F; /*code |= 0x00; //hack */ }
+
+	/**
 	 * \brief Uncover the field
 	 */
 	inline void uncover()
@@ -94,21 +100,29 @@ public:
 
 public:
 	/**
-	 * \brief Is field flaged?
-	 * ** flaged fild is covered! **`
+	 * \brief Is field flagged?
+	 * ** flagged fild is covered! **`
 	 * \return true - yes
 	 * \return false - no
 	 */
-	inline bool flaged() const
+	inline bool flagged() const
 	{ return ( code & 0xF0 ) == 0x10; }
 
 	/**
-	 * \brief Is field covered
+	 * \brief Is field covered? (is cover or flagged)
 	 * \return true - yes
 	 * \return false - no
 	 */
 	inline bool covered() const
 	{ return ( code & 0xF0 ) != 0x20; }
+
+	/**
+	 * \brief Is the field able to uncover? (is covered)
+	 * \return true - yes
+	 * \return false - no
+	 */
+	inline bool uncoverAble() const
+	{ return ( code & 0xF0 ) == 0x00; }
 
 	/**
 	 * \brief Is the mine?!
@@ -118,15 +132,13 @@ public:
 	inline bool mine() const
 	{ return ( code & 0x0F ) == 0x09; }
 
-
 	/**
-	 * \brief Is the file empty?
+	 * \brief Is the field empty?
 	 * \return true - yes
 	 * \return false - no
 	 */
 	inline bool empty() const
 	{ return ( code & 0x0F ) == 0x00; }
-
 };
 
 

@@ -13,7 +13,7 @@ TField* Display::Template[ NUM_FIELD_VIEW ] = {NULL,NULL,NULL,NULL,NULL,NULL,NUL
 TField* const Display::pointer( const Field& field ){
     ///- Find the code of field
     short int id;   ///< id of field
-    if( field.flaged() )        id = 10;
+    if( field.flagged() )       id = 10;
     else if( field.covered() )  id = 11;
     else                        id = field.val();
 
@@ -57,16 +57,25 @@ void Display::config( const Vector2D& size ){
     score_bg.setPosition( size.x*FIELD_SIZE - SCORE_X_BG, SCORE_Y_BG );
 
     ///- Stopwatch text config
-    //todo
+    stopwatch_txt.setFont( font );
+    stopwatch_txt.setPosition( STOPWATCH_X, STOPWATCH_Y );
+    stopwatch_txt.setCharacterSize( STOPWATCH_FONT );
+    stopwatch_txt.setFillColor( sf::Color::White );
 
     ///- Set position and texture of stopwatch
-    //todo konstruktor - tworzenie zegara
+    if( ! stopwatch_texture.loadFromFile("gui/stopwatch-bg.png") )
+        throw ErrSys("cann't find stopwatch-bg.png");
+
+    stopwatch_bg.setTexture( stopwatch_texture );
+    stopwatch_bg.setPosition( STOPWATCH_X_BG, STOPWATCH_Y_BG );
+
+    //todo start game icon
 }
 
 ////-----------------------------------------------------
 void Display::changeButt( const bool mode ){
-    if( mode )  this->mode_butt.setTexture( this->click_texture );
-    else        this->mode_butt.setTexture( this->flag_texture );
+    if( mode )  this->mode_butt.setTexture( this->flag_texture );
+    else        this->mode_butt.setTexture( this->click_texture );
 }
 
 ////-----------------------------------------------------
@@ -79,7 +88,12 @@ Display::~Display(){
 
 ////-----------------------------------------------------
 void Display::stopwatch( unsigned int seconds ){
-    //todo
+    stringstream strm;
+    if( seconds / 60 < 10 )     strm << '0';
+    strm << seconds / 60 << ':';
+    if( seconds % 60 < 10 )     strm << '0';
+    strm << seconds % 60;
+    stopwatch_txt.setString( strm.str() );
 }
 
 ////-----------------------------------------------------
@@ -99,7 +113,8 @@ void Display::draw( sf::RenderTarget& target ) const {
     target.draw( score_txt );
 
     ///- Stopwatch draw
-    //todo stopwatch
+    target.draw( stopwatch_bg );
+    target.draw( stopwatch_txt );
 }
 
 ////-----------------------------------------------------

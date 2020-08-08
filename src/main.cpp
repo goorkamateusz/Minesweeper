@@ -31,6 +31,7 @@ int main( int argc, char* argv[] ){
 
         /// 3. Game loop
         bool change = true;
+        int time;
 
         while( window.isOpen() ){
 
@@ -41,18 +42,28 @@ int main( int argc, char* argv[] ){
                 if (event.type == Event::Closed)
                     window.close();
 
-                // Buttons
-                if( Mouse::isButtonPressed( Mouse::Left ) )
-                    game.click( window, Mouse::Left );
+                try {
+                    // Buttons
+                    if( Mouse::isButtonPressed( Mouse::Left ) )
+                        game.click( window, Mouse::Left );
 
-                if( Mouse::isButtonPressed( Mouse::Right ) )
-                    game.click( window, Mouse::Right );
+                    if( Mouse::isButtonPressed( Mouse::Right ) )
+                        game.click( window, Mouse::Right );
+                }
+                catch( const EndGame& exc ){
+                    cout << "Koniec gry: " << exc.what() << endl;
+                    game.finish();
+                }
 
                 change = true;
             }
 
-            //* Clock
-            if( game.clockChange() ) change = true;
+            if( game.isOn() )
+                //* Clock
+                if( time != game.time() ){
+                    time = game.time();
+                    change = true;
+                }
 
             //* Display
             if( change ){
@@ -71,10 +82,6 @@ int main( int argc, char* argv[] ){
             sf::sleep( milliseconds( SLEEP_TIME ) );
         }
 
-    }
-    catch( const EndGame& exc ){
-        //todo end of game communicate
-        cout << "! " << exc.what() << endl;
     }
     catch( const Error& err ){
         cerr << "!!! Critical error: " << endl;

@@ -21,15 +21,15 @@
 ////---------------------------------------------
 #define STOPWATCH_X_BG  0 		///< x position of stopwatch background (from top-right corner)
 #define STOPWATCH_Y_BG  0 		///< y position of stopwatch background (from top-right corner)
-#define STOPWATCH_X     8 		///< x position of stopwatch text (from top-right corner)
-#define STOPWATCH_Y     8 		///< y position of stopwatch text (from top-right corner)
-#define STOPWATCH_FONT  22		///< size of stopwatch font [px]
+#define STOPWATCH_X     32 		///< x position of stopwatch text (from top-right corner)
+#define STOPWATCH_Y     6 		///< y position of stopwatch text (from top-right corner)
+#define STOPWATCH_FONT  25		///< size of stopwatch font [px]
 
 #define SCORE_X_BG      40   	///< x position of score background (from top-left corner)
 #define SCORE_Y_BG      0   	///< y position of score background (from top-left corner)
 #define SCORE_X         70		///< x position of score text (from top-left corner)
-#define SCORE_Y         6		///< y position of score text (from top-left corner)
-#define SCORE_FONT      30		///< size of stopwatch font [px]
+#define SCORE_Y         0		///< y position of score text (from top-left corner)
+#define SCORE_FONT      35		///< size of stopwatch font [px]
 
 ////---------------------------------------------
 #define MAX_ATTEMPTS    10000	///< Max amount of attempts of rand

@@ -10,11 +10,13 @@
  */
 class Game : public sf::Drawable {
 private:
-    Board board;          ///< Board of game
-    Display display;      ///< Care about display a game
+    Board board;            ///< Board of game
+    Display display;        ///< Care about display a game
 
-    bool buttRev {false}; ///< Current button mode. 0 - normal, 1 - revers button.
+    bool buttRev {false};   ///< Current button mode. 0 - normal, 1 - revers button.
+    bool running {true};    ///< Is game running on?
 
+    sf::Clock clock;        ///< Stopwatcher
 
 public:
     Game() = delete;
@@ -40,11 +42,29 @@ public:
     void click( const sf::RenderWindow& window, const sf::Mouse::Button butt );
 
     /**
-     * \brief Have clock been changed?
-     * \return true -
-     * \return false -
+     * \brief Stopwatch clock
+     * \return int -
      */
-    bool clockChange() const;
+    inline int time() const
+    { return clock.getElapsedTime().asSeconds(); }
+
+    /**
+     * \brief Is game on?
+     * \return true - yes
+     * \return false - no
+     */
+    inline bool isOn() const
+    { return running; }
+
+    /**
+     * \brief Finish the game.
+     */
+    void finish();
+
+    /**
+     * \brief Start the game.
+     */
+    void start();
 
 private:
     /**
@@ -54,7 +74,7 @@ private:
      * \return false - no
      */
     inline bool firstAction( const sf::Mouse::Button butt ) const
-    { return butt == sf::Mouse::Left ? this->buttRev : ! this->buttRev; }
+    { return butt == sf::Mouse::Left ? ! this->buttRev : this->buttRev; }
 
     /**
      * \brief Convert coordinates.

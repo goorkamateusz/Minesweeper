@@ -29,11 +29,15 @@ private:
     sf::Texture click_texture;      ///< Click mode "click" texture
     sf::Sprite  mode_butt;          ///< Mode button spirte
 
+    sf::Font    font;               ///< Font
+
     sf::Texture score_texture;      ///< Score counter backgroun texture
     sf::Sprite  score_bg;           ///< Score counter background
     sf::Text    score_txt;          ///< Score counter text
 
-    sf::Font    font;               ///< Font
+    sf::Texture stopwatch_texture;  ///< Stopwatch background textrue
+    sf::Sprite  stopwatch_bg;       ///< Stopwatch background
+    sf::Text    stopwatch_txt;      ///< Stopwatch text
 
 
 private:
