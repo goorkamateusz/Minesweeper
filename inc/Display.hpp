@@ -31,6 +31,9 @@ private:
 
     sf::Font    font;               ///< Font
 
+    sf::Texture start_texture;      ///< Score counter backgroun texture
+    sf::Sprite  start_butt;         ///< Score counter background
+
     sf::Texture score_texture;      ///< Score counter backgroun texture
     sf::Sprite  score_bg;           ///< Score counter background
     sf::Text    score_txt;          ///< Score counter text
@@ -86,6 +89,13 @@ public:
      * \param target - window target
      */
     void draw( sf::RenderTarget& target ) const;
+
+    /**
+     * \brief Draw start button on interface
+     * \param target - 
+     */
+    void drawStart( sf::RenderTarget& target ) const
+    { target.draw( start_butt ); }
 
     /**
      * \brief Update a value of stopwatch time.

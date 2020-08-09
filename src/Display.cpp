@@ -69,7 +69,13 @@ void Display::config( const Vector2D& size ){
     stopwatch_bg.setTexture( stopwatch_texture );
     stopwatch_bg.setPosition( STOPWATCH_X_BG, STOPWATCH_Y_BG );
 
-    //todo start game icon
+    ///- Load start button
+    if( ! start_texture.loadFromFile("gui/start.png") )
+        throw ErrSys("cann't find start.png");
+
+    start_butt.setTexture( start_texture );
+    start_butt.setPosition( (size.x*FIELD_SIZE)/2 + START_X, START_Y );
+
 }
 
 ////-----------------------------------------------------

@@ -62,14 +62,20 @@ Game::Game( const int argc, const char* const argv[] ){
 ////----------------------------------------------------------------------
 void Game::finish(){
     running = false;                ///- Set running to false
-    //todo finish the game
 }
 
 ////----------------------------------------------------------------------
 void Game::start(){
+    ///- Stopwatch clear
     clock.restart();
     stopwatch = 0;
     //todo start the gane
+
+    ///- Clear board
+    this->board.restart();          ///- Restart the board
+
+    ///- Start running mode
+    running = true;
 
 }
 
@@ -96,15 +102,14 @@ void Game::click( const sf::RenderWindow& window, const sf::Mouse::Button butt )
                     this->board.uncover( Game::position( mouse_pos ) );
             }
         }
-        else {                                  // outside board
+        else {                                  // outside board (top bar)
             buttRev = ! buttRev;
             this->display.changeButt( buttRev );
         }
     }
     else {
-
-        //todo click to turn on the game.
-
+        ///- Start the game
+        this->start();
     }
 }
 
@@ -124,6 +129,8 @@ unsigned int Game::height() const
 void Game::draw( sf::RenderTarget& target, sf::RenderStates states ) const {
     this->display.board( target, &this->board );
     this->display.draw( target );
+
+    if( ! this->isOn() ) this->display.drawStart( target );
 }
 
 ////----------------------------------------------------------------------

@@ -48,6 +48,8 @@ int main( int argc, char* argv[] ){
 
                     if( Mouse::isButtonPressed( Mouse::Right ) )
                         game.click( window, Mouse::Right );
+
+                    sf::sleep( milliseconds( SLEEP_TIME ) );
                 }
                 catch( const EndGame& exc ){
                     cout << "Koniec gry: " << exc.what() << endl;

@@ -104,6 +104,7 @@ void Board::set( unsigned int w, unsigned int h, unsigned int m ){
 
     ///- Set values
     this->mines = m;
+    this->mines_init = m;
     this->size = Vector2D( w, h );
     this->covered = size.area() - m;
 
@@ -117,6 +118,16 @@ void Board::set( unsigned int w, unsigned int h, unsigned int m ){
 }
 
 ////----------------------------------------------------------------
+void Board::restart(){
+    ///- Free board
+    this->free();
+
+    ///- Restart covered value
+    this->mines = this->mines_init;
+    covered = size.area() - this->mines_init;
+}
+
+////----------------------------------------------------------------
 void Board::free(){
     if( this->board != NULL ){
         for( short int i=0; i<size.y; ++i )
@@ -124,6 +135,7 @@ void Board::free(){
 
         delete[] this->board;
     }
+    this->board = NULL;
 }
 
 ////----------------------------------------------------------------

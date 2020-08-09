@@ -14,8 +14,9 @@
  */
 class Board {
 private:
-    Vector2D size {0,0};        ///< Size od board
-    Field** board {NULL};       ///< Array of fields on the board. Coordinates: Board[ x ][ y ]
+    Vector2D size {0,0};        ///< Size od board.
+    Field** board {NULL};       ///< Array of fields on the board. Coordinates: Board[ x ][ y ].
+    short int mines_init;       ///< Number of mines in beginning of the game.
     short int mines;            ///< Number of no flagged mines.
     short unsigned int covered; ///< Number of covered fields.
 
@@ -39,6 +40,13 @@ public:
      * \post Modifly `size` and `mines`
      */
     void set( unsigned int w, unsigned int h, unsigned int m );
+
+    /**
+     * \brief Restart the board.
+     * \post -
+     *
+     */
+    void restart();
 
     /**
      * \brief Uncover the choosen field

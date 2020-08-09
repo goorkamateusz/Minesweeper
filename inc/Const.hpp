@@ -6,7 +6,7 @@
 #define DEFAULT_MINE   50 		///< Default number of mines
 
 ////--------------------------------------------------
-#define FIELD_SIZE   	20		///< Sizes of field on the board
+#define FIELD_SIZE   	22		///< Sizes of field on the board
 #define GUI_MARGIN_T 	40		///< GUI top margin
 #define GUI_MARGIN_B 	0		///< GUI bottom margin.
 ////---------------------------------------------
@@ -30,6 +30,9 @@
 #define SCORE_X         70		///< x position of score text (from top-left corner)
 #define SCORE_Y         0		///< y position of score text (from top-left corner)
 #define SCORE_FONT      35		///< size of stopwatch font [px]
+
+#define START_X			-59		///< x position of start button (from center point)
+#define START_Y			0		///< y position of start button (from top edge
 
 ////---------------------------------------------
 #define MAX_ATTEMPTS    10000	///< Max amount of attempts of rand

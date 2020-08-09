@@ -14,7 +14,7 @@ private:
     Display display;        ///< Care about display a game
 
     bool buttRev {false};   ///< Current button mode. 0 - normal, 1 - revers button.
-    bool running {true};    ///< Is game running on?
+    bool running {false};   ///< Is game running on?
 
     sf::Clock clock;        ///< Stopwatch clock
     int stopwatch {0};      ///< Stopwatch value
