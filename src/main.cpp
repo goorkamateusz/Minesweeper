@@ -43,20 +43,21 @@ int main( int argc, char* argv[] ){
 
                 try {
                     // Buttons
-                    if( Mouse::isButtonPressed( Mouse::Left ) )
-                        game.click( window, Mouse::Left );
+                    if( ! change ){
+                        if( Mouse::isButtonPressed( Mouse::Left ) )
+                            game.click( window, Mouse::Left );
 
-                    if( Mouse::isButtonPressed( Mouse::Right ) )
-                        game.click( window, Mouse::Right );
+                        if( Mouse::isButtonPressed( Mouse::Right ) )
+                            game.click( window, Mouse::Right );
 
-                    sf::sleep( milliseconds( SLEEP_TIME ) );
+                        change = true;
+                    }
+
                 }
                 catch( const EndGame& exc ){
                     cout << "Koniec gry: " << exc.what() << endl;
                     game.finish();
                 }
-
-                change = true;
             }
 
             //* Clock
@@ -76,7 +77,8 @@ int main( int argc, char* argv[] ){
                 change = false;
             }
 
-            sf::sleep( milliseconds( SLEEP_TIME ) );
+            sf::sleep( milliseconds( SLEEP_LOOP ) );
+
         }
 
     }

@@ -84,6 +84,10 @@ void Game::click( const sf::RenderWindow& window, const sf::Mouse::Button butt )
 
     Vector2i mouse_pos = Mouse::getPosition(window);
 
+    ///- Check the click is in the window
+    if( mouse_pos.x < 0 || mouse_pos.x > width() ) return;
+    if( mouse_pos.y < 0 || mouse_pos.y > height() ) return;
+
     if( this->isOn() ){
 
         if( mouse_pos.y > GUI_MARGIN_T ){       //inside board
@@ -113,17 +117,9 @@ void Game::click( const sf::RenderWindow& window, const sf::Mouse::Button butt )
     }
 }
 
-
 ////----------------------------------------------------------------------
 Vector2D Game::position( const sf::Vector2i& pos )
 { return Vector2D( pos.x/FIELD_SIZE, (pos.y-GUI_MARGIN_T)/FIELD_SIZE ); }
-
-////----------------------------------------------------------------------
-unsigned int Game::width() const
-{ return this->board.w()*FIELD_SIZE; }
-
-unsigned int Game::height() const
-{ return this->board.h()*FIELD_SIZE + GUI_MARGIN_B + GUI_MARGIN_T; }
 
 ////----------------------------------------------------------------------
 void Game::draw( sf::RenderTarget& target, sf::RenderStates states ) const {

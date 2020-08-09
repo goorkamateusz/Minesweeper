@@ -112,14 +112,16 @@ public:
 
     /**
      * \brief Width of game window.
-     * \return unsigned int -
+     * \return short int -
      */
-    unsigned int width() const;
+    inline short int width() const
+    { return this->board.w()*FIELD_SIZE; }
 
     /**
      * \brief Height of game window.
-     * \return unsigned int -
+     * \return short int -
      */
-    unsigned int height() const;
+    inline short int height() const
+    { return this->board.h()*FIELD_SIZE + GUI_MARGIN_T; }
 
 };
