@@ -1,9 +1,7 @@
 /**
  * \file Error.hpp
- * \author Górka Mateusz (248962@student.pwr.edu.pl)
+ * \author Górka Mateusz
  * \brief Error handling classes
- * \version 0.0.0
- * \date 2020-08-05
  *
  * @copyright Copyright (c) 2020
  *

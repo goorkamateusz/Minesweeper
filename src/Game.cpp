@@ -62,6 +62,8 @@ Game::Game( const int argc, const char* const argv[] ){
 ////----------------------------------------------------------------------
 void Game::finish(){
     running = false;                ///- Set running to false
+
+    //todo end game message
 }
 
 ////----------------------------------------------------------------------
@@ -69,14 +71,12 @@ void Game::start(){
     ///- Stopwatch clear
     clock.restart();
     stopwatch = 0;
-    //todo start the gane
 
     ///- Clear board
     this->board.restart();          ///- Restart the board
 
     ///- Start running mode
     running = true;
-
 }
 
 ////----------------------------------------------------------------------
@@ -134,13 +134,3 @@ void Game::update(){
     this->display.score( this->board.noFlaggedMines() );
     this->display.stopwatch( this->time() );
 }
-
-////----------------------------------------------------------------------
-
-
-
-////----------------------------------------------------------------------
-
-
-
-

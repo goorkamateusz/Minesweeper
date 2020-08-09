@@ -1,7 +1,9 @@
 # Minesweeper2
-![](gui/flag.png) Minesweeper game in C++.
+![](gui/butt-flag.png) Minesweeper game in C++.
 
 > **Przeczytaj [README w języku polskim](README.pl.md)!**
+
+![](doc/example1.gif)
 
 ## Author
 >   **Górka Mateusz**\
@@ -20,7 +22,7 @@
     - [Specification](#Specification)
 - [License](#License)
 
-![](gui/mine.png)
+![](gui/butt-click.png)
 
 ## Game
 ### Prepare:
@@ -42,6 +44,7 @@ Exp.: `./Minesweeper2.exe -w 20 -h 15 -m 70`
  - First click is always safe!
  - Game is finish when all no mine fields are uncovered.
 
+![](gui/score-bg.png)
 
 ## Dev
 ### Documentation
@@ -50,8 +53,12 @@ You can use comand `make doxygen` in main project dir.
 [Link to generated documentation](dox/html/index.phtml)
 
 ### Exception
-...
-<!-- todo exceptions ! -->
+Exception                                       | Why?
+:-----------------------------------------------|:------
+Can't find [file name]                          | app can't find a gui texture or font file in `/gui` dir.
+Can't load file of textrue.                     | app can't find a texture of field in `/gui` dir.
+Too much attempts to rand location of mines.    | rand a location of mines takes to long.
+001                                             | Unexpected board::alloc()
 
 ### Specification
 - Language: C++
@@ -64,6 +71,6 @@ See a file [LICENSE.md](LICENSE.md).
 
 ## To Do List
 - [ ] Linux test
-- [ ] Stat game interface
+- [ ] Start and end game interface
 - [ ] Board size modify by GUI
 - [ ] One file compile (image, font zip in)

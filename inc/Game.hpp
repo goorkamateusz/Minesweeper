@@ -92,8 +92,8 @@ private:
 
     /**
      * \brief Convert coordinates.
-     * \param pos -
-     * \return Vector2D -
+     * \param pos - position on the window
+     * \return Vector2D - position on the board
      */
     static Vector2D position( const sf::Vector2i& pos );
 
@@ -112,14 +112,14 @@ public:
 
     /**
      * \brief Width of game window.
-     * \return short int -
+     * \return short int - width
      */
     inline short int width() const
     { return this->board.w()*FIELD_SIZE; }
 
     /**
      * \brief Height of game window.
-     * \return short int -
+     * \return short int - height
      */
     inline short int height() const
     { return this->board.h()*FIELD_SIZE + GUI_MARGIN_T; }

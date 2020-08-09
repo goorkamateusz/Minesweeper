@@ -22,8 +22,6 @@ Board::~Board(){
 ////----------------------------------------------------------------
 void Board::uncover( const Vector2D& click ){
 
-    //idea optymalise!
-
     if( this->created() ){
 
         ///- Nothing do when click on the uncovered
@@ -53,7 +51,7 @@ void Board::uncover( const Vector2D& click ){
         ///- Create, randMines and uncover the field (recursive!)
         alloc();
         randMines( click );
-        countFields();
+        calcFields();
         this->uncover( click );
     }
 }
@@ -75,7 +73,7 @@ void Board::action( const Vector2D& click ){
         ///- If field is uncover, uncover around (if it's possible).
         else{
             // uncover around
-            uint8_t nflags = 0;         ///< number of flags around
+            uint8_t nflags = 0;         // number of flags around
 
             for(uint8_t i=0; i<8; ++i )
                 if( this->inside( click + Board::AROUND[i] ) )
@@ -140,9 +138,6 @@ void Board::free(){
 
 ////----------------------------------------------------------------
 void Board::alloc(){
-    /// Free space
-    // this->free();
-
     if( size.x < 1 || size.y < 1 ) throw ErrSys("001");
 
     /// Create new board
@@ -183,9 +178,9 @@ void Board::randMines( const Vector2D& click ){
 }
 
 ////----------------------------------------------------------------
-void Board::countFields(){
+void Board::calcFields(){
 
-    uint8_t count;                          // counter
+    uint8_t count;                          // counter of mines around
     Vector2D pos, around;
 
     for( pos.x=0; pos.x < size.x; ++pos.x )

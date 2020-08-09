@@ -7,10 +7,6 @@
 /**
  * \brief Board of game
  *
- * TODO:
- *  todo: tworzenie mapy, losowanie pozycji min
- *  todo: wykonywanie ruchu
- *  todo:
  */
 class Board {
 private:
@@ -52,7 +48,7 @@ public:
      * \brief Uncover the choosen field
      * \param click - position of the field
      */
-    void uncover( const Vector2D& pos );
+    void uncover( const Vector2D& click );
 
     /**
      * \brief Do second action on selected field.
@@ -61,13 +57,13 @@ public:
     void action( const Vector2D& click );
 
     /**
-     * \brief Display debug.
+     * \brief Display board on the console to debuging
      */
     void debug() const;
 
     /**
-     * \brief Number of flags
-     * \return short int -
+     * \brief Number of no flagged mines on the board.
+     * \return short int - number of no flagged mines = mines_init - flag
      */
     inline short int noFlaggedMines() const
     { return mines; }
@@ -75,14 +71,14 @@ public:
 public:
     /**
      * \brief Width of board
-     * \return unsigned int -
+     * \return unsigned int - width
      */
     inline int w() const
     { return this->size.x; }
 
     /**
      * \brief Height of board
-     * \return unsigned int -
+     * \return unsigned int - width
      */
     inline int h() const
     { return this->size.y; }
@@ -107,8 +103,9 @@ public:
 public:
     /**
      * \brief Value of field. Without checking a correct of position!
-     * \param vec -
-     * \return Field& -
+     * \warning Method don't check, is field exist!
+     * \param vec - position on the board
+     * \return Field& - field const
      */
     inline const Field& operator () ( const Vector2D& vec ) const
     { return board[ vec.x ][ vec.y ]; }
@@ -116,8 +113,9 @@ public:
 private:
     /**
      * \brief Value of field. Without checking a correct of position!
-     * \param vec -
-     * \return Field& -
+     * \warning Method don't check, is field exist!
+     * \param vec - position on the board
+     * \return Field& - field to edit
      */
     inline Field& operator () ( const Vector2D& vec )
     { return board[ vec.x ][ vec.y ]; }
@@ -138,21 +136,19 @@ private:
 
     /**
      * \brief Rand mines position on the board.
-     * \exception
+     * \exception Possible exceptions:
      *  - Too much mines!
      *      Maximum number of mines is area of board - 9 (first click is on the empty field!)
      *  - Too least mines!
      *      Minumum number of mines is const in Const.hpp.
-     * \param num_mines -
+     * \param click - where was the first click
      */
     void randMines( const Vector2D& click );
 
-
     /**
-     * \brief Count values of field after rand mines position.
+     * \brief Calculate values of field after rand mines position.
      */
-    void countFields();
-
+    void calcFields();
 
     /**
      * \brief Vectors of around coordinates.

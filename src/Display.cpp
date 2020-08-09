@@ -29,10 +29,10 @@ TField* const Display::pointer( const Field& field ){
 void Display::config( const Vector2D& size ){
     ///- Load button textures
     if( ! flag_texture.loadFromFile("gui/butt-flag.png") )
-        throw ErrSys("cann't find butt-flag.png");
+        throw ErrSys("can't find butt-flag.png");
 
     if( ! click_texture.loadFromFile("gui/butt-click.png") )
-        throw ErrSys("cann't find butt-click.png");
+        throw ErrSys("can't find butt-click.png");
 
     ///- Set positions and default texture of mode button
     mode_butt.setPosition( (size.x*FIELD_SIZE - MODE_BUTT_W)/2, MODE_BUTT_Y  );
@@ -40,7 +40,7 @@ void Display::config( const Vector2D& size ){
 
     ///- Load font
     if( ! font.loadFromFile("gui/consola.ttf") )
-        throw ErrSys("cann't font consola.ttf");
+        throw ErrSys("can't font consola.ttf");
 
     ///- Score counter text config
     score_txt.setFont( font );
@@ -51,7 +51,7 @@ void Display::config( const Vector2D& size ){
 
     ///- Set position and texture of score counter
     if( ! score_texture.loadFromFile("gui/score-bg.png") )
-        throw ErrSys("cann't find score-bg.png");
+        throw ErrSys("can't find score-bg.png");
 
     score_bg.setTexture( score_texture );
     score_bg.setPosition( size.x*FIELD_SIZE - SCORE_X_BG, SCORE_Y_BG );
@@ -64,14 +64,14 @@ void Display::config( const Vector2D& size ){
 
     ///- Set position and texture of stopwatch
     if( ! stopwatch_texture.loadFromFile("gui/stopwatch-bg.png") )
-        throw ErrSys("cann't find stopwatch-bg.png");
+        throw ErrSys("can't find stopwatch-bg.png");
 
     stopwatch_bg.setTexture( stopwatch_texture );
     stopwatch_bg.setPosition( STOPWATCH_X_BG, STOPWATCH_Y_BG );
 
     ///- Load start button
     if( ! start_texture.loadFromFile("gui/start.png") )
-        throw ErrSys("cann't find start.png");
+        throw ErrSys("can't find start.png");
 
     start_butt.setTexture( start_texture );
     start_butt.setPosition( (size.x*FIELD_SIZE)/2 + START_X, START_Y );

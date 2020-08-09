@@ -8,19 +8,19 @@ using std::uint8_t;
 /**
  * \brief Field of the board.
  *
+ * - last 4 bites
  * number 	| posible vales				| code		| hex
  * :-		|:-							|:-			|:-
  * 0        | empty						| ----0000	| 0x00
  * 1 - 8    | number of mines around	|			| 0x01-0x8
  * 15       | mine						| ----1001	| 0x09
- * Last 4 bites.
  *
+ * - fisrt 4 bites
  * States		| code		| hex
  * :-			|:-			|:-
  * cover		| 0000----	| 0x00
  * flag			| 0001----	| 0x10
  * uncover		| 0010----	| 0x20
- * First 4 bites.
  *
  */
 class Field {
@@ -59,7 +59,7 @@ public:
 
 public:
 	/**
-	 * \brief Operator ..
+	 * \brief Operator of one side *
 	 * \return uint8_t -
 	 */
 	inline uint8_t& operator * ()
@@ -73,8 +73,9 @@ public:
 	{ return (uint8_t) code & 0x0F; }
 
 	/**
-	 * \brief Set value of field
-	 * \param value -
+	 * \brief Set value of field and cover
+	 * \param value - new value
+	 * \post After that field allways be covered!
 	 */
 	inline void val( const uint8_t value )
 	{ code = value; code &= 0x0F; }
@@ -101,7 +102,7 @@ public:
 public:
 	/**
 	 * \brief Is field flagged?
-	 * ** flagged fild is covered! **`
+	 * ** flagged field is covered! **
 	 * \return true - yes
 	 * \return false - no
 	 */
@@ -142,12 +143,10 @@ public:
 };
 
 
-////------------------------------------------------
-
 /**
  * \brief Operator to display a field information.
- * \param strm -
- * \param field -
- * \return std::ostream& -
+ * \param strm - ostream
+ * \param field - field
+ * \return std::ostream& - ostream
  */
 std::ostream& operator << ( std::ostream& strm, const Field& field );

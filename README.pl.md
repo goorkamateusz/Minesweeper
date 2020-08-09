@@ -1,7 +1,9 @@
 # Minesweeper2 (PL)
-![](gui/flag.png) Gra saper w C++.
+![](gui/butt-flag.png) Gra saper w C++.
 
 > **Read [README in english](README.md)!**
+
+![](doc/example1.gif)
 
 ## Autor
 >   **Górka Mateusz**\
@@ -20,7 +22,7 @@
     - [Specyfikacja](#Specyfikacja)
 - [Licencja](#Licencja)
 
-![](gui/mine.png)
+![](gui/butt-click.png)
 
 ## Gra
 ### Przygotowanie:
@@ -42,6 +44,7 @@ np.: `./Minesweeper2.exe -w 20 -h 15 -m 70`
  - Pierwsze naciśnięcie jest zawsze bezpieczne.
  - Gra kończy się gdy wszystkie pola nie zawierające miny są odkryte.
 
+![](gui/score-bg.png)
 
 ## Dev
 ### Dokumentacja
@@ -50,8 +53,12 @@ Możesz wykorzystać polecenie `make doxygen` w folderze głównym programu.
 [Link do wygenerowanej dokumentacji](dox/html/index.phtml)
 
 ### Wyjątki
-...
-<!-- todo exceptions ! -->
+Wyjątek                                         | Dlaczego?
+:-----------------------------------------------|:------
+Can't find [nazwa pliku]                        | Program nie może znaleźć tesktury lub czcionki z katalogu `/gui`
+Can't load file of textrue.                     | Program nie może znaleźć tekstury pola z katalogu `/gui`
+Too much attempts to rand location of mines.    | Losowanie pozycji min trwa zbyt długo
+001                                             | Niespodziewane wywołanie board::alloc()
 
 ### Specyfikacja
 - Language: C++
@@ -60,4 +67,4 @@ Możesz wykorzystać polecenie `make doxygen` w folderze głównym programu.
 - GUI: SFML Library
 
 ## Licencja
-Zobacz w pliku [LICENSE.md](@ref LICENSE.md).
+Zobacz w pliku [LICENSE.md](LICENSE.md).

@@ -113,5 +113,5 @@ std::ostream& operator << ( std::ostream& strm, const Vector2D_t<T>& vec ){
 
 ////-----------------------------------------------------------------------
 
-/// Vector2D.
+/// Vector2D typedef
 typedef Vector2D_t< short int > Vector2D;

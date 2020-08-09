@@ -25,6 +25,7 @@ private:
      */
     static TField* Template[NUM_FIELD_VIEW ];
 
+////-------------------------------------------------------------------
     sf::Texture flag_texture;       ///< Click mode flag texture
     sf::Texture click_texture;      ///< Click mode "click" texture
     sf::Sprite  mode_butt;          ///< Mode button spirte
@@ -43,6 +44,7 @@ private:
     sf::Text    stopwatch_txt;      ///< Stopwatch text
 
 
+////-------------------------------------------------------------------
 private:
     /**
      * \brief Field code to element on Templete array.
@@ -59,8 +61,6 @@ public:
 
     /**
      * \brief Config a Display class.
-     * \post
-     *  todo docs
      */
     void config( const Vector2D& size );
 
