@@ -53,6 +53,14 @@ void Board::uncover( const Vector2D& click ){
         randMines( click );
         calcFields();
         this->uncover( click );
+
+        /* Test fragment <---
+        for( int i=0; i<10; ++i ){
+            (*this)(Vector2D(1,i)).val( i );
+            (*this)(Vector2D(1,i)).uncover();
+        }
+        (*this)(Vector2D(3,3)).flag();
+        // ---> */
     }
 }
 
@@ -105,14 +113,6 @@ void Board::set( unsigned int w, unsigned int h, unsigned int m ){
     this->mines_init = m;
     this->size = Vector2D( w, h );
     this->covered = size.area() - m;
-
-    /* Test fragment <---
-    for( int i=0; i<10; ++i ){
-        (*this)(Vector2D(1,i)).val( i );
-        (*this)(Vector2D(1,i)).uncover();
-    }
-    (*this)(Vector2D(3,3)).flag();
-    // ---> */
 }
 
 ////----------------------------------------------------------------
@@ -174,7 +174,6 @@ void Board::randMines( const Vector2D& click ){
                 throw ErrSys("Too much attempts to rand location of mines.");
         }
     }
-
 }
 
 ////----------------------------------------------------------------

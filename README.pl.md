@@ -53,12 +53,7 @@ Możesz wykorzystać polecenie `make doxygen` w folderze głównym programu.
 [Link do wygenerowanej dokumentacji](dox/html/index.phtml)
 
 ### Wyjątki
-Wyjątek                                         | Dlaczego?
-:-----------------------------------------------|:------
-Can't find [nazwa pliku]                        | Program nie może znaleźć tesktury lub czcionki z katalogu `/gui`
-Can't load file of textrue.                     | Program nie może znaleźć tekstury pola z katalogu `/gui`
-Too much attempts to rand location of mines.    | Losowanie pozycji min trwa zbyt długo
-001                                             | Niespodziewane wywołanie board::alloc()
+See in English version. :)
 
 ### Specyfikacja
 - Language: C++

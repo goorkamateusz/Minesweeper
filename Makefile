@@ -13,8 +13,9 @@ FILES_LIST= \
 	obj/TField.o \
 	obj/Display.o \
 	obj/Game.o \
-	obj/main.o
-	# obj/_6_.o \
+	obj/Func.o \
+	obj/main.o \
+	obj/gui.o
 
 SFML_INSTR= -DSFML_STATIC \
 	-I .\SFML\include \
@@ -86,5 +87,9 @@ obj/Display.o: src/Display.cpp inc/Display.hpp
 obj/TField.o: src/TField.cpp inc/TField.hpp
 	g++ -c ${FLAGS} -o obj/TField.o src/TField.cpp ${SFML_INSTR}
 
-# obj/_5_.o: src/_5_.cpp inc/_5_.hpp
-# 	g++ -c ${FLAGS} -o obj/_5_.o src/_5_.cpp
+obj/Func.o: src/Func.cpp inc/Func.hpp
+	g++ -c ${FLAGS} -o obj/Func.o src/Func.cpp ${SFML_INSTR}
+
+obj/gui.o: inc/gui.rc
+	windres -i inc/gui.rc -o obj/gui.o
+

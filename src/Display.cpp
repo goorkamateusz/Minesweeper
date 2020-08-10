@@ -1,5 +1,6 @@
 #include "Display.hpp"
 #include "Error.hpp"
+#include "Func.hpp"
 #include <sstream>
 
 using namespace sf;
@@ -28,19 +29,15 @@ TField* const Display::pointer( const Field& field ){
 ////-----------------------------------------------------
 void Display::config( const Vector2D& size ){
     ///- Load button textures
-    if( ! flag_texture.loadFromFile("gui/butt-flag.png") )
-        throw ErrSys("can't find butt-flag.png");
-
-    if( ! click_texture.loadFromFile("gui/butt-click.png") )
-        throw ErrSys("can't find butt-click.png");
+    flag_texture = LoadTextureFromResource("BFLAG");
+    click_texture = LoadTextureFromResource("BCLICK");
 
     ///- Set positions and default texture of mode button
     mode_butt.setPosition( (size.x*FIELD_SIZE - MODE_BUTT_W)/2, MODE_BUTT_Y  );
     mode_butt.setTexture( this->click_texture );
 
     ///- Load font
-    if( ! font.loadFromFile("gui/consola.ttf") )
-        throw ErrSys("can't font consola.ttf");
+    font = LoadFontFromResource("CONSOLA");
 
     ///- Score counter text config
     score_txt.setFont( font );
@@ -50,8 +47,7 @@ void Display::config( const Vector2D& size ){
     score_txt.setStyle( sf::Text::Bold) ;
 
     ///- Set position and texture of score counter
-    if( ! score_texture.loadFromFile("gui/score-bg.png") )
-        throw ErrSys("can't find score-bg.png");
+    score_texture = LoadTextureFromResource("MINEC");
 
     score_bg.setTexture( score_texture );
     score_bg.setPosition( size.x*FIELD_SIZE - SCORE_X_BG, SCORE_Y_BG );
@@ -63,15 +59,13 @@ void Display::config( const Vector2D& size ){
     stopwatch_txt.setFillColor( sf::Color::White );
 
     ///- Set position and texture of stopwatch
-    if( ! stopwatch_texture.loadFromFile("gui/stopwatch-bg.png") )
-        throw ErrSys("can't find stopwatch-bg.png");
+    stopwatch_texture = LoadTextureFromResource("STOPW");
 
     stopwatch_bg.setTexture( stopwatch_texture );
     stopwatch_bg.setPosition( STOPWATCH_X_BG, STOPWATCH_Y_BG );
 
     ///- Load start button
-    if( ! start_texture.loadFromFile("gui/start.png") )
-        throw ErrSys("can't find start.png");
+    start_texture = LoadTextureFromResource("STARTI");
 
     start_butt.setTexture( start_texture );
     start_butt.setPosition( (size.x*FIELD_SIZE)/2 + START_X, START_Y );

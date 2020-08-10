@@ -14,6 +14,7 @@
 class Error {
 public:
     virtual const char* what() const { return "Unnamed error!"; }
+    virtual const char* where() const { return ""; }
 };
 
 
@@ -52,7 +53,6 @@ public:
     inline ErrSys( const char* txt ): info(txt){}
     const char* what() const { return info; }
 };
-
 
 /**
  * \brief End game exception.

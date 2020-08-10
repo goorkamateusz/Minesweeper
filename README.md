@@ -55,10 +55,9 @@ You can use comand `make doxygen` in main project dir.
 ### Exception
 Exception                                       | Why?
 :-----------------------------------------------|:------
-Can't find [file name]                          | app can't find a gui texture or font file in `/gui` dir.
-Can't load file of textrue.                     | app can't find a texture of field in `/gui` dir.
 Too much attempts to rand location of mines.    | rand a location of mines takes to long.
 001                                             | Unexpected board::alloc()
+RESORUCES ...                                   | That kind of errors is is reated to memory exces and resources in exe file.
 
 ### Specification
 - Language: C++
@@ -70,7 +69,5 @@ Too much attempts to rand location of mines.    | rand a location of mines takes
 See a file [LICENSE.md](LICENSE.md).
 
 ## To Do List
-- [ ] Linux test
-- [ ] Start and end game interface
+- [ ] Start and communicates
 - [ ] Board size modify by GUI
-- [ ] One file compile (image, font zip in)
