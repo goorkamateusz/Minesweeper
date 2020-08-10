@@ -62,8 +62,6 @@ Game::Game( const int argc, const char* const argv[] ){
 ////----------------------------------------------------------------------
 void Game::finish(){
     running = false;                ///- Set running to false
-
-    //todo end game message
 }
 
 ////----------------------------------------------------------------------
@@ -131,6 +129,6 @@ void Game::draw( sf::RenderTarget& target, sf::RenderStates states ) const {
 
 ////----------------------------------------------------------------------
 void Game::update(){
-    this->display.score( this->board.noFlaggedMines() );
+    this->display.mineCounter( this->board.noFlaggedMines() );
     this->display.stopwatch( this->time() );
 }

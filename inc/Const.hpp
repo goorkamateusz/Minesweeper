@@ -3,7 +3,7 @@
 ////--------------------------------------------------
 #define DEFAULT_Y_SIZE 10 		///< Default Y size of board
 #define DEFAULT_X_SIZE 20 		///< Default X size of board
-#define DEFAULT_MINE   50 		///< Default number of mines
+#define DEFAULT_MINE   30 		///< Default number of mines
 
 ////--------------------------------------------------
 #define MIN_SIZE        5       ///< Minimum sizes of board
@@ -27,11 +27,11 @@
 #define STOPWATCH_FONT  25		///< size of stopwatch font [px]
 
 ////--------------------------------------------------
-#define SCORE_X_BG      40   	///< x position of score background (from top-left corner)
-#define SCORE_Y_BG      0   	///< y position of score background (from top-left corner)
-#define SCORE_X         70		///< x position of score text (from top-left corner)
-#define SCORE_Y         0		///< y position of score text (from top-left corner)
-#define SCORE_FONT      35		///< size of stopwatch font [px]
+#define COUNTER_X_BG      40   	///< x position of mine counter background (from top-left corner)
+#define COUNTER_Y_BG      0   	///< y position of mine counter background (from top-left corner)
+#define COUNTER_X         70	///< x position of mine counter text (from top-left corner)
+#define COUNTER_Y         0		///< y position of mine counter text (from top-left corner)
+#define COUNTER_FONT      35	///< size of stopwatch font [px]
 
 ////--------------------------------------------------
 #define START_X			-59		///< x position of start button (from center point)
@@ -39,6 +39,7 @@
 
 ////--------------------------------------------------
 #define SLEEP_LOOP      80      ///< Sleep time of game loop
+#define SLEEP_CLICK     120     ///< Sleep time after click
 #define MAX_ATTEMPTS    10000	///< Max amount of attempts of rand
 
 ////--------------------------------------------------

@@ -15,7 +15,7 @@
 - [Game](#Game)
     - [Prepare](#Prepare)
     - [Running](#Running)
-    - [Game rule](#Game\ rule)
+    - [Game rule](#rule)
 - [Dev](#Dev)
     - [Documentation](#Documentation)
     - [Exception](#Exception)
@@ -40,6 +40,7 @@ arg          | help
 
 Exp.: `./Minesweeper2.exe -w 20 -h 15 -m 70`
 
+<a name="rule"></a>
 ### Game rule:
  - First click is always safe!
  - Game is finish when all no mine fields are uncovered.
@@ -55,9 +56,9 @@ You can use comand `make doxygen` in main project dir.
 ### Exception
 Exception                                       | Why?
 :-----------------------------------------------|:------
-Too much attempts to rand location of mines.    | rand a location of mines takes to long.
-001                                             | Unexpected board::alloc()
-RESORUCES ...                                   | That kind of errors is is reated to memory exces and resources in exe file.
+Too much attempts to rand location of mines.    | Rand a location of mines takes to long.
+ALLOC 001                                       | Unexpected Board::alloc()
+RESOURCES [...]                                 | That kind of errors is is related to memory access and resources in exe file.
 
 ### Specification
 - Language: C++
@@ -71,3 +72,4 @@ See a file [LICENSE.md](LICENSE.md).
 ## To Do List
 - [ ] Start and communicates
 - [ ] Board size modify by GUI
+- [ ] Prompts

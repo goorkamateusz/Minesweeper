@@ -120,6 +120,11 @@ private:
     inline Field& operator () ( const Vector2D& vec )
     { return board[ vec.x ][ vec.y ]; }
 
+    /**
+     * \brief Uncover all fields on the board
+     */
+    void uncoverAll();
+
 private:
     /**
      * \brief Create a array of board.

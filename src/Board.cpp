@@ -39,8 +39,10 @@ void Board::uncover( const Vector2D& click ){
             }
             else
                 ///- Lose the game when uncover a mine
-                if( (*this)(click).mine() )
+                if( (*this)(click).mine() ){
+                    this->uncoverAll();
                     throw EndGame("Boooom!");
+                }
 
             ///- Win the game when uncover every right fields
             if( this->covered == 0 )
@@ -138,7 +140,7 @@ void Board::free(){
 
 ////----------------------------------------------------------------
 void Board::alloc(){
-    if( size.x < 1 || size.y < 1 ) throw ErrSys("001");
+    if( size.x < 1 || size.y < 1 ) throw ErrSys("ALLOC 001");
 
     /// Create new board
     this->board = new Field*[ size.x ];
@@ -197,6 +199,14 @@ void Board::calcFields(){
                 (*this)(pos).val( count );      // set values
             }
         }
+}
+
+////----------------------------------------------------------------
+void Board::uncoverAll(){
+    Vector2D pos;
+    for(; pos.x < size.x; ++pos.x )
+        for( pos.y=0; pos.y < size.y; ++pos.y )
+            (*this)(pos).uncover();
 }
 
 ////----------------------------------------------------------------

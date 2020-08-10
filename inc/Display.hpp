@@ -32,12 +32,12 @@ private:
 
     sf::Font    font;               ///< Font
 
-    sf::Texture start_texture;      ///< Score counter backgroun texture
-    sf::Sprite  start_butt;         ///< Score counter background
+    sf::Texture start_texture;      ///< Mine counter counter backgroun texture
+    sf::Sprite  start_butt;         ///< Mine counter counter background
 
-    sf::Texture score_texture;      ///< Score counter backgroun texture
-    sf::Sprite  score_bg;           ///< Score counter background
-    sf::Text    score_txt;          ///< Score counter text
+    sf::Texture mine_texture;       ///< Mine counter counter backgroun texture
+    sf::Sprite  mine_bg;            ///< Mine counter counter background
+    sf::Text    mine_txt;           ///< Mine counter counter text
 
     sf::Texture stopwatch_texture;  ///< Stopwatch background textrue
     sf::Sprite  stopwatch_bg;       ///< Stopwatch background
@@ -104,9 +104,9 @@ public:
     void stopwatch( unsigned int seconds );
 
     /**
-     * \brief Update value of score on the display
-     * \param score -
+     * \brief Update value of mine on the display
+     * \param mine -
      */
-    void score( unsigned int score );
+    void mineCounter( unsigned int mine );
 
 };

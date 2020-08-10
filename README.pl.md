@@ -15,7 +15,7 @@
 - [Gra](#Gra)
     - [Przygotowanie](#Przygotowanie)
     - [Uruchomienie](#Uruchomienie)
-    - [Zasady gry](#Zasady\ gry)
+    - [Zasady gry](#zasady)
 - [Dev](#Dev)
     - [Documentation](#Documentation)
     - [Exception](#Exception)
@@ -40,6 +40,7 @@ arg          | pomoc
 
 np.: `./Minesweeper2.exe -w 20 -h 15 -m 70`
 
+<a name="zasady"></a>
 ### Zasady gry:
  - Pierwsze naciśnięcie jest zawsze bezpieczne.
  - Gra kończy się gdy wszystkie pola nie zawierające miny są odkryte.

@@ -40,17 +40,17 @@ void Display::config( const Vector2D& size ){
     font = LoadFontFromResource("CONSOLA");
 
     ///- Score counter text config
-    score_txt.setFont( font );
-    score_txt.setPosition( size.x*FIELD_SIZE - SCORE_X, SCORE_Y );
-    score_txt.setCharacterSize( SCORE_FONT );
-    score_txt.setFillColor( sf::Color::White );
-    score_txt.setStyle( sf::Text::Bold) ;
+    mine_txt.setFont( font );
+    mine_txt.setPosition( size.x*FIELD_SIZE - COUNTER_X, COUNTER_Y );
+    mine_txt.setCharacterSize( COUNTER_FONT );
+    mine_txt.setFillColor( sf::Color::White );
+    mine_txt.setStyle( sf::Text::Bold) ;
 
-    ///- Set position and texture of score counter
-    score_texture = LoadTextureFromResource("MINEC");
+    ///- Set position and texture of mine counter
+    mine_texture = LoadTextureFromResource("MINEC");
 
-    score_bg.setTexture( score_texture );
-    score_bg.setPosition( size.x*FIELD_SIZE - SCORE_X_BG, SCORE_Y_BG );
+    mine_bg.setTexture( mine_texture );
+    mine_bg.setPosition( size.x*FIELD_SIZE - COUNTER_X_BG, COUNTER_Y_BG );
 
     ///- Stopwatch text config
     stopwatch_txt.setFont( font );
@@ -97,10 +97,10 @@ void Display::stopwatch( unsigned int seconds ){
 }
 
 ////-----------------------------------------------------
-void Display::score( unsigned int score ){
+void Display::mineCounter( unsigned int mine ){
     stringstream strm;
-    strm << score;
-    score_txt.setString( strm.str() );
+    strm << mine;
+    mine_txt.setString( strm.str() );
 }
 
 ////-----------------------------------------------------
@@ -109,8 +109,8 @@ void Display::draw( sf::RenderTarget& target ) const {
     target.draw( mode_butt );
 
     ///- Score counter draw
-    target.draw( score_bg );
-    target.draw( score_txt );
+    target.draw( mine_bg );
+    target.draw( mine_txt );
 
     ///- Stopwatch draw
     target.draw( stopwatch_bg );

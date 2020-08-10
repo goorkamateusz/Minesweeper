@@ -44,11 +44,15 @@ int main( int argc, char* argv[] ){
                 try {
                     // Buttons
                     if( ! change ){
-                        if( Mouse::isButtonPressed( Mouse::Left ) )
+                        if( Mouse::isButtonPressed( Mouse::Left ) ){
                             game.click( window, Mouse::Left );
+                            sf::sleep( milliseconds(SLEEP_CLICK ) );
+                        }
 
-                        if( Mouse::isButtonPressed( Mouse::Right ) )
+                        if( Mouse::isButtonPressed( Mouse::Right ) ){
                             game.click( window, Mouse::Right );
+                            sf::sleep( milliseconds(SLEEP_CLICK ) );
+                        }
 
                         change = true;
                     }
