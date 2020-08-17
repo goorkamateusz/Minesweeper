@@ -4,6 +4,7 @@
 #define DEFAULT_Y_SIZE 10 		///< Default Y size of board
 #define DEFAULT_X_SIZE 20 		///< Default X size of board
 #define DEFAULT_MINE   30 		///< Default number of mines
+#define HINT_TIME  		5 		///< Time to display a hint after correct click [s]
 
 ////--------------------------------------------------
 #define MIN_SIZE        5       ///< Minimum sizes of board
@@ -39,7 +40,8 @@
 
 ////--------------------------------------------------
 #define SLEEP_LOOP      80      ///< Sleep time of game loop
-#define SLEEP_CLICK     120     ///< Sleep time after click
+#define SLEEP_CLICK     200     ///< Sleep time after click
+#define SLEEP_ENDGAME 	800 	///< Sleep after end game click
 #define MAX_ATTEMPTS    10000	///< Max amount of attempts of rand
 
 ////--------------------------------------------------

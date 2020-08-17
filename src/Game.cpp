@@ -92,17 +92,24 @@ void Game::click( const sf::RenderWindow& window, const sf::Mouse::Button butt )
 
             if( this->firstAction( butt ) ){
                 ///- First action on the board: uncover the field.
-                this->board.uncover( Game::position( mouse_pos ) );
+                if( ! this->board.uncover( Game::position(mouse_pos) ) ) return;
             }
             else {
-                if( this->board.created() )
+                if( this->board.created() ){
                     ///- Second action on the covered field: flag the field.
                     /// If field is uncovered: if it's possible uncover fields around.
-                    this->board.action( Game::position( mouse_pos ) );
-                else
+                    if( ! this->board.action( Game::position(mouse_pos) ) ) return;
+                }
+                else{
                     ///- If board isn't created, second move is create and uncover too.
-                    this->board.uncover( Game::position( mouse_pos ) );
+                    if( ! this->board.uncover( Game::position(mouse_pos) ) ) return;
+                }
             }
+
+            ///- After correct move:
+            lastClickTime = stopwatch;
+            display.hideHint();
+
         }
         else {                                  // outside board (top bar)
             buttRev = ! buttRev;
@@ -112,6 +119,9 @@ void Game::click( const sf::RenderWindow& window, const sf::Mouse::Button butt )
     else {
         ///- Start the game
         this->start();
+
+        ///- If clicked on the board, uncover fields yet
+        if( mouse_pos.y > GUI_MARGIN_T ) this->click( window, butt );
     }
 }
 
@@ -129,6 +139,24 @@ void Game::draw( sf::RenderTarget& target, sf::RenderStates states ) const {
 
 ////----------------------------------------------------------------------
 void Game::update(){
+    ///- Update info in the window
     this->display.mineCounter( this->board.noFlaggedMines() );
     this->display.stopwatch( this->time() );
+
+    ///- Check the hint
+    if( allowHint ){
+
+        if( stopwatch - lastClickTime > HINT_TIME && display.hintPos == NULL ){
+            lastClickTime = stopwatch;      //to delay serching hint
+            this->board.hint( this->display.hintPos );
+
+            /* test: autoplay
+            if( this->display.hintPos != NULL ){
+                this->board.uncover( *(this->display.hintPos) );
+                delete this->display.hintPos;
+                this->display.hintPos = NULL;
+            }
+            // test end */
+        }
+    }
 }

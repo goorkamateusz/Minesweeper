@@ -18,6 +18,9 @@ private:
 
     sf::Clock clock;        ///< Stopwatch clock
     int stopwatch {0};      ///< Stopwatch value
+    int lastClickTime {0};  ///< Time of last on the board click (or last hint serching)
+
+    bool allowHint {true};  ///< Is hint is allowed.
 
 public:
     Game() = delete;
@@ -55,11 +58,12 @@ public:
      * \return false - no
      */
     inline bool changeClock(){
-        if( running && stopwatch != clock.getElapsedTime().asSeconds() ){
-            stopwatch = clock.getElapsedTime().asSeconds();
-            return true;
-        }
-        else return false;
+        if( running )
+            if( stopwatch != clock.getElapsedTime().asSeconds() ){
+                stopwatch = clock.getElapsedTime().asSeconds();
+                return true;
+            }
+        return false;
     }
 
     /**

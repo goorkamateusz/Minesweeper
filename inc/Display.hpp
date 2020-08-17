@@ -4,7 +4,7 @@
 #include "Board.hpp"
 #include "TField.hpp"
 
-/**
+/**ó
  * \brief Care about display on the interface.
  *
  */
@@ -43,6 +43,10 @@ private:
     sf::Sprite  stopwatch_bg;       ///< Stopwatch background
     sf::Text    stopwatch_txt;      ///< Stopwatch text
 
+
+////-------------------------------------------------------------------
+public:
+    Vector2D *hintPos {NULL};       ///< Position of hint, NULL if no hint to display
 
 ////-------------------------------------------------------------------
 private:
@@ -92,7 +96,7 @@ public:
 
     /**
      * \brief Draw start button on interface
-     * \param target - 
+     * \param target -
      */
     void drawStart( sf::RenderTarget& target ) const
     { target.draw( start_butt ); }
@@ -108,5 +112,11 @@ public:
      * \param mine -
      */
     void mineCounter( unsigned int mine );
+
+    /**
+     * \brief Hide a hint
+     */
+    inline void hideHint()
+    { if( hintPos ){ delete hintPos; hintPos = NULL; } }
 
 };

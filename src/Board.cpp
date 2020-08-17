@@ -20,12 +20,12 @@ Board::~Board(){
 }
 
 ////----------------------------------------------------------------
-void Board::uncover( const Vector2D& click ){
+bool Board::uncover( const Vector2D& click ){
 
     if( this->created() ){
 
         ///- Nothing do when click on the uncovered
-        if( (*this)(click).uncoverAble() ){
+        if( (*this)(click).covered() ){ //todo here ok
 
             (*this)(click).uncover();
             --this->covered;
@@ -48,6 +48,7 @@ void Board::uncover( const Vector2D& click ){
             if( this->covered == 0 )
                 throw EndGame("Win!");
         }
+        else return false;      // movw unavaliable
     }
     else {
         ///- Create, randMines and uncover the field (recursive!)
@@ -64,10 +65,12 @@ void Board::uncover( const Vector2D& click ){
         (*this)(Vector2D(3,3)).flag();
         // ---> */
     }
+
+    return true;
 }
 
 ////----------------------------------------------------------------
-void Board::action( const Vector2D& click ){
+bool Board::action( const Vector2D& click ){
 
     if( (*this)(click).flagged() ){
         ///- If field is flagged, unflag.
@@ -76,7 +79,7 @@ void Board::action( const Vector2D& click ){
     }
     else {
         ///- If field is covered, flag.
-        if( (*this)(click).covered() ){
+        if( (*this)(click).covered() ){ //todo here ok
             (*this)(click).flag();
             --this->mines;
         }
@@ -96,13 +99,110 @@ void Board::action( const Vector2D& click ){
                     if( this->inside( click + Board::AROUND[i] ) )
                         this->uncover( click + Board::AROUND[i] );
             }
-
+            else
+                return false;   //action is unavaliable!
         }
     }
+
+    return true;
+}
+
+////----------------------------------------------------------------
+//BUG segmentation fault ???
+bool Board::hint( Vector2D*& pos ) const {
+
+    ///- Claer hint position
+    if( pos != NULL ){
+        delete pos;
+        pos = NULL;
+    }
+
+    Vector2D vec, next;
+    Field value;
+    uint8_t probably_mine, hidden;
+    //** Bool array of probable position mines
+    bool *mines_arr = new bool[ size.x * size.y ];
+
+    // Set false on the whole mines_arr array
+    for( short int i=0; i < (size.x * size.y); ++i )
+        mines_arr[i] = false;
+
+    ///- Find probably mines position
+    for( next.x = 0; next.x < size.x; ++next.x )
+        for( next.y = 0; next.y < size.y; ++next.y ){
+
+            if( (*this)( next ).uncovered() ){              // uncovered
+                if( (*this)( next ).empty() ) continue;     // and not empty
+
+                // count all of uncovered fields around
+                hidden = 0;
+                for( uint8_t i=0; i<8; ++i ){
+                    vec = next + Board::AROUND[i];
+
+                    if( this->inside( vec ) )               // inside the board
+                        if( (*this)( vec ).hidden() )       // count hidden
+                            ++hidden;
+                }
+
+                // if hidden == value then all of them is probably mines
+                // hidden = covered + flagged
+                if( hidden == (*this)( next ).val() )
+                    for( uint8_t i=0; i<8; ++i ){
+                        vec = next + Board::AROUND[i];
+
+                        if( this->inside( vec ) )
+                            if( (*this)( vec ).hidden() )
+                                mines_arr[ vec.y*size.x + vec.x ] = true;
+                    }
+            }
+        }
+
+    /* test: display mines_arr
+    for( next.y = 0; next.y < size.y; ++next.y ){
+        for( next.x = 0; next.x < size.x; ++next.x )
+            std::cout << mines_arr[ next.y*size.x + next.x ] << " ";
+        std::cout << std::endl;
+    } // test end */
+
+    ///- Find safe position
+    for( next.x = 0; next.x < size.x; ++next.x )
+        for( next.y = 0; next.y < size.y; ++next.y ){
+
+            if( (*this)( next ).uncovered() ){              // uncovered
+                if( (*this)( next ).empty() ) continue;     // and not empty
+
+                // count all flag around
+                probably_mine = 0;
+                for( uint8_t i=0; i<8; ++i ){
+                    vec = next + Board::AROUND[i];
+
+                    if( this->inside( vec ) )            // inside
+                        if( mines_arr[ vec.y*size.x + vec.x ] )
+                            ++probably_mine;
+                }
+
+                // if probably_mine == value then covered and ! mines_arr[] fields are safe
+                if( probably_mine == (*this)( next ).val() )
+                    for( uint8_t i=0; i<8; ++i ){
+                        vec = next + Board::AROUND[i];
+
+                        if( this->inside( vec ) )
+                            if( ! mines_arr[ vec.y*size.x + vec.x ] && (*this)( vec ).covered() ){
+                                // found the hint
+                                pos = new Vector2D(vec);
+                                delete[] mines_arr;
+                                return true;
+                            }
+                    }
+            }
+        }
+
+    // end of fun.
+    delete[] mines_arr;
+    return false;
 }
 
 
-////----------------------------------------------------------------
 void Board::set( unsigned int w, unsigned int h, unsigned int m ){
     ///- Check exceptions
     if( m < MIN_MINES )         throw ErrInput("Too least mines!");

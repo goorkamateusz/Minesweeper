@@ -59,7 +59,8 @@ int main( int argc, char* argv[] ){
 
                 }
                 catch( const EndGame& exc ){
-                    cout << "Koniec gry: " << exc.what() << endl;
+                    cout << "End game: " << exc.what() << endl;
+                    sf::sleep( milliseconds( SLEEP_ENDGAME ) );
                     game.finish();
                 }
             }

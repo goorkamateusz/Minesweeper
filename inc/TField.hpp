@@ -31,6 +31,22 @@ public:
     inline void set( const Vector2D& pos )
     { sprite.setPosition( pos.x*FIELD_SIZE,  pos.y*FIELD_SIZE + GUI_MARGIN_T ); }
 
+    /**
+     * \brief Set a hint style
+     */
+    inline void hint()
+    {
+        sprite.setScale( 0.9, 0.9 );
+    }
+
+    /**
+     * \brief Remove hint style
+     */
+    inline void normal()
+    {
+        sprite.setScale( 1, 1 );
+    }
+
 public:
     /**
      * \brief Draw method

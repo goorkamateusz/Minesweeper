@@ -3,6 +3,6 @@
 ////------------------------------------------------
 std::ostream& operator << ( std::ostream& strm, const Field& field ){
     strm << '[' << (field.flagged() ? 'f' : '_') << (field.covered() ? 'c' : 'u')
-         << ((field.uncoverAble()) ? 'a' : '_') << (int) field.val() << ']';
+         << (int) field.val() << ']';
     return strm;
 }

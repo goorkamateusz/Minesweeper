@@ -69,7 +69,6 @@ void Display::config( const Vector2D& size ){
 
     start_butt.setTexture( start_texture );
     start_butt.setPosition( (size.x*FIELD_SIZE)/2 + START_X, START_Y );
-
 }
 
 ////-----------------------------------------------------
@@ -115,10 +114,11 @@ void Display::draw( sf::RenderTarget& target ) const {
     ///- Stopwatch draw
     target.draw( stopwatch_bg );
     target.draw( stopwatch_txt );
+
 }
 
 ////-----------------------------------------------------
-void Display::board( sf::RenderTarget& target, const Board* const board ) const{
+void Display::board( sf::RenderTarget& target, const Board* const board ) const {
     Vector2D pos;
     TField *pointer = Display::pointer( Field() );
 
@@ -132,12 +132,27 @@ void Display::board( sf::RenderTarget& target, const Board* const board ) const{
     }
     else {
         /// Draw every field
-        for( pos.y = 0; pos.y < board->h(); ++pos.y ){
-            for( pos.x = 0; pos.x < board->w(); ++pos.x ){
-                pointer = Display::pointer( (*board)(pos) );
-                pointer->set( pos );
-                target.draw( *pointer );
-            }
+
+        if( hintPos ){
+            for( pos.y = 0; pos.y < board->h(); ++pos.y )
+                for( pos.x = 0; pos.x < board->w(); ++pos.x ){
+                    pointer = Display::pointer( (*board)(pos) );
+
+                    if( pos == *hintPos ) pointer->hint();
+
+                    pointer->set( pos );
+                    target.draw( *pointer );
+
+                    if( pos == *hintPos ) pointer->normal();
+                }
+        }
+        else {
+            for( pos.y = 0; pos.y < board->h(); ++pos.y )
+                for( pos.x = 0; pos.x < board->w(); ++pos.x ){
+                    pointer = Display::pointer( (*board)(pos) );
+                    pointer->set( pos );
+                    target.draw( *pointer );
+                }
         }
     }
 }

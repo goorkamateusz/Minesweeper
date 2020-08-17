@@ -47,14 +47,18 @@ public:
     /**
      * \brief Uncover the choosen field
      * \param click - position of the field
+     * \retval true - Done a click
+     * \retval false - click unavaliable
      */
-    void uncover( const Vector2D& click );
+    bool uncover( const Vector2D& click );
 
     /**
      * \brief Do second action on selected field.
      * \param click - position of the field
+     * \retval true - Done a move
+     * \retval false - move unavaliable
      */
-    void action( const Vector2D& click );
+    bool action( const Vector2D& click );
 
     /**
      * \brief Display board on the console to debuging
@@ -99,6 +103,16 @@ public:
      */
     inline bool inside( const Vector2D& pos ) const
     { return ( pos.x >= 0 && pos.x < size.x ) && ( pos.y >= 0 && pos.y < size.y ); }
+
+public:
+    /**
+     * \brief Find a hint for player with AI.
+     *
+     * \param[out] pos - Position of hint move
+     * \return true - is hint
+     * \return false - isn't hint
+     */
+    bool hint( Vector2D*& pos ) const;
 
 public:
     /**

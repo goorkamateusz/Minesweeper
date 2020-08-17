@@ -109,21 +109,37 @@ public:
 	inline bool flagged() const
 	{ return ( code & 0xF0 ) == 0x10; }
 
+
 	/**
-	 * \brief Is field covered? (is cover or flagged)
+	 * \brief Is field uncovered? (no covered, no flag)
+	 * \return true -  yes
+	 * \return false - no
+	 */
+	inline bool uncovered() const
+	{ return ( code & 0xF0 ) == 0x20; }
+
+	/**
+	 * \brief Is field covered? (is covered)
 	 * \return true - yes
 	 * \return false - no
 	 */
 	inline bool covered() const
-	{ return ( code & 0xF0 ) != 0x20; }
+	{ return ( code & 0xF0 ) == 0x00; }
 
 	/**
-	 * \brief Is the field able to uncover? (is covered)
+	 * todo Zamiania uncover, covered, hidden
+	 * \warning
+	 * uncoverAble change to covered
+	 * covered to hidden
+	 */
+
+	/**
+	 * \brief Is value of fields hidden?  (is cover or flagged)
 	 * \return true - yes
 	 * \return false - no
 	 */
-	inline bool uncoverAble() const
-	{ return ( code & 0xF0 ) == 0x00; }
+	inline bool hidden() const
+	{ return ( code & 0xF0 ) != 0x20; }
 
 	/**
 	 * \brief Is the mine?!

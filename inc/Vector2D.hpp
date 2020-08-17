@@ -77,6 +77,15 @@ public:
         return tmp;
     }
 
+    /**
+     * \brief Operator ==
+     * \param vec -
+     * \return true - 
+     * \return false - 
+     */
+    inline bool operator == ( const Vector2D_t& vec ) const
+    { return (vec.x == this->x && vec.y == this->y ); }
+
 public:
     /**
      * \brief Area of rectangle extened on the vector.
