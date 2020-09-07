@@ -8,7 +8,6 @@
 
 ////--------------------------------------------------
 #define MIN_SIZE        5       ///< Minimum sizes of board
-#define MAX_SIZE        50      ///< Maximum sizes of board
 #define MIN_MINES       1       ///< Minimum numbers of mines on the board
 #define MIN_AREA        9       ///< Minum area of board
 

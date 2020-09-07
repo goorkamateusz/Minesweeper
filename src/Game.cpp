@@ -1,8 +1,29 @@
 #include "Game.hpp"
+#include "Error.hpp"
 #include <sstream>
 
 using namespace std;
 using namespace sf;
+
+////----------------------------------------------------------------------
+/**
+ * \brief Help messege
+ */
+const char* const HELP_INFO =
+"Minesweeper game by Gorka Mateusz (maatiug).\n"
+"\n"
+"Runing  arguments:\n"
+"arg          | help\n"
+":-----------:|:--------\n"
+" -w <num>   | width of board (on standard screen max 60)\n"
+" -h <num>   | heigh of boarb (on standard screen max 30)\n"
+" -m <num>   | number of mines\n"
+"\n"
+"example: ./Minesweeper2.exe -w 20 -h 12 -m 60"
+"\n"
+"More you can read in README.md of project!\n"
+"\n"
+"Github: github.com/maatiug/Minesweeper2\n";
 
 ////----------------------------------------------------------------------
 Game::Game( const int argc, const char* const argv[] ){
@@ -16,6 +37,14 @@ Game::Game( const int argc, const char* const argv[] ){
 
         if( argv[id][0] == '-' ){
             switch( argv[id][1] ){
+
+            // --*
+            case '-':
+                ///- --h, --help flag
+                if( argv[id][2] == 'h' )
+                    throw EndGame( HELP_INFO );
+                break;
+
 
             ///- `w` - width of the board
             case 'w':

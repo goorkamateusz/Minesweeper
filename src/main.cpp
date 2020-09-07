@@ -1,4 +1,4 @@
- #include "SFML/Graphics.hpp"
+#include "SFML/Graphics.hpp"
 #include "Game.hpp"
 #include "Error.hpp"
 #include <iostream>
@@ -88,7 +88,7 @@ int main( int argc, char* argv[] ){
 
     }
     catch( const Error& err ){
-        cerr << "!!! Critical error: " << endl;
+        cerr << "!!! Break of program:   " << endl;
         cerr << "! " << err.what() << endl;
     }
 
