@@ -15,9 +15,10 @@ const char* const HELP_INFO =
 "Runing  arguments:\n"
 "arg          | help\n"
 ":-----------:|:--------\n"
-" -w <num>   | width of board (on standard screen max 60)\n"
-" -h <num>   | heigh of boarb (on standard screen max 30)\n"
-" -m <num>   | number of mines\n"
+" -w <num>    | width of board (on standard screen max 60)\n"
+" -h <num>    | heigh of boarb (on standard screen max 30)\n"
+" -m <num>    | number of mines\n"
+" -H          | turn on hints in the game\n"
 "\n"
 "example: ./Minesweeper2.exe -w 20 -h 12 -m 60"
 "\n"
@@ -62,6 +63,11 @@ Game::Game( const int argc, const char* const argv[] ){
             case 'm':
                 strm << argv[ ++id ] << ' ';
                 strm >> m;
+                break;
+
+            ///- 'H' - hints in the game on
+            case 'H':
+                this->allowHint = true;
                 break;
 
             ///- Unknow argument

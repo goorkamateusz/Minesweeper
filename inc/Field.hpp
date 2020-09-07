@@ -53,7 +53,7 @@ public:
 	Field( const Field& field ): code(field.code){}
 
 	/**
-	 * \brief Destroy the Field object
+	 * \brief Destroy the Field object (default destructor)
 	 */
 	~Field() = default;
 

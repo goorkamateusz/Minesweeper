@@ -20,9 +20,10 @@ private:
     int stopwatch {0};      ///< Stopwatch value
     int lastClickTime {0};  ///< Time of last on the board click (or last hint serching)
 
-    bool allowHint {true};  ///< Is hint is allowed.
+    bool allowHint {false};  ///< Is hint is allowed.
 
 public:
+    /// Constructor deleted.
     Game() = delete;
 
     /**
@@ -33,7 +34,7 @@ public:
     Game( const int argc, const char* const argv[] );
 
     /**
-     * \brief Destroy the Game object
+     * \brief Destroy the Game object (default destructor)
      */
     ~Game() = default;
 

@@ -26,7 +26,8 @@
 
 ## Game
 ### Prepare:
-Use a program [`make`](http://gnuwin32.sourceforge.net/packages/make.htm) to compile the code.
+Use a program [`make`](http://gnuwin32.sourceforge.net/packages/make
+.htm) to compile the code.
 
 ### Running:
 By command: `./Minesweeper2.exe`.
@@ -37,6 +38,7 @@ arg          | help
  -w \<num>   | width of board
  -h \<num>   | heigh of board
  -m \<num>   | number of mines
+ -H          | turn on hints in the game
 
 Exp.: `./Minesweeper2.exe -w 20 -h 15 -m 70`
 
@@ -72,4 +74,3 @@ See a file [LICENSE.md](LICENSE.md).
 ## To Do List
 - [ ] Start and communicates
 - [ ] Board size modify by GUI
-- [ ] Prompts

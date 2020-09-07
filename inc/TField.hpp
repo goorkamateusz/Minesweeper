@@ -16,6 +16,7 @@ private:
     sf::Sprite sprite;      ///< Sprite of field
 
 public:
+    /// Constructor deleted.
     TField() = delete;
 
     /**
@@ -35,17 +36,13 @@ public:
      * \brief Set a hint style
      */
     inline void hint()
-    {
-        sprite.setScale( 0.9, 0.9 );
-    }
+    { sprite.setScale( 0.9, 0.9 ); }
 
     /**
      * \brief Remove hint style
      */
     inline void normal()
-    {
-        sprite.setScale( 1, 1 );
-    }
+    { sprite.setScale( 1, 1 ); }
 
 public:
     /**
@@ -59,7 +56,7 @@ public:
 
 public:
     /**
-     * \brief Array of texture file path.
+     * \brief Array of texture file code. Codes are defined in inc/gui.rc.
      */
     static const char* const TEXTURE_ARR[ NUM_FIELD_VIEW ];
 

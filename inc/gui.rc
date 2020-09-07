@@ -1,3 +1,9 @@
+/**
+ * \file gui.rc
+ * \brief Files to realize one-file compile.
+ */
+
+/// Field texture files
 FE 		RCDATA 	"gui/empty.png"
 F1 		RCDATA 	"gui/field_1.png"
 F2 		RCDATA 	"gui/field_2.png"
@@ -11,10 +17,12 @@ FF 		RCDATA 	"gui/flag.png"
 FM 		RCDATA 	"gui/mine.png"
 FC		RCDATA 	"gui/covered.png"
 
+/// Top bar gui images
 BFLAG	RCDATA	"gui/butt-flag.png"
 BCLICK	RCDATA	"gui/butt-click.png"
 MINEC 	RCDATA	"gui/score-bg.png"
 STOPW 	RCDATA	"gui/stopwatch-bg.png"
 STARTI 	RCDATA	"gui/start.png"
 
+/// Font
 CONSOLA	RCDATA 	"gui/consola.ttf"

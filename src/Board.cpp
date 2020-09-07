@@ -25,7 +25,7 @@ bool Board::uncover( const Vector2D& click ){
     if( this->created() ){
 
         ///- Nothing do when click on the uncovered
-        if( (*this)(click).covered() ){ //todo here ok
+        if( (*this)(click).covered() ){
 
             (*this)(click).uncover();
             --this->covered;
@@ -79,7 +79,7 @@ bool Board::action( const Vector2D& click ){
     }
     else {
         ///- If field is covered, flag.
-        if( (*this)(click).covered() ){ //todo here ok
+        if( (*this)(click).covered() ){
             (*this)(click).flag();
             --this->mines;
         }
@@ -108,7 +108,7 @@ bool Board::action( const Vector2D& click ){
 }
 
 ////----------------------------------------------------------------
-//BUG segmentation fault ???
+//BUG It was happend segmentation fault, now it should be ok. But be careful :)
 bool Board::hint( Vector2D*& pos ) const {
 
     ///- Claer hint position
@@ -219,6 +219,7 @@ void Board::set( unsigned int w, unsigned int h, unsigned int m ){
 
 ////----------------------------------------------------------------
 void Board::restart(){
+    /// \post
     ///- Free board
     this->free();
 

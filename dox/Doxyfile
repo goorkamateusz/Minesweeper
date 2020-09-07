@@ -113,15 +113,6 @@ FILE_PATTERNS          = *.c \
                          *.cxx \
                          *.cpp \
                          *.c++ \
-                         *.java \
-                         *.ii \
-                         *.ixx \
-                         *.ipp \
-                         *.i++ \
-                         *.inl \
-                         *.idl \
-                         *.ddl \
-                         *.odl \
                          *.h \
                          *.hh \
                          *.hxx \
@@ -129,10 +120,6 @@ FILE_PATTERNS          = *.c \
                          *.h++ \
                          *.cs \
                          *.d \
-                         *.php \
-                         *.php4 \
-                         *.php5 \
-                         *.phtml \
                          *.inc \
                          *.m \
                          *.markdown \
@@ -141,17 +128,7 @@ FILE_PATTERNS          = *.c \
                          *.dox \
                          *.py \
                          *.pyw \
-                         *.f90 \
-                         *.f95 \
-                         *.f03 \
-                         *.f08 \
-                         *.f \
-                         *.for \
-                         *.tcl \
-                         *.vhd \
-                         *.vhdl \
-                         *.ucf \
-                         *.qsf
+                         *.rc
 RECURSIVE              = YES
 EXCLUDE_SYMLINKS       = NO
 EXCLUDE_PATTERNS       =

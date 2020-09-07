@@ -4,7 +4,7 @@
 #include "Board.hpp"
 #include "TField.hpp"
 
-/**ó
+/**
  * \brief Care about display on the interface.
  *
  */
@@ -59,7 +59,7 @@ private:
 
 public:
     /**
-     * \brief Construct a new Display object
+     * \brief Construct a new Display object (default constructor)
      */
     Display() = default;
 

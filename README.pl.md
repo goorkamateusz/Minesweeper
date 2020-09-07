@@ -34,9 +34,10 @@ Uruchom poleceniem: `./Minesweeper2.exe`.
 Argumenty wywołania:
 arg          | pomoc
 :-----------:|:--------
- -w \<num>   | szerokość planszy
- -h \<num>   | wysokość planszy
+ -w \<num>   | szerokość planszy (width)
+ -h \<num>   | wysokość planszy (height)
  -m \<num>   | ilość min
+ -H          | włącza podpowiedzi (hint)
 
 np.: `./Minesweeper2.exe -w 20 -h 15 -m 70`
 

@@ -18,7 +18,7 @@ private:
 
 public:
     /**
-     * \brief Construct a new Board object
+     * \brief Construct a new Board object (default constructor)
      */
     Board() = default;
 
@@ -39,8 +39,6 @@ public:
 
     /**
      * \brief Restart the board.
-     * \post -
-     *
      */
     void restart();
 
