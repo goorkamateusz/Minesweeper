@@ -1,5 +1,6 @@
 #include "Game.hpp"
 #include "Error.hpp"
+#include "Menu.hpp"
 #include <sstream>
 
 using namespace std;
@@ -10,28 +11,35 @@ using namespace sf;
  * \brief Help messege
  */
 const char* const HELP_INFO =
-"Minesweeper game by Gorka Mateusz (maatiug).\n"
-"\n"
-"Runing  arguments:\n"
-"arg          | help\n"
-":-----------:|:--------\n"
-" -w <num>    | width of board (on standard screen max 60)\n"
-" -h <num>    | heigh of boarb (on standard screen max 30)\n"
-" -m <num>    | number of mines\n"
-" -H          | turn on hints in the game\n"
-"\n"
-"example: ./Minesweeper2.exe -w 20 -h 12 -m 60"
-"\n"
-"More you can read in README.md of project!\n"
-"\n"
-"Github: github.com/maatiug/Minesweeper2\n";
+    "Minesweeper game by Gorka Mateusz (maatiug).\n"
+    "\n"
+    "Runing  arguments:\n"
+    "arg          | help\n"
+    ":-----------:|:--------\n"
+    " -w <num>    | width of board (on standard screen max 60)\n"
+    " -h <num>    | heigh of boarb (on standard screen max 30)\n"
+    " -m <num>    | number of mines\n"
+    " -H          | turn on hints in the game\n"
+    "\n"
+    "example: ./Minesweeper2.exe -w 20 -h 12 -m 60"
+    "\n"
+    "More you can read in README.md of project!\n"
+    "\n"
+    "Github: github.com/maatiug/Minesweeper2\n";
 
 ////----------------------------------------------------------------------
-Game::Game( const int argc, const char* const argv[] ){
-    int id = 1;
+Game::Game( int argc, char* argv[] ){
     unsigned int w = DEFAULT_X_SIZE,
                  h = DEFAULT_Y_SIZE,
                  m = DEFAULT_MINE;
+
+    /// If user don't give console args, it will open a GUI menu
+    if( argc == 1 )
+        Menu::handling( argc, argv );
+
+
+    /// Console arguments:
+    int id = 1;
     stringstream strm;
 
     while( id < argc ){
@@ -39,51 +47,52 @@ Game::Game( const int argc, const char* const argv[] ){
         if( argv[id][0] == '-' ){
             switch( argv[id][1] ){
 
-            // --*
-            case '-':
-                ///- --h, --help flag
-                if( argv[id][2] == 'h' )
-                    throw EndGame( HELP_INFO );
-                break;
-
-
-            ///- `w` - width of the board
+            ///- `-w` - width of the board
             case 'w':
                 strm << argv[ ++id ] << ' ';
                 strm >> w;
                 break;
 
-            ///- `h` - height of the board
+            ///- `-h` - height of the board
             case 'h':
                 strm << argv[ ++id ] << ' ';
                 strm >> h;
                 break;
 
-            ///- `m` - number of mines
+            ///- `-m` - number of mines
             case 'm':
                 strm << argv[ ++id ] << ' ';
                 strm >> m;
                 break;
 
-            ///- 'H' - hints in the game on
+            ///- `-H` - hints in the game on
             case 'H':
                 this->allowHint = true;
                 break;
 
-            ///- Unknow argument
+            case '-':
+                ///- `--h`, `--help` flag
+                if( argv[id][2] == 'h' ){
+                    throw EndGame( HELP_INFO );
+                    break;
+                }
+                //hack: 'else' go to default case
+
+            ///- Unknow argument handling
             default:
                 cerr << "!!! Warning: unknow input argument" << endl
-                     << "! " << argv[id] << endl;
+                        << "! " << argv[id] << endl;
             }
         }
         else {
             cerr << "!!! Warning: unknow input argument" << endl
-                 << "! " << argv[id] << endl;
+                    << "! " << argv[id] << endl;
         }
 
         ++id;
     }
 
+    /// \post
     ///- Config Board
     this->board.set( w, h, m );
 

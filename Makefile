@@ -13,6 +13,7 @@ FILES_LIST= \
 	obj/TField.o \
 	obj/Display.o \
 	obj/Game.o \
+	obj/Menu.o \
 	obj/Func.o \
 	obj/main.o \
 	obj/gui.o
@@ -89,6 +90,9 @@ obj/TField.o: src/TField.cpp inc/TField.hpp
 
 obj/Func.o: src/Func.cpp inc/Func.hpp
 	g++ -c ${FLAGS} -o obj/Func.o src/Func.cpp ${SFML_INSTR}
+
+obj/Menu.o: src/Menu.cpp inc/Menu.hpp
+	g++ -c ${FLAGS} -o obj/Menu.o src/Menu.cpp ${SFML_INSTR}
 
 obj/gui.o: inc/gui.rc
 	windres -i inc/gui.rc -o obj/gui.o

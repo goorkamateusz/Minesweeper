@@ -31,7 +31,7 @@ public:
      * \param argc - number of args
      * \param argv - values of argso
      */
-    Game( const int argc, const char* const argv[] );
+    Game( const int argc, char* argv[] );
 
     /**
      * \brief Destroy the Game object (default destructor)

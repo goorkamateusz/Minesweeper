@@ -24,5 +24,8 @@ MINEC 	RCDATA	"gui/score-bg.png"
 STOPW 	RCDATA	"gui/stopwatch-bg.png"
 STARTI 	RCDATA	"gui/start.png"
 
+/// GUI Menu textures file
+BMENU	RCDATA	"gui/menu-bg.png"
+
 /// Font
 CONSOLA	RCDATA 	"gui/consola.ttf"
