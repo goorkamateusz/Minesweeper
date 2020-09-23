@@ -3,6 +3,9 @@
  * \brief Files to realize one-file compile.
  */
 
+/// App icon
+APPIC 	ICON 	"gui/appicon.ico"
+
 /// Field texture files
 FE 		RCDATA 	"gui/empty.png"
 F1 		RCDATA 	"gui/field_1.png"

@@ -19,9 +19,9 @@ class Menu : sf::Drawable {
 	sf::Text 	mines_txt;		///< Text to display number mines on the board
 	sf::Text 	hints_txt;		///< Text to display number mines on the board
 
-	unsigned short int out_width {SMALL_WIDTH}; 	///< Width of window
-	unsigned short int out_height {SMALL_HEIGHT}; 	///< Height of window
-	unsigned short int out_mines {SMALL_MINES}; 	///< Number of mines on the window
+	unsigned short int out_width {DEFAULT_X_SIZE}; 	///< Width of window
+	unsigned short int out_height {DEFAULT_Y_SIZE}; ///< Height of window
+	unsigned short int out_mines {DEFAULT_MINE}; 	///< Number of mines on the window
 	bool allowHints {false}; 						///< Is hints will be allowed
 
 public:
@@ -37,13 +37,6 @@ public:
 	~Menu() = default;
 
 public:
-	/**
-	 * \brief Click manage on menu GUI
-	 *
-	 * \param window - window
-	 */
-	bool click( const sf::RenderWindow& window );
-
 	/**
      * \brief Draw method
      * \param target -
@@ -68,6 +61,14 @@ public:
 	 */
 	static void handling( int &argc, char** &argv );
 
+public:
+	/**
+	 * \brief Click manage on menu GUI
+	 *
+	 * \param window - window
+	 */
+	bool click( const sf::RenderWindow& window );
+
 	/**
 	 * \brief Create argv and argc based on GUI menu
 	 *
@@ -76,6 +77,18 @@ public:
 	 */
 	void output( int &argc, char** &argv );
 
+	/**
+	 * \brief Change value.
+	 *
+	 * \param val - [out] changed values
+	 * \param change - change
+	 * \param minval - min value of val
+	 * \param maxval - max value of val
+	 */
+	void change( unsigned short &val, const short int change, const short int minval, const short int maxval );
+
+
+public:
 	/**
 	 * \brief Delete argv table
 	 *
@@ -94,16 +107,15 @@ public:
 	 */
 	static bool inside( const sf::Vector2i& pos, const sf::Vector2i& coo, const sf::Vector2i& size );
 
-	//todo dox and test
+	/**
+	 * \brief Is pos.x is bigger than coo.x and smoller coo.x + size.x
+	 * \param pos - position
+	 * \param coo - coordinates of 'line'
+	 * \param size - size of 'line'
+	 * \return true -
+	 * \return false -
+	 */
 	inline static bool insideX( const sf::Vector2i& pos, const sf::Vector2i& coo, const sf::Vector2i& size )
-	{
-		return pos.x > coo.x && pos.x < coo.x + size.x;
-	}
-
-	//todo dox and test
-	inline static bool insideY( const sf::Vector2i& pos, const sf::Vector2i& coo, const sf::Vector2i& size )
-	{
-		return pos.y > coo.y && pos.y < coo.y + size.y;
-	}
+	{ return pos.x > coo.x && pos.x < coo.x + size.x; }
 
 };

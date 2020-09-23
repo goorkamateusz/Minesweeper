@@ -80,6 +80,8 @@
 #define MENU_X_2PLUS 	186	 	///< GUI Menu X of button '++'
 #define MENU_X_PLUS_B 	232	 	///< GUI Menu X of button '+' for number of mines
 #define MENU_X_2PLUS_B 	208	 	///< GUI Menu X of button '++' for number of mines
+#define MENU_W_PM		20		///< GUI Menu width of buttons -, --, +, ++
+#define MENU_H_PM		32 		///< GUI Menu height of buttons -, --, +, ++
 
 #define MENU_SIZE_VAL 	36 		///< GUI Menu size of font size of width, height and mines values
 #define MENU_X_VALUES	139	 	///< GUI Menu X of text values width, height, number of mines

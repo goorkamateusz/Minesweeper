@@ -26,13 +26,14 @@
 
 ## Game
 ### Prepare:
-Use a program [`make`](http://gnuwin32.sourceforge.net/packages/make
-.htm) to compile the code.
+Use a program [`make`](http://gnuwin32.sourceforge.net/packages/make.htm) to compile the code.
 
 ### Running:
-By command: `./Minesweeper2.exe`.
+By command: `./Minesweeper2.exe` or just click on the `.exe` file. ;)
 
-Runing  arguments:
+![](doc/example-menu.gif)
+
+Running  arguments to start game in console:
 arg          | help
 :-----------:|:--------
  -w \<num>   | width of board
@@ -45,7 +46,10 @@ Exp.: `./Minesweeper2.exe -w 20 -h 15 -m 70`
 <a name="rule"></a>
 ### Game rule:
  - First click is always safe!
- - Game is finish when all no mine fields are uncovered.
+ - The game is finish when all no mine fields are uncovered.
+ - The game include posibility to turn on the hints that show up after 5 seconds without action.
+
+![](doc/example-hint.gif)
 
 ![](gui/score-bg.png)
 
@@ -72,5 +76,4 @@ RESOURCES [...]                                 | That kind of errors is is rela
 See a file [LICENSE.md](LICENSE.md).
 
 ## To Do List
-- [ ] Start and communicates
-- [ ] Board size modify by GUI
+No new long term idea.

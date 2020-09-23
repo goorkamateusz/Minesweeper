@@ -1,5 +1,5 @@
 # Minesweeper2 (PL)
-![](gui/butt-flag.png) Gra saper w C++.
+![](gui/butt-flag.png) Gra "Saper" wykonana w C++.
 
 > **Read [README in english](README.md)!**
 
@@ -29,7 +29,9 @@
 Wykorzystaj program [`make`](http://gnuwin32.sourceforge.net/packages/make.htm), by skompilować kod.
 
 ### Uruchomienie:
-Uruchom poleceniem: `./Minesweeper2.exe`.
+Uruchom poleceniem: `./Minesweeper2.exe` lub po prostu kliknij na plik `.exe`.
+
+![](doc/example-menu.gif)
 
 Argumenty wywołania:
 arg          | pomoc
@@ -45,6 +47,9 @@ np.: `./Minesweeper2.exe -w 20 -h 15 -m 70`
 ### Zasady gry:
  - Pierwsze naciśnięcie jest zawsze bezpieczne.
  - Gra kończy się gdy wszystkie pola nie zawierające miny są odkryte.
+ - Gra zwiera możliwość włączenia podpowiedzi, które pokazują się automatycznie po 5 sekundach braku ruchu.
+
+![](doc/example-hint.gif)
 
 ![](gui/score-bg.png)
 

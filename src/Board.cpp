@@ -108,7 +108,6 @@ bool Board::action( const Vector2D& click ){
 }
 
 ////----------------------------------------------------------------
-//BUG It was happend segmentation fault, now it should be ok. But be careful :)
 bool Board::hint( Vector2D*& pos ) const {
 
     ///- Claer hint position
