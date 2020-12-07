@@ -44,12 +44,12 @@ clean: rmobj
 
 # Generate documentation
 doxygen:
-	doxygen dox/Doxyfile 2> /dev/null;\
-	start dox/html/index.html;
+	doxygen doc/Doxyfile 2> /dev/null;\
+	start docs/index.html;
 
 # Remove temporary failes, generated documentation, minfy Doxyfile
 MINIMAL: clean
-	rm -fr dox/html;
+	rm -fr docs;
 
 # Subcomments: -------------------------------------------------
 rmobj:

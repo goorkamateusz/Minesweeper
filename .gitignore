@@ -7,8 +7,8 @@
 *.slo
 */obj
 
-# Plugins output
-linecounter.*
+# IDE
+.vscode
 
 # Executable files
 *.exe
@@ -17,8 +17,7 @@ linecounter.*
 
 # Documentation
 /doc/*.dia
-/dox/*
-!Doxyfile
+/docs
 
 # Others file
 *.zip
