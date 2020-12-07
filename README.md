@@ -10,17 +10,19 @@
 >   **maatiug@gmail.com**
 
 ## Table of contets
-- [Minesweeper2](#Minesweeper2)
-- [Author](#Author)
-- [Game](#Game)
-    - [Prepare](#Prepare)
-    - [Running](#Running)
-    - [Game rule](#rule)
-- [Dev](#Dev)
-    - [Documentation](#Documentation)
-    - [Exception](#Exception)
-    - [Specification](#Specification)
-- [License](#License)
+- [Minesweeper2](#minesweeper2)
+  - [Author](#author)
+  - [Table of contets](#table-of-contets)
+  - [Game](#game)
+    - [Prepare:](#prepare)
+    - [Running:](#running)
+    - [Game rule:](#game-rule)
+  - [Dev](#dev)
+    - [Documentation](#documentation)
+    - [Exception](#exception)
+    - [Specification](#specification)
+  - [License](#license)
+  - [To Do List](#to-do-list)
 
 ![](gui/butt-click.png)
 
@@ -57,7 +59,7 @@ Exp.: `./Minesweeper2.exe -w 20 -h 15 -m 70`
 ### Documentation
 To generate documentation use program [doxygen](http://doxygen.nl).
 You can use comand `make doxygen` in main project dir.
-[Link to generated documentation](dox/html/index.phtml)
+[Link to generated documentation](docs/index.html)
 
 ### Exception
 Exception                                       | Why?
