@@ -96,7 +96,7 @@ void Display::stopwatch( unsigned int seconds ){
 }
 
 ////-----------------------------------------------------
-void Display::mineCounter( unsigned int mine ){
+void Display::mineCounter( short signed int mine ){
     stringstream strm;
     strm << mine;
     mine_txt.setString( strm.str() );

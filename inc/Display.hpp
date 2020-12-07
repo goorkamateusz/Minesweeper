@@ -111,7 +111,7 @@ public:
      * \brief Update value of mine on the display
      * \param mine -
      */
-    void mineCounter( unsigned int mine );
+    void mineCounter( short signed int mine );
 
     /**
      * \brief Hide a hint

@@ -137,6 +137,11 @@ private:
      */
     void uncoverAll();
 
+    /**
+     * \brief Set flag on the all of mines fields
+     */
+    void flagAll();
+
 private:
     /**
      * \brief Create a array of board.

@@ -45,10 +45,13 @@ bool Board::uncover( const Vector2D& click ){
                 }
 
             ///- Win the game when uncover every right fields
-            if( this->covered == 0 )
+            if( this->covered == 0 ){
+                this->flagAll();
+                this->mines = 0;
                 throw EndGame("Win!");
+            }
         }
-        else return false;      // movw unavaliable
+        else return false;      // move unavaliable
     }
     else {
         ///- Create, randMines and uncover the field (recursive!)
@@ -307,6 +310,14 @@ void Board::uncoverAll(){
     for(; pos.x < size.x; ++pos.x )
         for( pos.y=0; pos.y < size.y; ++pos.y )
             (*this)(pos).uncover();
+}
+
+////----------------------------------------------------------------
+void Board::flagAll(){
+    Vector2D pos;
+    for(; pos.x < size.x; ++pos.x )
+        for( pos.y=0; pos.y < size.y; ++pos.y )
+            if( (*this)(pos).mine() ) (*this)(pos).flag();
 }
 
 ////----------------------------------------------------------------

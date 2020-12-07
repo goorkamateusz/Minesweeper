@@ -105,7 +105,8 @@ Game::Game( int argc, char* argv[] ){
 
 ////----------------------------------------------------------------------
 void Game::finish(){
-    running = false;                ///- Set running to false
+    ///- Set running to false
+    running = false;
 }
 
 ////----------------------------------------------------------------------
