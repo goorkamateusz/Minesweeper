@@ -1,0 +1,766 @@
+/** ------------------------------------------- */
+/*??? General									*/
+/** ------------------------------------------- */
+html, body {
+	width:100%;
+	margin:0;
+	padding:0;
+}
+body {
+	background: #1e1e1e;
+	background-image: none;
+	color: #D4D4D4;
+}
+
+object[type^="image"] {
+	max-width:100% !important;
+}
+
+/** ------------------------------------------- */
+/*??? Text										*/
+/** ------------------------------------------- */
+a, a:link, a:visited {
+	color: #9cdcfe !important;
+}
+
+.highlighted {
+	background: none !important;
+}
+a.highlighted {
+	background: none !important;
+}
+
+.textblock h1 {
+    border-bottom: 1px solid #333333;
+    border-left: 3px solid #333333;
+    margin: 40px 0px 10px 0px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 5px;
+}
+
+.textblock h1:first-child {
+	margin-top: 10px;
+}
+
+h1 {
+	margin-block-start:16px;
+	margin-block-end:8px;
+	margin-top:16px;
+	margin-bottom:8px;
+}
+
+/* I haven't found that in genarated */
+h1.glow, h2.glow, h3.glow,
+h4.glow, h5.glow, h6.glow {
+	text-shadow: 0 0 15px #007ACC;
+}
+
+/** ------------------------------------------- */
+/*??? Title area								*/
+/** ------------------------------------------- */
+.titlearea {
+	border-bottom: 1px solid #32363d;
+}
+#titlearea {
+	background-color:#424242;
+	border:none;
+}
+#projectname {
+	font-family:calibri!important;
+	font-size:120%!important;
+	font-weight:800;
+}
+#projectnumber {
+	font-family:calibri!important;
+	font-size:10px!important;
+}
+#projectbrief {
+	font-size:12px!important;
+	margin-left:12px;
+	margin-top:4px;
+	font-family:calibri!important;
+}
+#projectarea tr {
+	height:26px !important;
+}
+#projectlogo {
+	min-width:60px;
+}
+#projectlogo img {
+	height:18px;
+	margin:4px auto;
+}
+
+/** ------------------------------------------- */
+/*??? Top main menu								*/
+/** ------------------------------------------- */
+#main-nav {
+	border-bottom:none;
+	background-color:#252525;
+}
+#main-nav .sm-dox {
+	background: transparent !important;
+}
+ul#main-menu li a:link,
+ul#main-menu li a:visited {
+	color:#d4d4d4!important;
+	font-family:Calibri;
+}
+#main-nav,
+#main-nav ul,
+#main-nav ul li,
+#main-nav ul li a {
+	height:28px;
+	line-height:28px;
+	margin:auto;
+}
+#main-nav ul li ul {
+	height: auto;
+}
+.sm-dox {
+	text-shadow: none !important;
+	box-shadow: none !important;
+	background: #dfe5f2 !important;
+}
+.sm-dox a {
+	text-shadow: none !important;
+	background: transparent !important;
+}
+.sm-dox a:hover {
+	background: #1e1e1e !important;
+}
+.sm-dox ul {
+	border: 1px solid #000000;
+	background: #32363d;
+}
+.directory .entry a {
+	color:#3ae09b !important;
+}
+.directory tr.even {
+	background: #252525;
+}
+
+/** ------------------------------------------- */
+/*??? Top navigation							*/
+/** ------------------------------------------- */
+.tablist a:hover,
+.tablist li.current a {
+	text-shadow: none;
+	-moz-text-shadow: none;
+	-webkit-text-shadow: none;
+}
+/* I have found only in css */
+.tabs, .tabs2, .tabs3 {
+	background: #d4d4d4;
+}
+.tablist li {
+	background: transparent !important;
+}
+.tablist a {
+	background-image: none;
+	border-right: 1px solid #858585;
+	color: #252525;
+}
+.tablist a:hover,
+.tablist li.current a {
+	text-decoration: none;
+	color: #0f0f0f;
+	background: #858585;
+	background-image: none;
+}
+
+/** ------------------------------------------- */
+/*??? Top search								*/
+/** ------------------------------------------- */
+/* todo */
+#MSearchSelectWindow {
+	border: 1px solid #000000;
+	background: #32363d;
+}
+a.selectItem {
+	padding: 3px;
+}
+a.SelectItem:hover {
+	background: #1e1e1e !important;
+}
+#MSearchResultsWindow {
+	border: 1px solid #000000;
+	background: #32363d;
+	color: #007ACC !important;;
+}
+
+/** ------------------------------------------- */
+/*??? Footer nav path							*/
+/** ------------------------------------------- */
+#nav-path {
+	padding:0px 4px;
+	overflow:hidden;
+}
+#nav-path ul {
+	background: transparent;
+	/* border: none; */
+	border-top: 1px solid #252525;
+}
+.navpath li.navelem a {
+	text-shadow: none;
+}
+#nav-path, #nav-path ul, #nav-path ul li.footer {
+	height:12px;
+	margin:0;
+	padding:0;
+	font-size:10px;
+	line-height:12px;
+	color: inherit;
+	background-color:#007acc;
+}
+#nav-path li.footer * {
+	line-height:12px;
+	font-size:10xp;
+}
+.footer {
+	height:18px !important;
+}
+
+/** ------------------------------------------- */
+/*??? Side menu									*/
+/** ------------------------------------------- */
+#nav-tree {
+	background-image: none;
+	background-color:#252525;
+}
+#nav-tree .selected {
+	background-image: none;
+	background: #252525;
+}
+#nav-tree-contents ul li a {
+	color:#d4d4d4 !important;
+}
+#side-nav {
+	padding:0 !important;
+}
+
+/** ------------------------------------------- */
+/*??? Resizeable								*/
+/** ------------------------------------------- */
+.ui-resizable-e {
+	background: #424242;
+	width: 3px;
+
+}
+
+/** ------------------------------------------- */
+/*??? Scrollbar									*/
+/** ------------------------------------------- */
+::-webkit-scrollbar {
+	width: 10px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+	border-radius: 10px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #424242;
+	border: none;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #4d5a5e;
+}
+
+/** ------------------------------------------- */
+/*??? Main section (content)					*/
+/** ------------------------------------------- */
+.contents {
+	margin: 10px auto !important;
+	padding: 0 10px;
+	max-width: 1200px;
+}
+
+/** ------------------------------------------- */
+/*??? Modules/Directory table					*/
+/** ------------------------------------------- */
+.directory .arrow {
+	height: initial;
+}
+.directory td.entry {
+	padding: 3px 6px;
+}
+.mdescLeft, .mdescRight, .memItemLeft, .memItemRight,
+.memTemplItemLeft, .memTemplItemRight, .memTemplParams {
+	background: #0f0f0f;
+	color: inherit;
+}
+.memSeparator {
+	border: none;
+	background: transparent;
+}
+h2.groupheader {
+	color:#11989B;
+	border-bottom:2px solid #11989B;
+}
+.memItemLeft {
+	border-top-left-radius:6px;
+}
+.mdescLeft {
+	border-bottom-left-radius:6px;
+	border-bottom:1px solid #1e1e1e;
+}
+.memItemRight {
+	border-top-right-radius:6px;
+}
+.mdescRight{
+	border-bottom-right-radius:6px;
+	border-bottom:1px solid #1e1e1e;
+}
+
+/** ------------------------------------------- */
+/*??? Memitem									*/
+/** ------------------------------------------- */
+.memdoc,
+.memitem,
+.memtitle,
+.memproto {
+	border:0px;
+}
+.memitem,
+.memproto,
+.memdoc {
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	background-image: none;
+}
+.memdoc {
+	border-top:2px solid #D4D4D4;
+	text-shadow: none;
+}
+.memproto table td {
+	font-family: monospace, fixed !important;
+}
+.memtitle {
+	background: #666666 !important;
+}
+.memitem {
+	background-color:#0f0f0f !important;
+	border-radius:3px;
+	color: inherit;
+	text-shadow: none;
+}
+.memproto {
+	background: inherit;
+	border-color: #1e1e1e;
+	color: inherit;
+	text-shadow: none;
+}
+.memproto table td {
+	font-family: monospace, fixed !important;
+}
+td.memItemLeft, td.memItemRight {
+	font-family: monospace, fixed;
+}
+.memItem {
+	font-family: monospace, fixed;
+}
+.memItem table {
+	font-family: inherit;
+}
+.paramname, .paramname em {
+	color: #c586c0;
+	font-style: italic;
+}
+.memdoc {
+	background: inherit;
+	border-color: #1e1e1e;
+}
+
+/* radius of memdoc --------------------------- */
+.memproto {
+	border-top-right-radius:12px;
+}
+.memdoc {
+	border-bottom-left-radius:12px;
+	border-bottom-right-radius:12px;
+}
+.memitem {
+	border-top-right-radius:12px;
+	border-bottom-left-radius:12px;
+	border-bottom-right-radius:12px;
+}
+
+/* labels ------------------------------------- */
+span.mlabel {
+	background-color:#11989b;
+	color:#fff;
+	border:solid 1px #48c9b0;
+}
+
+/** ------------------------------------------- */
+/*??? Warnings, ref, todos, pre, post			*/
+/** ------------------------------------------- */
+/* I've not found */
+#docs_list {
+	padding: 0 10px;
+	background: #0f0f0f;
+}
+#docs_list ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+/* I've not found */
+#docs_list ul li a {
+	color: #007acc;
+	display: block;
+	padding: 8px 13px;
+	font-weight: bold;
+	font-size: 15px;
+}
+/* I've not found */
+#docs_list ul li a:hover,
+#docs_list ul li a.docs_current {
+	background: #1e1e1e;
+	text-decoration: underline;
+
+}
+/* I've not found */
+#docs_list ul li {
+	display: inline-block;
+	border-right: 1px solid #d4d4d4;
+}
+#docs_list ul li:last-child {
+	border-right: none;
+}
+
+/* build -------------------------------------- */
+dl.note,
+dl.warning,
+dl.todo,
+dl.deprecated,
+dl.reflist {
+	border: 0;
+	padding: 0px;
+	margin: 4px 0px 4px 0px;
+	border-radius: 4px;
+}
+
+dl.note dt,
+dl.warning dt,
+dl.todo dt,
+dl.deprecated dt,
+dl.reflist dt {
+	margin: 0;
+	font-size: 14px;
+	padding: 2px 4px;
+
+	border: none;
+	border-top-left-radius: 0px;
+	border-top-right-radius:0px;
+
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #FFFFFF !important;
+
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	text-shadow: none;
+}
+dl.note dd,
+dl.warning dd,
+dl.todo dd,
+dl.deprecated dd,
+dl.reflist dd {
+	margin: 0;
+	padding: 4px;
+	background: none;
+
+	color: #222222;
+
+	border: 1px solid;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	border-top: none;
+
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	text-shadow: none;
+}
+dl.reflist dd {
+	margin-bottom: 15px;
+}
+
+/* Color and custon --------------------------- */
+dl.note dt {
+	background-color: #cbc693;
+}
+dl.warning dt {
+	background-color: #bf5f82;
+}
+dl.todo dt {
+	background-color: #82b3c9;
+}
+dl.deprecated dt {
+	background-color: #af8eb5;
+}
+dl.reflist dt {
+	background-color: #cbae82;
+}
+/* Content */
+dl.note dd {
+	background-color: #fff9c4;
+	border-color: #cbc693;
+}
+dl.todo dd {
+	background-color: #b3e5fc;
+	border-color: #82b3c9;
+}
+dl.deprecated dd {
+	background-color: #e1bee7;
+	border-color: #af8eb5;
+}
+dl.reflist dd {
+	background-color: #ffe0b2;
+	border-color: #cbae82;
+}
+/* warning */
+dl.warning dd {
+	background-color: #f48fb1;
+	border-color: #bf5f82;
+}
+.memdoc .warning dt {
+	background-color:#94151b;
+	color:#ffffff !important;
+}
+.memdoc .warning dd {
+	background-color:#ff6464;
+	color:#000;
+	font-weight:600;
+}
+/* post */
+.memdoc .post {
+	border-left:4px solid #3ae09b;
+}
+/* note */
+dl.note {color:unset;}
+/* to do */
+dl.todo {color:unset;}
+/* deprecated */
+dl.deprecated {color:unset; }
+/* ref list */
+dl.reflist { color:unset; }
+
+/** ------------------------------------------- */
+/*??? Fragment of code							*/
+/** ------------------------------------------- */
+div.fragment, pre.fragment {
+	margin: 0;
+	padding: 4px;
+	border: 1px solid #000000;
+	border-radius:3px;
+
+	background: #32363d;
+	background-color:#1e1e1e !important;
+}
+.fragment * {
+	font-family:consolas !important;
+}
+
+/* Inline code -------------------------------- */
+p code,
+li code,
+td code,
+dd code {
+	display: inline;
+	padding: 0px 6px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+
+	background-color: #1e1e1e;
+	border: 1px solid #569cd6;
+	color:#d4d4d4;
+}
+
+/** ------------------------------------------- */
+/*??? Code, syntax formating					*/
+/** ------------------------------------------- */
+div.line {
+	background: transparent;
+	color: inherit;
+}
+div.line a {
+	color: inherit;
+	text-decoration:none;
+}
+a.code {
+	font-style:normal;
+	color:#d7ba7d;
+}
+span.keyword {
+	color: #c586c0;
+	font-weight:700;
+}
+span.keywordtype {
+	color:#007acc;
+	font-weight:700;
+}
+span.keywordflow {
+	color:#c686c0;
+	font-weight:600;
+}
+span.comment {
+	color:#98c379;
+	font-weight:500;
+}
+span.preprocessor {
+	color: #a07ac4;
+}
+span.stringliteral {
+	color:#c38f58;
+}
+span.charliteral {
+	color: #dcdcaa;
+}
+span.vhdldigit {
+	color: #ff00ff;
+}
+span.vhdlchar {
+	color: #ffffff;
+}
+span.vhdlkeyword {
+	color: #700070;
+}
+span.vhdllogic {
+	color: #ff0000;
+}
+span.lineno {
+	background: transparent;
+	border-right-color:#4d5a5e;
+}
+span.lineno a {
+	background: transparent;
+	text-decoration: none;
+}
+
+/** ------------------------------------------- */
+/*??? Table formating							*/
+/** ------------------------------------------- */
+.contents table.doxtable {
+	margin: 0 auto;
+}
+.fieldtable {
+	box-shadow: none !important;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+}
+.fieldtable th {
+	background: #1e1e1e;
+	color: inherit;
+}
+
+/** ------------------------------------------- */
+/*??? Markdown format							*/
+/** ------------------------------------------- */
+blockquote {
+	min-height:22px;
+	line-height:22px;
+	background-color:#4d5a5e !important;
+}
+table.markdownTable {
+	display:flex;
+	justify-content:center;
+}
+table.markdownTable tbody {
+	margin:0px auto;
+	display:block;
+}
+table.markdownTable th {
+	background-color:#c38f58 !important;
+}
+table.markdownTable td,
+table.markdownTable th {
+	border:1px solid #c38f58 !important;
+}
+
+/** ------------------------------------------- */
+/*??? Table of contents							*/
+/** ------------------------------------------- */
+/* todo */
+table.doxtable tr:nth-child(even) td {
+	background: #252525;
+}
+div.header {
+	background: transparent;
+	border-bottom: 1px solid #252525;
+}
+/* I've not found in generated */
+div.toc {
+	margin: 0 !important;
+	border-radius: 4px !important;
+	background: #424242;
+	border: 1px solid #0f0f0f;
+}
+
+div.toc h3 {
+	font-size: 150%;
+	color: inherit;
+}
+
+
+
+
+
+/** ------------------------------------------- */
+/** Specific pages								*/
+/** ------------------------------------------- */
+
+/** ------------------------------------------- */
+/*??? Downloand	url								*/
+/** ------------------------------------------- */
+.download_url {
+	font-weight: bold;
+	font-size: 150%;
+	line-height: 150%;
+}
+
+/** ------------------------------------------- */
+/*??? Class index page 							*/
+/** ------------------------------------------- */
+.classindex .ah {
+	box-shadow:none;
+	background-image:none;
+	background-color:#0f0f0f;
+	border:#424242 2px solid;
+}
+div.qindex {
+	background-color:#333333;
+}
+a.qindex {
+	color:#48c9b0 !important;
+	background-color:11989b;
+	border:none;
+}
+
+/** ------------------------------------------- */
+/*??? Responsible	 							*/
+/** ------------------------------------------- */
+@media (max-width:768px){
+	#main-nav {
+		display:none;
+	}
+}
+
+/** ------------------------------------------- */
+/*??? Fold/unfold side bar						*/
+/** ------------------------------------------- */
+#menu-unfold-button {
+	position:fixed;
+	top:30px;
+	left:30px;
+	min-width:20px;
+	min-height:20px;
+	background-color:red;
+}

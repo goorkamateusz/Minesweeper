@@ -1,0 +1,26 @@
+var classGame =
+[
+    [ "Game", "d9/d68/classGame.html#a0885f2c9ae4b3eb78d273cfb36e7c767", null ],
+    [ "Game", "d9/d68/classGame.html#a29a6b4026f96579d267228ef01af9cdf", null ],
+    [ "~Game", "d9/d68/classGame.html#a3d09cd0b68ef69107d36360ca903e023", null ],
+    [ "click", "d9/d68/classGame.html#a11edd25e4a8c32d9f0ec9fb2ac2c7c5c", null ],
+    [ "time", "d9/d68/classGame.html#a721a9d8c221c1c88d2a630eaa943e94b", null ],
+    [ "changeClock", "d9/d68/classGame.html#a4375a6af1147af104c2ff0a08d1b3ff2", null ],
+    [ "isOn", "d9/d68/classGame.html#a929619bded608d806d0c57aa54514b69", null ],
+    [ "finish", "d9/d68/classGame.html#a4a803542276ea0497ad3a87b8983dd67", null ],
+    [ "start", "d9/d68/classGame.html#a3d9b98f7c4a96ecf578f75b96c9f0e90", null ],
+    [ "firstAction", "d9/d68/classGame.html#ae4dce0e253d54c7529223bdc42977075", null ],
+    [ "position", "d9/d68/classGame.html#a10b06ac20b96c4536b78b0f101bcded4", null ],
+    [ "update", "d9/d68/classGame.html#a79df6376b332d63c9eca0dcee30305c3", null ],
+    [ "draw", "d9/d68/classGame.html#a9fc500a0bb6b4525b6e940eb0df25809", null ],
+    [ "width", "d9/d68/classGame.html#a4dd7ef9f12e22bacfd2d202b1eef021f", null ],
+    [ "height", "d9/d68/classGame.html#a7b32b743f6ff58f5cab1f4e0e6de8d6c", null ],
+    [ "board", "d9/d68/classGame.html#af5bc546b0c766ecf2f7e008f750832ed", null ],
+    [ "display", "d9/d68/classGame.html#a3eb49a25a0e0040ffacc7f9917c26e7a", null ],
+    [ "buttRev", "d9/d68/classGame.html#a9be40202f19876929604a82dd34d12d5", null ],
+    [ "running", "d9/d68/classGame.html#a8ca5b9f8a62990e6022de17785beac2c", null ],
+    [ "clock", "d9/d68/classGame.html#a56adf7f99e06924603e143d3f3324321", null ],
+    [ "stopwatch", "d9/d68/classGame.html#abe2a9ff236a17924def92df1a5c4de0b", null ],
+    [ "lastClickTime", "d9/d68/classGame.html#a477cd5b1a5b99747ff875fbed5e66a7d", null ],
+    [ "allowHint", "d9/d68/classGame.html#af350e28b97da883725a9e8de2d34ff51", null ]
+];
