@@ -8,8 +8,8 @@
 template< typename T >
 class Vector2D_t {
 public:
-    T x;        ///< X coordinate of vectior
-    T y;        ///< Y coordinate of vectior
+    T x;        ///< X coordinate of vector
+    T y;        ///< Y coordinate of vector
 
 public:
     /**

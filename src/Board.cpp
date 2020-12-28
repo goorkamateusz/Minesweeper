@@ -51,7 +51,7 @@ bool Board::uncover( const Vector2D& click ){
                 throw EndGame("Win!");
             }
         }
-        else return false;      // move unavaliable
+        else return false;      // move unavailable
     }
     else {
         ///- Create, randMines and uncover the field (recursive!)
@@ -103,7 +103,7 @@ bool Board::action( const Vector2D& click ){
                         this->uncover( click + Board::AROUND[i] );
             }
             else
-                return false;   //action is unavaliable!
+                return false;   //action is unavailable!
         }
     }
 
@@ -113,7 +113,7 @@ bool Board::action( const Vector2D& click ){
 ////----------------------------------------------------------------
 bool Board::hint( Vector2D*& pos ) const {
 
-    ///- Claer hint position
+    ///- Clear hint position
     if( pos != NULL ){
         delete pos;
         pos = NULL;

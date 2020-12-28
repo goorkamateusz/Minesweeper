@@ -28,14 +28,14 @@ private:
 ////-------------------------------------------------------------------
     sf::Texture flag_texture;       ///< Click mode flag texture
     sf::Texture click_texture;      ///< Click mode "click" texture
-    sf::Sprite  mode_butt;          ///< Mode button spirte
+    sf::Sprite  mode_butt;          ///< Mode button sprite
 
     sf::Font    font;               ///< Font
 
-    sf::Texture start_texture;      ///< Mine counter counter backgroun texture
+    sf::Texture start_texture;      ///< Mine counter counter background texture
     sf::Sprite  start_butt;         ///< Mine counter counter background
 
-    sf::Texture mine_texture;       ///< Mine counter counter backgroun texture
+    sf::Texture mine_texture;       ///< Mine counter counter background texture
     sf::Sprite  mine_bg;            ///< Mine counter counter background
     sf::Text    mine_txt;           ///< Mine counter counter text
 

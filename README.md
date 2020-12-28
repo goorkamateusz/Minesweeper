@@ -9,10 +9,10 @@
 >   **Górka Mateusz**\
 >   **maatiug@gmail.com**
 
-## Table of contets
+## Table of contents
 - [Minesweeper2](#minesweeper2)
   - [Author](#author)
-  - [Table of contets](#table-of-contets)
+  - [Table of contents](#table-of-contents)
   - [Game](#game)
     - [Prepare:](#prepare)
     - [Running:](#running)
@@ -49,7 +49,7 @@ Exp.: `./Minesweeper2.exe -w 20 -h 15 -m 70`
 ### Game rule:
  - First click is always safe!
  - The game is finish when all no mine fields are uncovered.
- - The game include posibility to turn on the hints that show up after 5 seconds without action.
+ - The game include possibility to turn on the hints that show up after 5 seconds without action.
 
 ![](doc/example-hint.gif)
 
@@ -58,7 +58,7 @@ Exp.: `./Minesweeper2.exe -w 20 -h 15 -m 70`
 ## Dev
 ### Documentation
 To generate documentation use program [doxygen](http://doxygen.nl).
-You can use comand `make doxygen` in main project dir.
+You can use command `make doxygen` in main project dir.
 [Link to generated documentation](docs/index.html)
 
 ### Exception
@@ -71,7 +71,7 @@ RESOURCES [...]                                 | That kind of errors is is rela
 ### Specification
 - Language: C++
 - OS: Windows 10
-- Compilator: **minGW**
+- Complicator: **minGW**
 - GUI: SFML Library
 
 ## License

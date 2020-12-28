@@ -8,7 +8,7 @@ using namespace sf;
 
 ////----------------------------------------------------------------------
 /**
- * \brief Help messege
+ * \brief Help message
  */
 const char* const HELP_INFO =
     "Minesweeper game by Gorka Mateusz (maatiug).\n"
@@ -17,7 +17,7 @@ const char* const HELP_INFO =
     "arg          | help\n"
     ":-----------:|:--------\n"
     " -w <num>    | width of board (on standard screen max 60)\n"
-    " -h <num>    | heigh of boarb (on standard screen max 30)\n"
+    " -h <num>    | heigh of board (on standard screen max 30)\n"
     " -m <num>    | number of mines\n"
     " -H          | turn on hints in the game\n"
     "\n"

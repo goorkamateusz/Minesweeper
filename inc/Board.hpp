@@ -32,7 +32,7 @@ public:
      * \brief Set values on the board
      * \param w - width
      * \param h - height
-     * \param m - number of minse
+     * \param m - number of mines
      * \post Modifly `size` and `mines`
      */
     void set( unsigned int w, unsigned int h, unsigned int m );
@@ -46,7 +46,7 @@ public:
      * \brief Uncover the choosen field
      * \param click - position of the field
      * \retval true - Done a click
-     * \retval false - click unavaliable
+     * \retval false - click unavailable
      */
     bool uncover( const Vector2D& click );
 
@@ -54,7 +54,7 @@ public:
      * \brief Do second action on selected field.
      * \param click - position of the field
      * \retval true - Done a move
-     * \retval false - move unavaliable
+     * \retval false - move unavailable
      */
     bool action( const Vector2D& click );
 
@@ -94,7 +94,7 @@ public:
     { return this->board != NULL; }
 
     /**
-     * \brief Is filel inside the board.
+     * \brief Is fille inside the board.
      * \param pos - position of field
      * \return true - yes
      * \return false - no

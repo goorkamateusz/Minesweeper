@@ -12,7 +12,7 @@ class Menu : sf::Drawable {
 	sf::Font 	font; 			///< Font
 	//IDEA use a Display::font ???????
 	sf::Texture menu_texture;	///< Menu GUI background texture
-	sf::Sprite 	menu_bg;		///< Menu GUI background spirte
+	sf::Sprite 	menu_bg;		///< Menu GUI background sprite
 
 	sf::Text 	width_txt;		///< Text to display width of the board
 	sf::Text 	height_txt;		///< Text to display height of the board
@@ -108,7 +108,7 @@ public:
 	static bool inside( const sf::Vector2i& pos, const sf::Vector2i& coo, const sf::Vector2i& size );
 
 	/**
-	 * \brief Is pos.x is bigger than coo.x and smoller coo.x + size.x
+	 * \brief Is pos.x is bigger than coo.x and smaller coo.x + size.x
 	 * \param pos - position
 	 * \param coo - coordinates of 'line'
 	 * \param size - size of 'line'

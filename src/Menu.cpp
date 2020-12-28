@@ -99,7 +99,7 @@ void Menu::handling( int &argc, char** &argv ){
 
 	}
 
-	/// 3. Make w new argv listx`
+	/// 3. Make w new argv list
 	menu.output( argc, argv );
 
 }

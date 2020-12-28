@@ -13,7 +13,7 @@
 ////--------------------------------------------------
 #define MIN_SIZE        5       ///< Minimum sizes of board
 #define MIN_MINES       1       ///< Minimum numbers of mines on the board
-#define MIN_AREA        9       ///< Minum area of board
+#define MIN_AREA        9       ///< Minium area of board
 
 ////--------------------------------------------------
 #define FIELD_SIZE   	22		///< Sizes of field on the board

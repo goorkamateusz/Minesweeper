@@ -9,13 +9,13 @@ using std::uint8_t;
  * \brief Field of the board.
  *
  * - last 4 bites
- * number 	| posible vales				| code		| hex
+ * number 	| possible vales				| code		| hex
  * :-		|:-							|:-			|:-
  * 0        | empty						| ----0000	| 0x00
  * 1 - 8    | number of mines around	|			| 0x01-0x8
  * 15       | mine						| ----1001	| 0x09
  *
- * - fisrt 4 bites
+ * - first 4 bites
  * States		| code		| hex
  * :-			|:-			|:-
  * cover		| 0000----	| 0x00
@@ -125,13 +125,6 @@ public:
 	 */
 	inline bool covered() const
 	{ return ( code & 0xF0 ) == 0x00; }
-
-	/**
-	 * todo Zamiania uncover, covered, hidden
-	 * \warning
-	 * uncoverAble change to covered
-	 * covered to hidden
-	 */
 
 	/**
 	 * \brief Is value of fields hidden?  (is cover or flagged)

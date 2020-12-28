@@ -29,7 +29,7 @@ public:
     /**
      * \brief Construct a new Game object
      * \param argc - number of args
-     * \param argv - values of argso
+     * \param argv - values of args
      */
     Game( const int argc, char* argv[] );
 
@@ -40,7 +40,7 @@ public:
 
 public:
     /**
-     * \brief Click managment
+     * \brief Click management
      * \param window - window handle
      * \param butt - mouse button
      */
