@@ -6,8 +6,7 @@
 ![](doc/example1.gif)
 
 ## Author
->   **Górka Mateusz**\
->   **maatiug@gmail.com**
+>   **Górka Mateusz**
 
 ## Table of contents
 - [Minesweeper2](#minesweeper2)
